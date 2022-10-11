@@ -1,0 +1,150 @@
+.modi {
+    width: 50%;
+    height: 500px;
+    text-align: right;
+    animation-name: modiflip;
+    animation-duration: 2s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    transform-origin: right center;
+
+}
+
+@keyframes modiflip {
+    from {transform: scaleX(1.25);}
+    to {transform: scaleX(-1.25);}
+}
+
+
+
+.modi > img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.flexbox {
+    flex: 50%;
+    box-sizing: border-box;
+    padding: 1em;
+
+}
+.flexcontainer2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.flexbox2 {
+    border: solid 1px black;
+    flex: 25%;
+    box-sizing: border-box;
+    padding: 2em;
+    margin: 1em;
+    background-color: black;
+}
+
+.flexcontainer3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28pt;
+    text-align: center;
+
+}
+
+.flexboximg {
+    flex: 50%;
+   
+}
+
+.flexboximg > img{
+    width:fit-content;
+    height: auto;
+   
+}
+
+.flexboxhd {
+    flex: 50%
+}
+
+#heading {
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.5em;
+    font-size: 36px;
+  
+
+    
+}
+
+p {
+    font-family: 'Wire One', sans-serif;
+    font-size: 18pt;
+    color: white;
+}
+
+
+
+@media (max-width: 800px) {
+.flexcontainer2 {
+    flex-wrap: wrap;
+}
+    .flexbox2 {
+    flex: 45%;
+    max-width: 45%;
+}
+#heading {
+    font-size: 24px;
+}
+.flexboxhd 
+{
+    flex: 100%;
+    max-width: 100%;
+}
+.flexboximg{
+    flex: 100%;
+    max-width: 100%;
+}
+.flexcontainer3 {
+flex-direction: column;
+}
+}
+
+
+@media (max-width: 600px) {
+
+    .flexbox2 {
+        flex: 100%;
+        max-width: 100%;
+    }
+    .flexcontainer {
+        flex-direction: column;
+}
+.flexboxhd 
+{
+    flex: 100%;
+    max-width: 100%;
+}
+.flexboximg{
+    flex: 100%;
+    max-width: 100%;
+}
+.flexcontainer3 {
+flex-direction: column;
+}
+
+}
+
+

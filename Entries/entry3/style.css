@@ -1,0 +1,174 @@
+body {
+    background: url(images/background.jpg) ;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+nav {
+    z-index: 5;
+}
+.index {
+    float:right;
+    background: rgb(170, 154, 116);
+    padding: 10px;
+    margin: 3px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.45);
+    position: relative;
+    z-index: 1;
+    
+}
+
+.indexr {
+    float:left;
+    background: rgb(186, 145, 51);
+    padding: 10px;
+    margin: 3px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.45);
+    position: relative;
+    z-index: 1;
+}
+
+
+.index a {
+    vertical-align: middle;
+    font-family: bely-display, serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+
+}
+
+.indexr a {
+    vertical-align: middle;
+    font-family: bely-display, serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(92, 78, 44)
+
+}
+
+#crack {
+    width:2000px;
+    height: auto;
+    transform: rotate(88deg);
+    position: fixed;
+    top: -200px;
+    left: -175px;
+    z-index: 2;
+    
+}
+
+#punjab {
+    font-family: bely-display, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 100px;
+    color: #DB8606;
+    position: fixed;
+    top: 200px;
+    left: 150px;
+    z-index: 4;
+}
+#punjabis {
+    font-family: bely-display, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    line-height: 100px;
+    color:#004614;
+    position: fixed;
+    top:590px;
+    left:1050px;
+    z-index: 4;
+}
+
+#punjabiyat {
+    font-family: adobe-gurmukhi,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 300px;
+    line-height: 0px;
+    position: fixed;
+    top: 575px;
+    left:95px;
+    z-index: 3;
+}
+
+#gurmukhi {
+    -webkit-text-stroke: 6px black;
+    color: transparent;
+    text-blend-mode: multiply;
+} 
+
+#britarms {
+    width: 658px;
+    height: auto;
+    position: fixed;
+    top: 200px;
+    left: 500px;
+    z-index: 1;
+}
+
+#inrcoin {
+    width: 270px;
+    height: auto;
+    position: fixed;
+    top: 450px;
+    left: 1000px;
+    z-index: -2;
+
+}
+
+#pakarms {
+    width: 332px;
+    height: auto;
+    transform: rotate(-22deg);
+    position: fixed;
+    top: 400px;
+    left: 200px;
+    z-index: 1;
+
+
+ 
+}
+
+#photograph {
+    width: 402px;
+    height: auto;
+    transform: rotate(-16deg);
+    position: fixed;
+    top: 500px;
+    left: 100px;
+    z-index: 0;
+
+
+}
+
+#king {
+    width: 548px;
+    height: auto;
+    transform: rotate(-20deg);
+    position: fixed;
+    top: 170px;
+    left: 1100px;
+    z-index: -1;
+
+}
+
+.grow {
+    transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.1)
+}
+
+.shadow {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.45);
+}

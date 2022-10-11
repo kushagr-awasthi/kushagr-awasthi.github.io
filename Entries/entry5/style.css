@@ -1,0 +1,159 @@
+#leafcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+ 
+
+}
+
+
+.leafsymbol {
+    margin: 10px;
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+    transition: 0.5s;
+    flex: 15%;
+    
+    
+}
+
+.leafsymbol:hover {
+    filter:hue-rotate(-100deg);
+   }
+
+.separator {
+    height: 20px;
+    width: 100%;
+    background-image: linear-gradient(45deg, #6c9c5d, #d3f58c, #8c7037 );
+    transition: 0.5s;
+}
+
+.separator:hover {
+    height: 20px;
+    width: 100%;
+    transition: 0.5s;
+    background-image: linear-gradient(45deg, #826343, #e78e4a, #8c3d37 );
+}
+
+#BookName {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+
+}
+
+#BookName > div {
+    text-align: center;
+    color:#6c9c5d;
+    font-size: 80pt;
+    font-family: didoni-urw, serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0%;
+    
+    
+}
+
+#bn1 {
+    animation-name: bn;
+    animation-duration: 7s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+#bn2 {
+    animation-name: bn;
+    animation-duration: 7s;
+    animation-delay: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#bn3 {
+    animation-name: bn;
+    animation-duration: 7s;
+    animation-delay: 8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+#bn4 {
+    animation-name: bn;
+    animation-duration: 7s;
+    animation-delay: 12s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#bn5 {
+    animation-name: bn;
+    animation-duration: 7s;
+    animation-delay: 16s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#buttoncontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-animated {
+    background-image: linear-gradient(45deg, #6c9c5d, #d3f58c, #8c7037);
+    border: none;
+    color: Black;
+    padding: 15px 64px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-family: didoni-urw, serif;
+    cursor: url(myBall.cur), auto;
+    animation-name: buttonin;
+    animation-fill-mode: backwards;
+    animation-delay: 20s;
+    animation-duration: 3s;
+    border-radius: 36px;
+}
+
+.button-animated:hover {
+    background-image: linear-gradient(45deg, #826343, #e78e4a, #8c3d37 );
+    color: white;
+}
+
+@keyframes bn {
+    0% {color: #6c9c5d; opacity: 100%;}
+    25% {color: #9c925d; opacity: 100%;}
+    50% {color: #74370b; opacity: 100%;}
+    75% {color: #74370b; opacity: 0%;}
+    100% {color: #74370b; opacity: 0%;}
+}
+
+@keyframes buttonin {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+@media (max-width: 800px) {
+.leafsymbol {
+    flex: 30%;
+}
+
+#BookName > div{
+    flex: 100%;
+    flex-flow: column;
+    height: 1.5em;
+    overflow: hidden;
+    font-size: 50pt;
+    vertical-align: super;
+
+
+}
+    
+}
+
