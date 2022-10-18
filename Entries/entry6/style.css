@@ -1,0 +1,169 @@
+
+.titletext {
+    text-align: center;
+}
+h1 {
+    font-family: allumi-std-inline-black72,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64pt;
+    line-height: 0.1em;
+}
+
+h2 {
+    font-family: allumi-std-inline-black72,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+        font-family: allumi-std-inline-black72,sans-serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
+.cradleball1 {
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+    transition: 0.3s ease-in-out;
+    filter:saturate(0%);
+    animation-name: neutralball;
+    animation-duration: 2s;
+    animation-delay: 0.8s;
+    animation-iteration-count: infinite;
+
+    
+}
+.cradleball2 {
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+    transition: 0.3s ease-in-out;
+    filter:saturate(0%);
+    animation-name: neutralball;
+    animation-duration: 2s;
+    animation-delay: 1.8s;
+    animation-iteration-count: infinite;
+    
+}
+.cradleball3 {
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+    transition: 0.3s ease-in-out;
+    filter:saturate(0%);
+    animation-name: neutralball;
+    animation-duration: 2s;
+    animation-delay: 2.4s;
+    animation-iteration-count: infinite;
+    
+}
+.cradleball4 {
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+    transition: 0.3s ease-in-out;
+    filter:saturate(0%);
+    animation-name: neutralball;
+    animation-duration: 2s;
+    animation-delay: 1.4s;
+    animation-iteration-count: infinite;
+    
+}
+
+#ball1 {
+    animation-name: ball1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transition: ease-in;
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+}
+
+#ball2 {
+    animation-name: ball2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.3s;
+    transition: ease-in;
+    flex: 15%;
+    height: 300px;
+    margin-right: -4px;
+    transform-origin: 50% 0%;
+    filter: hue-rotate(220deg);
+}
+
+
+@keyframes ball1 {
+
+    0% {rotate: 30deg;}
+    40% {rotate: 0deg;}
+    60% {rotate: 0deg;}
+    100% {rotate: 30deg;}
+}
+
+@keyframes ball2 {
+    0% {rotate: 0deg;}
+    40% {rotate: -30deg;}
+    60% {rotate: 0deg;}
+    100% {rotate: 0deg;}
+}
+
+@keyframes neutralball {
+    0% {filter: saturate(0%);}
+    50% {filter: saturate(100%)}
+    0% {filter: saturate(0%);}
+}
+
+.newtonscradle {
+    display: flex;
+    flex-flow: row;
+    box-sizing: border-box;
+    border-right: solid #000000 10px;
+    border-top: solid #000000 10px;
+    border-left: solid #000000 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 0 60px;
+    justify-content: center;
+    max-width: 600px;
+    margin: auto;
+    z-index: 0;
+
+}
+
+
+
+
+
+
+
+@media (max-width:800px) {
+    .cradleball1 {
+        height: 200px;
+    }
+    .cradleball2 {
+        height: 200px;
+    }
+    .cradleball3 {
+        height: 200px;
+    }
+    .cradleball4 {
+        height: 200px;
+    }
+
+    #ball1 {
+        height: 200px;
+    } 
+
+    #ball2 {
+        height: 200px;
+    } 
+}
