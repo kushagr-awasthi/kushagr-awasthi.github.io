@@ -1,13 +1,15 @@
 
 .titletext {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 h1 {
     font-family: allumi-std-inline-black72,sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 64pt;
-    line-height: 0.1em;
+    line-height: 1em;
 }
 
 h2 {
@@ -139,8 +141,59 @@ h3 {
 
 }
 
+#collage {
+    position: relative;
+    top: 20%;
+    left: 25%;
+    z-index: -1;
+}
+
+.bottomnav {
+    padding: 30px;
+    text-align: center;
+    font-size: 30pt;
+
+}
+
+.red {
+    margin: 0 30px;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+.red:hover {
+    color: red;
+    transform: scale(1.1) translateX(-30px);
+
+}
+
+.grey {
+    margin: 0 30px;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+.grey:hover {
+    color: grey;
+    transform: scale(1.1);
+}
+
+.blue {
+    margin: 0 30px;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+.blue:hover {
+    color: blue;
+    transform: scale(1.1) translateX(20px);
+}
 
 
+
+a {
+    color: white;
+}
 
 
 
@@ -166,4 +219,8 @@ h3 {
     #ball2 {
         height: 200px;
     } 
+
+    h1 {
+        font-size: 40pt;
+    }
 }
