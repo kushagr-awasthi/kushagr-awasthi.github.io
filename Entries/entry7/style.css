@@ -1,0 +1,206 @@
+.border {
+    border: black solid 1px;
+}
+
+.content {
+   display: grid;
+   grid-template-columns: 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33%;
+   grid-template-rows: 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33% 8.33%;
+   gap: 10px;
+   position: absolute;
+   top: 0%;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   border: #0e3949 1px solid;
+   
+}
+
+.script {
+    font-family: la-bohemienne, sans-serif;
+    font-size: 130pt;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0;
+    color: rgb(151, 48, 48);
+    opacity: 50%;
+
+}
+
+.serif {
+    font-family: mrs-eaves-roman-small-caps, serif;
+    font-size: 33pt;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0;
+    color: rgb(151, 48, 48);
+    opacity: 50%;
+
+}
+
+.funky {
+    font-family: glodok, sans-serif;
+    font-size: 33pt;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0;
+    color: white;
+    opacity: 50%;
+}
+.stars {
+    grid-area: 3 / 2 / 5 / 7;
+}
+
+.from {
+    grid-area: 5 / 5 / 6 / 7;
+    box-sizing: border-box;
+    padding: 1em 0 0 0;
+    overflow: hidden;
+    
+}
+.another {
+    grid-area: 6 / 5 / 6 / 8;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0 0 15pt 0;
+    text-align: right;
+}
+.sky {
+    grid-area: 5 / 7 / 7 / 12;
+    z-index: 2; 
+}
+
+.audio {
+    grid-area: 9 / 5 / 9 / 7;
+}
+
+body {
+	background: linear-gradient(45deg, #ee7752, #1582aa, #e18a12, #1c3831),linear-gradient(135deg, #903a21, #4f1592, #d5ba23, #22203a);
+	background-size: 400% 400%, 400% 400%;
+    background-blend-mode: darken, normal;
+	animation: gradient 60s ease-in-out infinite;
+	height: 100vh;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    z-index: -1;
+    text-align: center;
+    vertical-align: middle;
+    z-index: -1;
+    mix-blend-mode: overlay;
+
+}
+
+.starpoint {
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    mix-blend-mode: hard-light;
+}
+
+.A {top: 10%;
+    left: 10%;
+    animation: starpoint 4s infinite , starfall  8s infinite;}
+.B {top: 40%;
+    left: 20%;
+    animation: starpoint 2s infinite , starfall  6s infinite;}
+.C {top: 70%;
+    left: 60%;
+    animation: starpoint 6s infinite , starfall  9s infinite;}
+.D {top: 25%;
+    left: 90%;
+    animation: starpoint 3s infinite , starfall  10s infinite;}
+.E {top: 80%;
+    left: 94%;
+    animation: starpoint 4s infinite , starfall  8.5s infinite;}
+.F {top: 18%;
+    left: 10%;
+    animation: starpoint 2s infinite , starfall  11s infinite;}
+.G {top: 35%;
+    left: 65%;
+    animation: starpoint 7s infinite , starfall  6.5s infinite;}
+.H {top: 70%;
+    left: 30%;
+    animation: starpoint 8s infinite , starfall  12s infinite;}
+.I {top: 37%;
+    left: 42%;
+    animation: starpoint 3s infinite , starfall  7.5s infinite;}
+.J {top: 10%;
+    left: 70%;
+    animation: starpoint 6s infinite , starfall  7s infinite;}
+.K {top: 90%;
+    left: 5%;
+    animation: starpoint 1s infinite , starfall  4s infinite;}
+.L {top: 85%;
+    left: 25%;
+    animation: starpoint 2s infinite , starfall  9.5s infinite;}
+.M {top: 90%;
+    left: 50%;
+    animation: starpoint 1s infinite , starfall  11.5s infinite;}
+.N {top: 75%;
+    left: 80%;
+    animation: starpoint 3s infinite , starfall  80.5s infinite;}
+.O {top: 18%;
+    left: 95%;
+    animation: starpoint 4s infinite , starfall  5.5s infinite;}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+@keyframes starpoint {
+    0% {opacity: 100%; transform: scale(1);}
+    50% {opacity: 30%; transform: scale(0.5);}
+    100% {opacity: 100%; transform: scale(1);}
+}
+
+@keyframes starfall{
+    0% {translate: 0 0; }
+    75% {translate: 0 0; }
+    100% {translate: 100vw 100vh;}
+}
+
+@media (max-width: 600px) {
+    .script {
+        font-size: 130pt;
+    }
+
+    .funky {
+        font-size: 40pt;
+    }
+
+    .stars {
+        grid-area: 2 / 3 / 4 / 9;
+        text-align: left;
+    }
+    .from {
+        grid-area: 4 / 4 / 4 / 8;
+        text-align: center;
+        padding: 0;
+    }
+    .another {
+        grid-area: 5 / 3 / 5 / 9;
+        text-align: center;
+    }
+    .sky {
+        grid-area: 6 / 3 / 8 / 9;
+        text-align: center;
+    }
+
+    .audio {
+        grid-area: 11 / 3 / 11 / 9;
+    }
+
+}
+
