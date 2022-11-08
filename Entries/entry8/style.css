@@ -1,0 +1,91 @@
+ * {
+    border: solid 1px black;
+    box-sizing: border-box;
+} 
+
+body {
+    background-color: black;
+}
+
+#maingrid {
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 16.6vh 16.6vh 16.6vh 16.6vh 16.6vh 16.6vh;
+    grid-gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#hindi-title {
+    grid-area: 5 / 1 / 7 / 8;
+    text-align: center;
+    overflow: hidden;
+}
+
+#hindi-title > h1 {
+    font-family: "ananda-devanagari-round";
+    src: url ("assets/ananda-devanagari-round.woff") format('woff');
+    font-size:20vw;
+    color: #fff;
+    line-height: 0;
+}
+
+#door {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-row: auto auto auto;
+    grid-area: 2 / 3 / 5 / 6;
+    animation: doorswing 2s ease-in-out alternate infinite;
+    transform-origin: left;
+    background-color: brown;
+}
+
+#door-handle {
+    grid-area: 2 / 11;
+    height: 2vh;
+    width: 2vh;
+    border-radius: 50%;
+    background-color: #000;
+}
+#speech-bubble {
+    grid-area: 2 / 6 / 3 / 8;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#speech-bubble > p {
+    color: #fff;
+    z-index: 1;
+}
+@keyframes doorswing {
+    from { transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(12.5deg);}
+    to { transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-12.5deg);}
+}
+
+@media (min-width: 1200px){
+    #door {
+        grid-area: 2 / 3 / 5 / 5;
+    }
+    #speech-bubble {
+        grid-area: 2 / 6 / 3 / 7;
+    }
+}
+
+@media (max-width: 600px){
+    #hindi-title {
+        grid-area: 4 / 1 / 6 / 8;
+    }
+    #door {
+        grid-area: 2 / 3 / 4 / 6;
+    }
+    #speech-bubble {
+        grid-area: 2 / 6 / 3 / 8;
+    }
+
+    #speech-bubble > svg {
+        height: 15vh;
+        width: 15vw;
+        stroke-width: 2px;
+    }
+}
