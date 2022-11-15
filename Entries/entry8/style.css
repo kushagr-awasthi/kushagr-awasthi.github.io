@@ -41,6 +41,7 @@ body {
     background-color: brown;
 }
 
+
 #door-handle {
     grid-area: 2 / 11;
     height: 2vh;

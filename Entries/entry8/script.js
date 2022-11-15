@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("svg").click(function(){
+    $("#speech-bubble").click(function(){
       $("#door").animate ({
         transform: 'perspective(1200px)',
         translateZ: '(0px)',
@@ -7,4 +7,4 @@ $(document).ready(function(){
         translateY: '(0px)',
         rotateY: '(-102.5deg)'
       });
-  });
+  }):

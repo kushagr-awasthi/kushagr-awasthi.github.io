@@ -1,0 +1,135 @@
+#main-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pill {
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 0;
+    
+}
+
+img {
+    width: 50px;
+    height: auto;
+}
+
+.a {
+    grid-area: 2 / 2 / 3 / 3 ;
+    transform: rotate(10deg);
+}
+
+.b {
+    grid-area: 12 / 12 / 13 / 13 ;
+    transform: rotate(18deg);
+}
+
+.c {
+    grid-area: 7 / 6 / 8 / 7 ;
+    transform: rotate(130deg);
+}
+
+.d {
+    grid-area: 4 / 3 / 5 / 4 ;
+    transform: rotate(54deg);
+}
+.e {
+    grid-area: 6 / 2 / 7 / 3 ;
+    transform: rotate(10deg);
+}
+.f {
+    grid-area: 8 / 4 / 9 / 5 ;
+    transform: rotate(207deg);
+}
+.g {
+    grid-area: 9 / 2 / 10 / 3 ;
+    transform: rotate(188deg);
+}
+.h {
+    grid-area: 11 / 8 / 12 / 9 ;
+    transform: rotate(37deg);
+}
+.i {
+    grid-area: 2 / 9 / 3 / 10 ;
+    transform: rotate(75deg);
+}
+.j {
+    grid-area: 1 / 11 / 2 / 12 ;
+    transform: rotate(46deg);
+}
+.k {
+    grid-area: 11 / 1 / 12 / 2 ;
+    transform: rotate(135deg);
+}
+.l {
+    grid-area: 10 / 4 / 11 / 5 ;
+    transform: rotate(120deg);
+}
+.m {
+    grid-area: 3 / 5 / 4 / 6 ;
+    transform: rotate(25deg);
+}
+.n {
+    grid-area: 6 / 12 / 7 / 13 ;
+    transform: rotate(78deg);
+}
+.o {
+    grid-area: 3 / 7 / 4 / 8 ;
+    transform: rotate(93deg);
+}
+.p {
+    grid-area: 5 / 9 / 6 / 10 ;
+    transform: rotate(254deg);
+}
+.q {
+    grid-area: 4 / 10 / 5 / 11 ;
+    transform: rotate(308deg);
+}
+.r {
+    grid-area: 12 / 6 / 13 / 7 ;
+    transform: rotate(333deg);
+}
+
+.s {
+    grid-area: 8 / 9 / 9 / 10 ;
+    transform: rotate(280deg);
+}
+.t {
+    grid-area: 5 / 7 / 6 / 8 ;
+    transform: rotate(60deg);
+}
+.u {
+    grid-area: 9 / 6 / 10 / 7 ;
+    transform: rotate(90deg);
+}
+
+.text {
+    grid-area: 1 / 2 / 2 / 9;
+    overflow: hidden;
+    font-size: 30pt;
+    font-family: utopia-std-caption,serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.red {
+    color: red;
+}
+
+.pill>img:hover {
+    filter: invert(100%);
+    transition: 0.25s ease-in;
+}
+
+@media (max-width: 600px){
+    img {
+        width:25px;
+        height: auto;
+    }
+}
+
