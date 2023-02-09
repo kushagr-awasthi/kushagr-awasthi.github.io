@@ -1,0 +1,309 @@
+:root {
+    --test: none;
+    --test2: none;
+  }
+  body {
+    background: black;
+  }
+  
+  #main-wrapper {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    width: 70vw;
+    height: 50vh;
+    border: var(--test);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* GRID ELEMENTS: 2 Sliding Divs stacked on top of Table of Contents Div*/
+
+  #beginning {
+    border: var(--test2);
+    
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: center;
+    grid-area: 1 / 2 / 5 / 3;
+    transition: 0.5s ease-in-out;
+    z-index: 0;
+    background: black;
+    overflow: hidden;
+    /*Add JS for transform
+    transform: translateX(-100%);*/
+  }
+  
+  
+   #ending {
+    border: var(--test2);
+    
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    grid-area: 1 / 3 / 5 / 4;
+    transition: 0.5s ease-in-out;
+     z-index: 0;
+     background: black;
+     overflow: hidden;
+     /*Add JS for transform
+    transform: translateX(100%);*/
+  } 
+  
+  
+  #ToC {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    grid-area: 1 / 2 / 5 / 4;
+    z-index: -1;
+    padding: 1em 1em 1em 4em;
+    box-sizing: border-box;
+  }
+  
+/* H1 HEADINGS: Beginning/Ending in Sliding Divs*/
+
+#beg-head-wrapper > h1 {
+    text-transform: uppercase;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+  }
+
+#end-head-wrapper > h1 {
+    text-transform: uppercase;
+    font-family: "apparat", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+  }
+ 
+/* Table of Content Items and Children Overarching Style*/  
+
+.toc-item {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.toc-item > a {
+    display: inline-block;
+    color: white;
+    transition: 0.25s ease-in-out;
+    font-size: 12pt;
+    
+}
+
+.toc-item > a:hover {
+    text-indent: 1em;
+  }
+/* Font Change and Animation with incremental 0.75s delays*/  
+
+.aaof {
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.aaof > a {
+    animation: slide-up 0.75s ease-out backwards;
+}
+
+.aom {
+    font-family: "apparat-light", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.aom > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 0.75s;
+}
+
+.fat {
+    font-family: "apparat-light", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.fat > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 1.5s;
+}
+
+.tqop {
+    font-family: "apparat-light", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tqop > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 2.25s;
+}
+
+.las {
+    font-family: "apparat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.las > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 3s;
+}
+
+.pasc {
+    font-family: "apparat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pasc > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 3.75s;
+}
+
+.teate {
+    font-family: "apparat", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.teate > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 4.5s;
+}
+
+.pp {
+    font-family: "apparat", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.pp > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 5.25s;
+}
+
+.foat {
+    font-family: "apparat", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.foat > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 6s;
+}
+
+.tens {
+    font-family: "apparat", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.tens > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 6.75s;
+}
+
+.aiw {
+    font-family: "apparat", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.aiw > a {
+    animation: slide-up 0.75s ease-out backwards;
+    animation-delay: 7.25s;
+}
+
+@keyframes slide-up {
+    0% {transform: translateY(100%)}
+    100% {transform: translateY(0%)}
+}
+
+
+.animate-beg {
+    transform: translateX(-100%);
+}
+.animate-end {
+    transform: translateX(100%);
+}
+
+#sesame {
+    box-sizing: border-box;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    height: 20px;
+    width: 20px;
+    transform: scale(1) translate(-50%, -50%);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
+
+
+
+
+
+/*MOBILE STYLE*/
+
+  @media (max-width: 800px) {
+
+ #beginning {
+    grid-area: 1 / 1 / 3 / 5;
+    align-items: center;
+    justify-content: flex-end;
+    /*ANIMATE WITH JS*/
+    transform: translateY(-100%);
+ }
+ #ending {
+    grid-area: 3 / 1 / 5 / 5;
+    align-items: center;
+    justify-content: flex-start;
+    /*ANIMATE WITH JS*/
+    transform: translateY(100%); 
+ }
+
+ #ToC {
+    grid-area: 1 / 1 / 5 / 5;
+
+ }
+
+ #beg-head-wrapper > h1 {
+    font-size: 32pt;
+  }
+
+#end-head-wrapper > h1 {
+    font-size: 32pt;
+    letter-spacing: 0.3em;
+  }
+}
+    
