@@ -1,0 +1,115 @@
+body {
+    overflow: hidden;
+    background:#76AB95;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    box-sizing: border-box;
+    width: 30vw;
+    height: 100vh;
+    background: white;
+    border: black 2px solid;
+}
+
+h2 {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "filmotype-yale", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 45px;
+}
+
+
+#content-wrapper {
+    justify-self: flex-start;
+}
+#buttons-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    
+}
+
+.tocbutton {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    border-left: solid black 2px;
+    width: 60%;
+    height: 3em;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    font-family: "le-monde-livre-std", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+}
+
+.tocbutton:hover {
+    background: black;
+    border-top: solid #76AB95 2px;
+    border-bottom: solid #76AB95 2px;
+    border-left: solid #76AB95 2px;
+    color: white;
+    transition: ease-in-out 0.25s;
+    text-align: right;
+}
+
+.buttonhover {
+    background: black;
+    border-top: solid #76AB95 2px;
+    border-bottom: solid #76AB95 2px;
+    border-left: solid #76AB95 2px;
+    color: white;
+    transition: ease-in-out 0.25s;
+    text-align: right;
+}
+
+#close {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    border-left: solid black 2px;
+    height: 3em;
+    width: 3em;
+    align-self: flex-end;
+    justify-self: flex-end;
+    
+}
+
+.close {
+    transform: translateX(100%);
+}
+
+#close:hover {
+    border-top: solid #76AB95 2px;
+    border-bottom: solid #76AB95 2px;
+    border-left: solid #76AB95 2px;
+    background: black;
+    color: white;
+    transition: 0.25s ease-in-out;
+}
+@media (max-width: 900px) {
+    nav {width: 50vw;}
+}
+@media (max-width: 600px) {
+    nav {width: 75vw;}
+}
+
+

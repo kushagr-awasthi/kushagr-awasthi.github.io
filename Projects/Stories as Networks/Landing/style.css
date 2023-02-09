@@ -109,9 +109,6 @@
     font-style: normal;
 }
 
-.aaof > a {
-    animation: slide-up 0.75s ease-out backwards;
-}
 
 .aom {
     font-family: "apparat-light", sans-serif;
@@ -236,6 +233,13 @@
     transform: translateX(100%);
 }
 
+.animate-beg-mob {
+  transform: translateY(-100%);
+}
+.animate-end-mob {
+  transform: translateY(100%);
+}
+
 #sesame {
     box-sizing: border-box;
     position: fixed;
@@ -282,14 +286,14 @@
     align-items: center;
     justify-content: flex-end;
     /*ANIMATE WITH JS*/
-    transform: translateY(-100%);
+   /* transform: translateY(-100%); */
  }
  #ending {
     grid-area: 3 / 1 / 5 / 5;
     align-items: center;
     justify-content: flex-start;
     /*ANIMATE WITH JS*/
-    transform: translateY(100%); 
+    /*transform: translateY(100%); */
  }
 
  #ToC {
