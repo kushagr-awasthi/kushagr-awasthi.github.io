@@ -95,11 +95,13 @@
     color: white;
     transition: 0.25s ease-in-out;
     font-size: 12pt;
+    text-decoration: none;
     
 }
 
 .toc-item > a:hover {
     text-indent: 1em;
+    color: red;
   }
 /* Font Change and Animation with incremental 0.75s delays*/  
 
