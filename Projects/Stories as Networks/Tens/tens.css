@@ -1,0 +1,234 @@
+:root {
+    --test: none; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    border: var(--test);
+    flex-basis: 5vh;
+    display: flex;
+    position: fixed;
+    top: 1vh;
+    align-self:flex-start;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    background: none;
+    width: 100%;
+    min-height: 30px;
+    height: 5vh;
+    z-index: 1;
+    background: black;
+}
+
+#main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 100vw;
+    height: 90vh;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--test);
+    grid-area: 1 / 1 / 2 / 3;
+    z-index: 0;
+    overflow: hidden;
+}
+
+h1 {
+    animation: titlepulse ease-in-out 2s infinite alternate;
+}
+
+@keyframes titlepulse {
+
+    0% {
+        text-shadow: 0px 0px 0px #FFFFFF;
+        
+    }
+    100% {
+        text-shadow: 0px 0px 10px #FFFFFF;
+        transform: scale(1.05);
+        
+    }
+}
+
+h1 {
+    font-family: "apparat", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1em;
+    font-size: 40px;
+    text-align: center;
+}
+
+em {
+    font-style: italic;
+}
+
+#left-text {
+    border: var(--test);
+    grid-area: 1 / 1 / 2 / 3;
+    z-index: -1;
+    color: white;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 0.5454545454545454rem + 1.2121212121212122vw, 1.8rem);
+    line-height: 2em;
+    text-align: left;
+    padding-right: 75%;
+    animation: text-left 20s cubic-bezier(.8,.08,.9,.3) infinite alternate;
+    overflow: scroll;
+}
+
+@keyframes text-left {
+    0% {padding-right: 75%;
+        letter-spacing: normal;}
+    100% {padding-right: 0;
+        letter-spacing: 3em;}
+}
+
+@keyframes text-right {
+    0% {padding-left: 75%;
+        letter-spacing: normal;}
+    100% {padding-left: 0;
+        letter-spacing: 3em;}
+}
+
+
+#right-text {
+    border: var(--test);
+    grid-area: 1 / 1 / 2 / 3;
+    z-index: -1;
+    color: white;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: clamp(1rem, 0.5454545454545454rem + 1.2121212121212122vw, 1.8rem);
+    line-height: 2em;
+    text-align: right;
+    padding-left: 75%;
+    animation: text-right 20s cubic-bezier(.8,.08,.9,.3) infinite alternate;
+    overflow: scroll;
+    
+}
+
+
+
+
+
+footer {
+    border: var(--test);
+    flex-basis: 5vh;
+    display: flex;
+    position: fixed;
+    bottom: 1vh;
+    align-self:flex-end;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    background: none;
+    width: 100%;
+    min-height: 30px;
+    height: 5vh;
+    z-index: 1;
+    background: black;
+}
+
+a {
+    color: white;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+  
+.button-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 50vmin;
+    text-align: center;
+    overflow: hidden;
+    line-height: 2em;
+}
+  
+.button-link-wrapper {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: repeat(2 1fr);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200%;
+    transform: translateY(-25%);
+    transition: 0.4s ease-in-out;
+}
+  
+.button-link {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;  
+}
+  
+.button-link-wrapper:hover {
+    transform: translateY(25%);
+}
+
+@media (min-width: 650px) {
+
+}
+
+@media (max-width: 850px) {
+
+    @keyframes text-left {
+        0% {padding-right: 50%;
+            letter-spacing: normal;}
+        100% {padding-right: 0;
+            letter-spacing: 3em;}
+    }
+    
+    @keyframes text-right {
+        0% {padding-left: 50%;
+            letter-spacing: normal;}
+        100% {padding-left: 0;
+            letter-spacing: 3em;}
+    }
+
+    h1 {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+    }
+}

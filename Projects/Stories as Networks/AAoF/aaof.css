@@ -275,7 +275,9 @@ footer {
 
 a {
     color: white;
-    font-family: sans-serif;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
     text-transform: uppercase;
     text-decoration: none;
 }

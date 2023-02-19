@@ -1,0 +1,245 @@
+:root {
+    --test: none; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    border: var(--test);
+    flex-basis: 5vh;
+    display: flex;
+    position: fixed;
+    top: 0vh;
+    left: 0;
+    align-self:flex-start;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    background: none;
+    width: 100vw;
+    min-height: 30px;
+    height: 5vh;
+    z-index: 1;
+    background-color: black;
+}
+
+#main-content {
+    border: var(--test);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 100vw;
+    height: 100vh;
+}
+
+#main-text {
+    border: var(--test);
+    grid-area: 2 / 2 / 8 / 8;
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+#pDiv {
+    width: 40vw;
+}
+#pDiv > p {
+    font-family: "apparat-light";
+    font-weight: 200;
+    font-style: normal;
+    color: white;
+    line-height: 1.5em;
+    
+}
+
+#pDiv {
+    background-color: none;
+}
+
+p > em {
+    font-style: italic;
+}
+
+#P1:first-letter {
+    float: left;
+    font-family: "apparat", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 0.9em;
+    margin: 0 0.1em;
+    color: white;
+}
+
+#blur-layer {
+    grid-area: 1 / 1 / 9 / 9;
+    z-index: 0;
+    backdrop-filter: blur(20px);
+    
+}
+
+#tree1 {
+    border: var(--test);
+    grid-area: 1 / 1 / 9 / 2;
+    overflow: hidden;
+    background-color: white;
+    z-index: -1;
+}
+
+#innershape1{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 20% 0 0 10% ;
+    transform: translateX(80%);
+
+}
+
+#tree2 {
+    border: var(--test);
+    grid-area: 1 / 8 / 8 / 9;
+    overflow: hidden;
+    background-color: white;
+    z-index: -1;
+}
+
+#innershape2{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 0% 20% 10% 0% ;
+    transform: translateX(-75%) scaleY(0.99);
+
+}
+
+#bckg-animation {
+
+    grid-area: 1 / 1 / 9 / 9;
+    z-index: -2;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    overflow: hidden;
+    
+}
+
+.apple {
+    
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#A1 {
+    grid-column-start: 3;
+    animation: applefall 2.3s cubic-bezier(.57,.08,.78,.88) 0.5s infinite backwards;
+}
+
+#A2 {
+    grid-column-start: 4;
+    animation: applefall 2.5s cubic-bezier(.57,.08,.78,.88) 2s infinite backwards;
+}
+
+#A3 {
+    grid-column-start: 6;
+    animation: applefall 2s cubic-bezier(.57,.08,.78,.88) 1.75s infinite backwards;
+}
+
+#A4 {
+    grid-column-start: 7;
+    animation: applefall 3s cubic-bezier(.57,.08,.78,.88) 1s infinite backwards;
+}
+
+#A5 {
+    grid-column-start: 8;
+    animation: applefall 2.7s cubic-bezier(.57,.08,.78,.88) 0s infinite backwards;
+}
+
+
+@keyframes applefall{
+    0% {transform: translateY(-50vh);}
+    100% {transform: translateY(110vh);}
+    
+}
+
+footer {
+    border: var(--test);
+    flex-basis: 5vh;
+    display: flex;
+    position: fixed;
+    bottom: 1vh;
+    align-self:flex-end;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    background: none;
+    width: 100%;
+    min-height: 30px;
+    height: 5vh;
+    z-index: 1;
+}
+
+a {
+    color: white;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+  
+.button-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 50vmin;
+    text-align: center;
+    overflow: hidden;
+    line-height: 2em;
+}
+  
+.button-link-wrapper {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: repeat(2 1fr);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200%;
+    transform: translateY(-25%);
+    transition: 0.4s ease-in-out;
+}
+  
+.button-link {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-family: "apparat-light", sans-serif;
+    font-weight: 100;
+    font-style: normal;  
+}
+  
+.button-link-wrapper:hover {
+    transform: translateY(25%);
+}
+
+
+@media (max-width: 700px) {
+    #pDiv { width: 80vw;}
+}
