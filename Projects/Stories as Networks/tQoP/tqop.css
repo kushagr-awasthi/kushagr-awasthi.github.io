@@ -276,29 +276,3 @@ a {
 .button-link-wrapper:hover {
     transform: translateY(25%);
 }
-
-@media (min-width: 650px) {
-
-}
-
-@media (max-width: 850px) {
-
-    @keyframes text-left {
-        0% {padding-right: 50%;
-            letter-spacing: normal;}
-        100% {padding-right: 0;
-            letter-spacing: 3em;}
-    }
-    
-    @keyframes text-right {
-        0% {padding-left: 50%;
-            letter-spacing: normal;}
-        100% {padding-left: 0;
-            letter-spacing: 3em;}
-    }
-
-    h1 {
-        writing-mode: vertical-lr;
-        text-orientation: upright;
-    }
-}

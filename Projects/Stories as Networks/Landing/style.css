@@ -102,7 +102,6 @@
 
 .toc-item > a:hover {
     text-indent: 1em;
-    color: red;
   }
 /* Font Change and Animation with incremental 0.75s delays*/  
 
@@ -212,6 +211,17 @@
     animation-delay: 6.75s;
 }
 
+.dr {
+  font-family: "apparat", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.dr > a {
+  animation: slide-up 0.75s ease-out backwards;
+  animation-delay: 7.5s;
+}
+
 .aiw {
     font-family: "apparat", sans-serif;
     font-weight: 900;
@@ -220,7 +230,7 @@
 
 .aiw > a {
     animation: slide-up 0.75s ease-out backwards;
-    animation-delay: 7.25s;
+    animation-delay: 8.25s;
 }
 
 @keyframes slide-up {

@@ -161,6 +161,12 @@ body {
     cursor: move;
 }
 
+.sentence>p:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.1s5;
+    letter-spacing: normal;
+}
+
 .S5 {
     top: 15%;
     left: 50%;
@@ -238,7 +244,9 @@ body {
 }
 
 
-
+#mobile-text {
+    display: none;
+}
 
 
 
@@ -343,4 +351,35 @@ a {
   
 .button-link-wrapper:hover {
     transform: translateY(25%);
+}
+
+
+@media (max-width: 800px) {
+    .sentence {
+        display: none;
+    }
+    #mobile-text {
+        grid-area: 2 / 3 / 11 / 10;
+        display: block;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: white;
+        font-family: apparat, sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        z-index: 3;
+    }
+
+    #mobile-text > p {
+        color: white;
+        font-family: apparat-light, sans-serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 16px;
+        letter-spacing: -1px;
+        line-height: 1em;
+    }
 }
