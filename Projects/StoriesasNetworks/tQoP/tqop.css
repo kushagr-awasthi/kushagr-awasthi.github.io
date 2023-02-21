@@ -276,3 +276,22 @@ a {
 .button-link-wrapper:hover {
     transform: translateY(25%);
 }
+
+@media (max-width: 600px) {
+    .qm > h2 {
+        font-size: 125px;
+    }
+
+    #pA {
+        font-size: 12px;
+    }
+    #pB {
+        font-size: 12px;
+    }
+    #pC {
+        font-size: 12px;
+    }
+    #pD {
+        font-size: 12px;
+    }
+}

@@ -263,6 +263,7 @@ a {
         grid-area: 11 / 2 / 15 / 15;
     }
     #mainText {
-        padding: 10px;
+        padding: 0 40px;
+        font-size: 14px;
     }
 }
