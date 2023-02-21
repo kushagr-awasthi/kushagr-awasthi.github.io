@@ -51,6 +51,7 @@ header {
     overflow: hidden;
     border-radius: 20px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 #boxA {

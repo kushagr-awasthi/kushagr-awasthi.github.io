@@ -96,7 +96,7 @@ em {
     font-weight: 400;
     font-style: normal;
     font-size: clamp(1rem, 0.5454545454545454rem + 1.2121212121212122vw, 1.8rem);
-    line-height: 2em;
+    line-height: 1.5em;
     text-align: left;
     padding-right: 75%;
     animation: text-left 20s cubic-bezier(.8,.08,.9,.3) infinite alternate;
@@ -127,7 +127,7 @@ em {
     font-weight: 100;
     font-style: normal;
     font-size: clamp(1rem, 0.5454545454545454rem + 1.2121212121212122vw, 1.8rem);
-    line-height: 2em;
+    line-height: 1.5em;
     text-align: right;
     padding-left: 75%;
     animation: text-right 20s cubic-bezier(.8,.08,.9,.3) infinite alternate;

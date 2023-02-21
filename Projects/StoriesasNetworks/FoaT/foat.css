@@ -84,6 +84,7 @@ p > em {
     grid-area: 1 / 1 / 9 / 9;
     z-index: 0;
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     
 }
 

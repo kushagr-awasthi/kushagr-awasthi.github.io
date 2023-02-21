@@ -16,6 +16,7 @@ body {
   
 
   #main-grid {
+    border: var(--test);
     position: fixed;
     top: 50vh;
     left: 50vw;
@@ -36,6 +37,7 @@ body {
     box-shadow: -2px 5px 22px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: -2px 5px 22px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -2px 5px 22px 0px rgba(0,0,0,0.75);
+    border: var(--test);
     
   }
   
@@ -221,5 +223,14 @@ a {
     }
     .card-front {
         justify-content: center;
+    }
+.card-wrapper {
+  height: 40vh;
+}
+    h2 {
+
+      color: white;
+      font-size: 100px;
+      cursor: pointer;
     }
 }

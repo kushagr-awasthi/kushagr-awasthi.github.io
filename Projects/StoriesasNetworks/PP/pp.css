@@ -53,7 +53,9 @@ header {
     align-items: center;
     justify-content: center;
     perspective: 90px;
+    -webkit-perspective: 90px;
     perspective-origin: bottom;  
+    -webkit-perspective-origin: bottom;
 }
 
 #strong {
@@ -177,5 +179,6 @@ a {
 @media (max-width: 700px) {
     #text {
         width: 98vw;
+        font-size: 12px;
     }
 }
