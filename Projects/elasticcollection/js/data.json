@@ -1,0 +1,236 @@
+[
+{
+    "title":"Illustrations in the original manuscript of the Constitution of India",
+    "Type":"Illustration",
+    "Creator":"Nandalal Bose",
+    "Year":"1950",
+    "Relevance":"Civic Identity",
+    "Significance":6,
+    "imgURL":"/assets/coi.jpg"
+},
+{
+    "title":"Commemorative Front Page, The Hindu",
+    "Type": "News Graphic",
+    "Creator": "Unknown Designer",
+    "Year": "1947",
+    "Relevance": "Civic Identity",
+    "Significance": 6,
+    "imgURL":"/assets/hfp.jpg"
+},
+{
+    "title":"Shikar India: Air India Poster",
+    "Type":"Poster",
+    "Creator":"K. K. Save",
+    "Year":"1968",
+    "Relevance":"Indian Advertising",
+    "Significance":6,
+    "imgURL":"/assets/sip.jpg"
+},
+{
+    "title":"Metamorphosis",
+    "Type":"Installation",
+    "Creator": ["Sameer Kulavoor", "Sandeep Meher"],
+    "Year":"2022",
+    "Relevance":"Visual Vernacular",
+    "Significance":3,
+    "imgURL":"/assets/met.jpg"
+},
+{
+    "title":"When Was Modernism",
+    "Type":"Book",
+    "Creator":"Geeta Kapur",
+    "Year":"2000",
+    "Relevance":"Indian Art History",
+    "Significance":4,
+    "imgURL":"/assets/wwm.jpg"
+},
+{
+    "title":"Blockprinted Textiles of India: Imprints of Culture",
+    "Type": "Book",
+    "Creator": "Eiluned Edwards",
+    "Year": "2016",
+    "Relevance": "Craft Culture",
+    "Significance": 3,
+    "imgURL": "/assets/bti.jpg"
+},
+{
+    "title":"The Amul Girl",
+    "Type":"Brand Mascot",
+    "Creator":"Eustace Fernandes",
+    "Year":"1966",
+    "Relevance":"Indian Advertising",
+    "Significance":4,
+    "imgURL":"/assets/tag.jpg"
+},
+{
+    "title":"Rajput Miniature Paintingl",
+    "Type":"Traditional Art",
+    "Creator":"Unknown Artist",
+    "Year":"1840",
+    "Relevance":"Aesthetic Heritage",
+    "Significance":3,
+    "imgURL":"/assets/rmp.jpg"
+},
+{
+    "title":"Folio from the Baburnama",
+    "Type":"Manuscript",
+    "Creator":"Unknown Artist",
+    "Year":"1590",
+    "Relevance":"Aesthetic Heritage",
+    "Significance":3,
+    "imgURL":"/assets/ffb.jpg"
+},
+{
+    "title":"Authority and Identity in India",
+    "Type":"Essay",
+    "Creator":"T. G. Vaidyanathan",
+    "Year":"1989",
+    "Relevance":"Indian Identity",
+    "Significance":5,
+    "imgURL":"/assets/aii.jpg"
+},
+{
+    "title":"Haripura Poster",
+    "Type":"Poster",
+    "Creator":"Nandalal Bose",
+    "Year":"1937",
+    "Relevance":"Visual Activism",
+    "Significance":2,
+    "imgURL":"/assets/hp.jpg"
+},
+{
+    "title":"Gandhiji: Linocut Poster",
+    "Type":"Poster",
+    "Creator":"Nandalal Bose",
+    "Year":"1930",
+    "Relevance":"Visual Activism",
+    "Significance":4,
+    "imgURL":"/assets/glp.jpg"
+},
+{
+    "title":"Raga Todi: Air India Post Card",
+    "Type":"Post Card",
+    "Creator":"Avinash Godbole",
+    "Year":"1975",
+    "Relevance":"Interdisciplinary Contextualisation",
+    "Significance":5,
+    "imgURL":"/assets/aipc.jpg"
+},
+{
+    "title":"Bharat Mata",
+    "Type":"Painting",
+    "Creator":"Abanindranath Tagore",
+    "Year":"1905",
+    "Relevance":"Spirit",
+    "Significance":3,
+    "imgURL":"/assets/bm.jpg"
+},
+{
+    "title":"Ajrakh Blockprints",
+    "Type":"Craft",
+    "Creator":"Khatri Community",
+    "Year":"1590",
+    "Relevance":"Craft Culture",
+    "Significance":1,
+    "imgURL":"/assets/ab.jpg"
+},
+{
+    "title":"Painting 4",
+    "Type":"Painting",
+    "Creator":"Vasudeo Gaitonde",
+    "Year":"1962",
+    "Relevance":"Spirit",
+    "Significance":1,
+    "imgURL":"/assets/p4.jpg"
+},
+{
+    "title":"Truck Art",
+    "Type":"Craft",
+    "Creator":"Trucking Community",
+    "Year":"2021",
+    "Relevance":"Visual Vernacular",
+    "Significance":1,
+    "imgURL":"/assets/ta.jpg"
+},
+{
+    "title":"Handpainted Signage",
+    "Type":"Signage",
+    "Creator":"Unknown Artisan",
+    "Year":"2012",
+    "Relevance":"Visual Vernacular",
+    "Significance":3,
+    "imgURL":"/assets/hs.jpg"
+},
+{
+    "title":"South Asian Technospaces",
+    "Type":"Book",
+    "Creator":["Radhika Gajjala", "Venkataramana Gajjala"],
+    "Year":"2008",
+    "Relevance":"Internet and India",
+    "Significance":4,
+    "imgURL":"/assets/sat.jpg"
+},
+{
+    "title":"Swadeshi Color",
+    "Type":"Essay",
+    "Creator":"Natasha Eaton",
+    "Year":"2013",
+    "Relevance":"Indian Art History",
+    "Significance":3,
+    "imgURL":"/assets/sc.jpg"
+},
+{
+    "title":"D. B. House",
+    "Type":"Architecture",
+    "Creator":"Uknown Designer",
+    "Year":"1913",
+    "Relevance":"Colonial Imagery",
+    "Significance":2,
+    "imgURL":"/assets/dbh.jpg"
+},
+{
+    "title":"Victoria Terminus",
+    "Type":"Architecture",
+    "Creator":["Frederick William Stevens", "Axel Haig"],
+    "Year":"1888",
+    "Relevance":"Colonial Imagery",
+    "Significance":2,
+    "imgURL":"/assets/vt.jpg"
+},
+{
+    "title":"The Dream",
+    "Type":"Painting",
+    "Creator":"Henri Rousseau",
+    "Year":"1910",
+    "Relevance":"Primitivism",
+    "Significance":2,
+    "imgURL":"/assets/td.jpg"
+},
+{
+    "title":"Mehram",
+    "Type":"Song",
+    "Creator":["Asfar Hussain", "Arooj Aftab"],
+    "Year":"2022",
+    "Relevance":"Interdisciplinary Contextualisation",
+    "Significance":4,
+    "imgURL":"/assets/meh.jpg"
+},
+{
+    "title":"Bandish Blues",
+    "Type":"Song",
+    "Creator":"The Darshan Doshi Trio",
+    "Year":"2021",
+    "Relevance":"Interdisciplinary Contextualisation",
+    "Significance":4,
+    "imgURL":"/assets/bb.jpg"
+},
+{
+    "title":"The Palace of Assembly",
+    "Type":"Architecture",
+    "Creator":"Le Corbusier",
+    "Year":"1965",
+    "Relevance":"Post-Independence Westernisation",
+    "Significance":4,
+    "imgURL":"/assets/tpa.jpg"
+}
+]    
