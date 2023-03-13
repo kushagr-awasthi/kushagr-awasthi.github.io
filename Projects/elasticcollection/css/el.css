@@ -1,0 +1,248 @@
+:root {
+    --test: none;
+}
+
+* {
+    box-sizing: border-box;
+    cursor: crosshair;
+
+}
+
+body {
+    background-image: linear-gradient(#fbfc8d .1em, transparent .1em), linear-gradient(90deg, #fbfc8d .1em, transparent .1em);
+    background-color: #E7EB3A;
+    background-size: 2em 2em;
+}
+
+
+/* HEADER */
+
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    border-bottom: solid black 1px;
+    background-color: #E7EB3A;
+}
+
+#rfwrap a {
+    color: inherit;
+    text-decoration: none;
+}
+#tidwrap a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#headwrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    border: var(--test);
+    height: 5.5em;
+    
+}
+
+h1 {
+    font-family: gandur-new, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 70px;
+}
+
+#rfwrap {
+    border: var(--test);
+    height: 5.5em;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#tidwrap {
+    height: 5.5em;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: var(--test);
+    color: #E73AEB;
+    text-shadow: -5px 0px 0px white;
+}
+
+#subheadwrapper {
+    border: var(--test);
+}
+
+h2 {
+    font-family: expo-sans-pro-condensed, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: 1em;
+}
+
+/* NAVIGATION BUTTONS */
+
+#buttons {
+    border: var(--test);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 200px;
+    right: 0;
+    height: 300px;
+    width: 50px;
+}
+
+.button-wrapper {
+    border: var(--test);
+    flex: 0.475;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-90deg);
+}
+
+ button {
+    width: 150px;
+    height: 50px;
+    border: solid 1px black;
+    border-radius: 0;
+    background-color: #E7EB3A;
+    transition: 0.25s ease-in-out;
+    font-family: expo-sans-pro-condensed, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+.buttonA-bold {
+    color:#E73AEB;
+    font-weight: 700;
+}
+
+.buttonB-bold {
+    color:#E73AEB;
+    font-weight: 700;
+}
+
+#home-button:hover {
+    background-color: black;
+    color: white;
+}
+
+#about-button:hover {
+    background-color: white;
+}
+
+/* -----------------CONTENT------------------- */
+
+#content {
+    width: 800px;
+    margin: 150px auto 0;
+    min-height: calc(100vh - 150px);
+    background-color: #E7EB3A;
+    font-family: expo-sans-pro, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    padding: 20px 10px 0;
+    column-count: 2;
+    column-gap: 20px;
+    column-rule: #fbfc8d dashed 2px;
+
+}
+#content a {
+    cursor: pointer;
+    color: #E73AEB;
+    font-weight: 700;
+    text-decoration: none;
+}
+#content a:hover {
+    transition: ease-in-out 0.2s;
+    color: white;
+}
+
+#content a:visited {
+    color: white;
+    font-weight: 700;
+}
+
+dt {
+    margin-top: 1em;
+
+}
+
+.fa-link {
+    color: #E73AEB;
+    font-size: 0.75em;
+}
+
+/* 2X MEDIA QUERIES: <850PX AND <600PX */
+
+
+@media (max-width: 850px) {
+
+    /* HEADER ON TABS */
+        h1 {
+            font-size: 50px;
+        }   
+    /* CONTENT ON TABS */
+        #content {
+            width: 550px;
+            column-count: 1;
+        }
+    }
+    
+@media (max-width: 600px) {
+    
+    /* HEADER ON MOBILE */
+    
+        header {
+            height: 100px;
+        }
+        #headwrapper {
+            justify-content: flex-start;
+            height: 4em;
+        }
+    
+        h1 {
+            font-size: 36px;
+        }
+    
+        #rfwrap{
+            height: 4em;
+        }
+        #tidwrap {
+            height: 4em;
+        }
+    
+        h2 {
+            font-size: 13.5px;
+            letter-spacing: 0.7725em;
+        }
+
+        /* CONTENT ON MOBILE */
+
+        #content {
+            margin-top: 100px;
+            width: 350px;
+            min-height: calc(100vh - 100px);
+            column-count: 1;
+            
+        }
+    
+    }

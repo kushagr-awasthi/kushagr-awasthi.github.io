@@ -5,8 +5,9 @@
     "Creator":"Nandalal Bose",
     "Year":"1950",
     "Relevance":"Civic Identity",
-    "Significance":6,
-    "imgURL":"/assets/coi.jpg"
+    "Intensity":6,
+    "imgURL":"/assets/coi.jpg",
+    "readMore":"https://culturalsamvaad.com/constitution-of-india-22-paintings-ode-to-indian-culture-and-history/"
 },
 {
     "title":"Commemorative Front Page, The Hindu",
@@ -14,8 +15,9 @@
     "Creator": "Unknown Designer",
     "Year": "1947",
     "Relevance": "Civic Identity",
-    "Significance": 6,
-    "imgURL":"/assets/hfp.jpg"
+    "Intensity": 6,
+    "imgURL":"/assets/hfp.jpg",
+    "readMore":"https://decolonisingthroughcriticallibrarianship.wordpress.com/2019/09/13/freedom-and-fragmentation-images-of-independence-decolonisation-and-partition-at-cambridge-university/"
 },
 {
     "title":"Shikar India: Air India Poster",
@@ -23,8 +25,9 @@
     "Creator":"K. K. Save",
     "Year":"1968",
     "Relevance":"Indian Advertising",
-    "Significance":6,
-    "imgURL":"/assets/sip.jpg"
+    "Intensity":6,
+    "imgURL":"/assets/sip.jpg",
+    "readMore":"https://posterhouse.org/exhibition/air-indias-maharaja-advertising-gone-rogue/"
 },
 {
     "title":"Metamorphosis",
@@ -32,8 +35,9 @@
     "Creator": ["Sameer Kulavoor", "Sandeep Meher"],
     "Year":"2022",
     "Relevance":"Visual Vernacular",
-    "Significance":3,
-    "imgURL":"/assets/met.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/met.jpg",
+    "readMore":"https://www.outlookindia.com/art-entertainment/a-world-of-creative-depiction-at-mumbai-urban-art-festival-photos-261215"
 },
 {
     "title":"When Was Modernism",
@@ -41,8 +45,9 @@
     "Creator":"Geeta Kapur",
     "Year":"2000",
     "Relevance":"Indian Art History",
-    "Significance":4,
-    "imgURL":"/assets/wwm.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/wwm.jpg",
+    "readMore":"https://books.google.com/books/about/When_was_Modernism.html?id=NxGTNwAACAAJ&source=kp_book_description"
 },
 {
     "title":"Blockprinted Textiles of India: Imprints of Culture",
@@ -50,8 +55,9 @@
     "Creator": "Eiluned Edwards",
     "Year": "2016",
     "Relevance": "Craft Culture",
-    "Significance": 3,
-    "imgURL": "/assets/bti.jpg"
+    "Intensity": 3,
+    "imgURL": "/assets/bti.jpg",
+    "readMore": "https://books.google.com/books/about/Block_Printed_Textiles_of_India.html?id=j7_cjgEACAAJ&source=kp_book_description"
 },
 {
     "title":"The Amul Girl",
@@ -59,8 +65,9 @@
     "Creator":"Eustace Fernandes",
     "Year":"1966",
     "Relevance":"Indian Advertising",
-    "Significance":4,
-    "imgURL":"/assets/tag.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/tag.jpg",
+    "readMore":"https://musebycl.io/advertising/story-amul-girl-indias-ad-icon-who-was-ahead-her-time"
 },
 {
     "title":"Rajput Miniature Paintingl",
@@ -68,8 +75,10 @@
     "Creator":"Unknown Artist",
     "Year":"1840",
     "Relevance":"Aesthetic Heritage",
-    "Significance":3,
-    "imgURL":"/assets/rmp.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/rmp.jpg",
+    "readMore":"https://www.luhringaugustine.com/exhibitions/court-epic-spirit-indian-art-15th-19th-century#tab:thumbnails"
+    
 },
 {
     "title":"Folio from the Baburnama",
@@ -77,8 +86,9 @@
     "Creator":"Unknown Artist",
     "Year":"1590",
     "Relevance":"Aesthetic Heritage",
-    "Significance":3,
-    "imgURL":"/assets/ffb.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/ffb.jpg",
+    "readMore":"https://www.luhringaugustine.com/exhibitions/court-epic-spirit-indian-art-15th-19th-century#tab:thumbnails"
 },
 {
     "title":"Authority and Identity in India",
@@ -86,8 +96,9 @@
     "Creator":"T. G. Vaidyanathan",
     "Year":"1989",
     "Relevance":"Indian Identity",
-    "Significance":5,
-    "imgURL":"/assets/aii.jpg"
+    "Intensity":5,
+    "imgURL":"/assets/aii.jpg",
+    "readMore":"https://www.jstor.org/stable/20025268"
 },
 {
     "title":"Haripura Poster",
@@ -95,8 +106,9 @@
     "Creator":"Nandalal Bose",
     "Year":"1937",
     "Relevance":"Visual Activism",
-    "Significance":2,
-    "imgURL":"/assets/hp.jpg"
+    "Intensity":2,
+    "imgURL":"/assets/hp.jpg",
+    "readMore":"https://artsandculture.google.com/story/rediscovering-haripura-panels-nandalal-bose-national-gallery-of-modern-art-ngma-new-delhi/AwXRNpSFHeWVJw?hl=en"
 },
 {
     "title":"Gandhiji: Linocut Poster",
@@ -104,8 +116,9 @@
     "Creator":"Nandalal Bose",
     "Year":"1930",
     "Relevance":"Visual Activism",
-    "Significance":4,
-    "imgURL":"/assets/glp.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/glp.jpg",
+    "readMore":"https://www.christies.com/en/lot/lot-5716143"
 },
 {
     "title":"Raga Todi: Air India Post Card",
@@ -113,8 +126,9 @@
     "Creator":"Avinash Godbole",
     "Year":"1975",
     "Relevance":"Interdisciplinary Contextualisation",
-    "Significance":5,
-    "imgURL":"/assets/aipc.jpg"
+    "Intensity":5,
+    "imgURL":"/assets/aipc.jpg",
+    "readMore":"https://posterhouse.org/exhibition/air-indias-maharaja-advertising-gone-rogue/"
 },
 {
     "title":"Bharat Mata",
@@ -122,8 +136,9 @@
     "Creator":"Abanindranath Tagore",
     "Year":"1905",
     "Relevance":"Spirit",
-    "Significance":3,
-    "imgURL":"/assets/bm.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/bm.jpg",
+    "readMore":"https://thecultural.me/abanindranath-tagores-bharat-mata-and-its-role-in-fostering-indian-identity-200413"
 },
 {
     "title":"Ajrakh Blockprints",
@@ -131,8 +146,9 @@
     "Creator":"Khatri Community",
     "Year":"1590",
     "Relevance":"Craft Culture",
-    "Significance":1,
-    "imgURL":"/assets/ab.jpg"
+    "Intensity":1,
+    "imgURL":"/assets/ab.jpg",
+    "readMore":"https://en.wikipedia.org/wiki/Ajrak"
 },
 {
     "title":"Painting 4",
@@ -140,8 +156,9 @@
     "Creator":"Vasudeo Gaitonde",
     "Year":"1962",
     "Relevance":"Spirit",
-    "Significance":1,
-    "imgURL":"/assets/p4.jpg"
+    "Intensity":1,
+    "imgURL":"/assets/p4.jpg",
+    "readMore":"https://www.moma.org/magazine/articles/609"
 },
 {
     "title":"Truck Art",
@@ -149,8 +166,9 @@
     "Creator":"Trucking Community",
     "Year":"2021",
     "Relevance":"Visual Vernacular",
-    "Significance":1,
-    "imgURL":"/assets/ta.jpg"
+    "Intensity":1,
+    "imgURL":"/assets/ta.jpg",
+    "readMore":"https://hyperallergic.com/649642/india-vibrant-idiosyncratic-truck-art/"
 },
 {
     "title":"Handpainted Signage",
@@ -158,8 +176,9 @@
     "Creator":"Unknown Artisan",
     "Year":"2012",
     "Relevance":"Visual Vernacular",
-    "Significance":3,
-    "imgURL":"/assets/hs.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/hs.jpg",
+    "readMore":"https://www.designsquabble.com/post/painted-signs-of-india"
 },
 {
     "title":"South Asian Technospaces",
@@ -167,8 +186,9 @@
     "Creator":["Radhika Gajjala", "Venkataramana Gajjala"],
     "Year":"2008",
     "Relevance":"Internet and India",
-    "Significance":4,
-    "imgURL":"/assets/sat.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/sat.jpg",
+    "readMore":"https://books.google.com/books/about/South_Asian_Technospaces.html?id=cMZFoROURUQC"
 },
 {
     "title":"Swadeshi Color",
@@ -176,8 +196,9 @@
     "Creator":"Natasha Eaton",
     "Year":"2013",
     "Relevance":"Indian Art History",
-    "Significance":3,
-    "imgURL":"/assets/sc.jpg"
+    "Intensity":3,
+    "imgURL":"/assets/sc.jpg",
+    "readMore":"https://www.jstor.org/stable/43188857"
 },
 {
     "title":"D. B. House",
@@ -185,8 +206,9 @@
     "Creator":"Uknown Designer",
     "Year":"1913",
     "Relevance":"Colonial Imagery",
-    "Significance":2,
-    "imgURL":"/assets/dbh.jpg"
+    "Intensity":2,
+    "imgURL":"/assets/dbh.jpg",
+    "readMore":"https://imagewrighter.com/db-house-the-former-tata-palace-mumbai/"
 },
 {
     "title":"Victoria Terminus",
@@ -194,8 +216,9 @@
     "Creator":["Frederick William Stevens", "Axel Haig"],
     "Year":"1888",
     "Relevance":"Colonial Imagery",
-    "Significance":2,
-    "imgURL":"/assets/vt.jpg"
+    "Intensity":2,
+    "imgURL":"/assets/vt.jpg",
+    "readMore":"https://whc.unesco.org/en/list/945/"
 },
 {
     "title":"The Dream",
@@ -203,8 +226,9 @@
     "Creator":"Henri Rousseau",
     "Year":"1910",
     "Relevance":"Primitivism",
-    "Significance":2,
-    "imgURL":"/assets/td.jpg"
+    "Intensity":2,
+    "imgURL":"/assets/td.jpg",
+    "readMore":"https://www.moma.org/collection/works/79277"
 },
 {
     "title":"Mehram",
@@ -212,8 +236,9 @@
     "Creator":["Asfar Hussain", "Arooj Aftab"],
     "Year":"2022",
     "Relevance":"Interdisciplinary Contextualisation",
-    "Significance":4,
-    "imgURL":"/assets/meh.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/meh.jpg",
+    "readMore":"https://www.youtube.com/watch?v=BUm_hFMlsgg"
 },
 {
     "title":"Bandish Blues",
@@ -221,8 +246,9 @@
     "Creator":"The Darshan Doshi Trio",
     "Year":"2021",
     "Relevance":"Interdisciplinary Contextualisation",
-    "Significance":4,
-    "imgURL":"/assets/bb.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/bb.jpg",
+    "readMore":"https://www.youtube.com/watch?v=hHReQQfIXkk"
 },
 {
     "title":"The Palace of Assembly",
@@ -230,7 +256,8 @@
     "Creator":"Le Corbusier",
     "Year":"1965",
     "Relevance":"Post-Independence Westernisation",
-    "Significance":4,
-    "imgURL":"/assets/tpa.jpg"
+    "Intensity":4,
+    "imgURL":"/assets/tpa.jpg",
+    "readMore":"https://www.architectural-review.com/buildings/the-assembly-chandigarh"
 }
 ]    
