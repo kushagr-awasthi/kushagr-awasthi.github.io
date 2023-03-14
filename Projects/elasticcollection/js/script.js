@@ -302,10 +302,10 @@ let modalContainer = document.querySelector("#modal-container");
 
 for (let x of dataJSON){
 
-let dataHTML = `<div class="data">
+let dataHTML = `
                     <div class="data-bckg" style="background-image: url(${x.imgURL})"></div>
-                </div>`;
-let modalHTML = `<div class="modal-wrapper">
+                `;
+let modalHTML = `
                     <div class="modal">
                         <div class="data-img" style="background-image: url(${x.imgURL})">
                         </div>
@@ -332,96 +332,79 @@ let modalHTML = `<div class="modal-wrapper">
                             </div>
                         </div>
                     </div>
-                </div>`;
+                `;
 let newData = document.createElement("div");
 let newModal = document.createElement("div");
-
 let i = dataJSON.indexOf(x);
+console.log(i);
+newData.classList.add("data-" + [i]);
+newData.classList.add("data");
+newModal.classList.add("modal-" +[i]);
+newModal.classList.add("modal-wrapper");
+newData.innerHTML = dataHTML;
+newModal.innerHTML = modalHTML;
+newData.style.height = (x.Intensity * 40) + "px";
+newData.style.width = (x.Intensity * 40) + "px";
+newData.style.margin = ((x.Intensity * 2.5) + "px") ;
+modalContainer.appendChild(newModal);
+
 
 if (x.Year.slice(0, 2) == "15" || x.Year.slice(0, 2) == "16" || x.Year.slice(0, 2) == "17") {
-
     dataContainerA.appendChild(newData);
-    newData.innerHTML = dataHTML;
-    modalContainer.appendChild(newModal);
-    newModal.innerHTML = modalHTML;
-    newData.style.height = (x.Intensity * 50) + "px";
-    newData.style.width = (x.Intensity * 50) + "px";
-    newData.style.margin = "0 -2.5%";
-
-    newData.classList.add("data-" + [i]);
-    newModal.classList.add("modal-" + [i])
-
 }
 
 if (x.Year.slice(0, 2) == "18") {
-
-    dataContainerB.appendChild(newData);
-    newData.innerHTML = dataHTML;
-    modalContainer.appendChild(newModal);
-    newModal.innerHTML = modalHTML;
-    newData.style.height = (x.Intensity * 50) + "px";
-    newData.style.width = (x.Intensity * 50) + "px";
-    newData.style.margin = "0 -2.5%";
-
-    newData.classList.add("data-" + [i]);
-    newModal.classList.add("modal-" + [i]);
-
-    
+    dataContainerB.appendChild(newData);    
 }
 
 if (x.Year.slice(0, 2) == "19") {
-
     dataContainerC.appendChild(newData);
-    newData.innerHTML = dataHTML;
-    modalContainer.appendChild(newModal);
-    newModal.innerHTML = modalHTML;
-    newData.style.height = (x.Intensity * 50) + "px";
-    newData.style.width = (x.Intensity * 50) + "px";
-    newData.style.margin = "0 -2.5%";
-
-    newData.classList.add("data-" + [i]);
-    newModal.classList.add("modal-" + [i]);
 }
 
 else if (x.Year.slice(0, 2) == "20") {
-
     dataContainerD.appendChild(newData);
-    newData.innerHTML = dataHTML;
-    modalContainer.appendChild(newModal);
-    newModal.innerHTML = modalHTML;
-    newData.style.height = (x.Intensity * 50) + "px";
-    newData.style.width = (x.Intensity * 50) + "px";
-    newData.style.margin = "0 -2.5%";
-
-    newData.classList.add("data-" + [i]);
-    newModal.classList.add("modal-" + [i]);
 }
 
 }
 
+for (let i = 0; i < dataJSON.length; i++){
+
+    let thisData = document.querySelector(".data-" + [i]);
+    let thisModal = document.querySelector(".modal-" + [i]);
+    console.log(thisData, thisModal);
+    thisData.addEventListener("click", function(){
+        thisModal.style.display = "block";
+        window.onclick = function(){
+            if (event.target == thisModal) {
+                thisModal.style.display = "none";
+            }
+        }
+    })
+   
+
+  }
 
 
 
 
 
+// let dataDivs = document.querySelectorAll(".data");
+// console.log("this is the test for: " + dataDivs[9]);
 
-let dataDivs = document.querySelectorAll(".data");
-console.log("this is the test for: " + dataDivs[9]);
 
+// dataDivs.forEach(addEventListener("click", function(){
+//     dataDivs[x].onclick = function(){
+//         getElementsByClassName("modal-" + [x]).style.display = "block";
 
-dataDivs.forEach(addEventListener("click", function(){
-    dataDivs[x].onclick = function(){
-        getElementsByClassName("modal-" + [x]).style.display = "block";
+//     }
 
-    }
+//     this.window.onclick = function(){
+//         if (event.target == getElementsByClassName("modal-" + [x]))
+// {
+//     getElementsByClassName("modal-" + [x]).style.display = "none"
+// }    }
 
-    this.window.onclick = function(){
-        if (event.target == getElementsByClassName("modal-" + [x]))
-{
-    getElementsByClassName("modal-" + [x]).style.display = "none";
-}    }
-
-}))
+// }))
 
 
 
