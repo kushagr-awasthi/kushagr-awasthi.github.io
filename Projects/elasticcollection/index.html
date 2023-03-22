@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/lup5gak.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script src="js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -53,25 +54,25 @@
 
 <!-- DATA -->
     <section id="data-containers-wrapper">
-        <!-- container 15, 16, 17 -->
+        <!-- container for pre-1800s -->
         <section id="data-container-A" class="data-container">
             <!-- <div class="data">
                 <div class="data-bckg"></div>
             </div> -->
         </section>
-        <!-- container 18 -->
+        <!-- container for pre-1900s-->
         <section id="data-container-B" class="data-container">
             <!-- <div class="data">
                 <div class="data-bckg"></div>
             </div> -->
         </section>
-        <!-- container 19 -->
+        <!-- container for pre-2000s -->
         <section id="data-container-C" class="data-container">
             <!-- <div class="data">
                 <div class="data-bckg" class="data-container"></div>
             </div> -->
         </section>
-        <!-- container 20 -->
+        <!-- container for post-2000s -->
         <section id="data-container-D" class="data-container">
             <!-- <div class="data">
                 <div class="data-bckg"></div>
@@ -119,7 +120,38 @@
         <div class="button-wrapper"><a href="about.html"><button id="about-button"><span class="buttonA-bold">About</span> the Project</button></a>
         </div>
         <div class="button-wrapper"><a href="external-links.html"><button id="links-button">External <span class="buttonB-bold">Links</span></button></a></div>
-        
+        <div><button id="control-button"><i class="fa-solid fa-sliders"></i></button></div>
+    </section>
+
+    <section id="control-modal-wrapper">
+        <div id="control-modal">
+            <div id="control-header">Welcome to the Control Panel</div>
+            <div>
+                <p>Entries on this Page are sized by their "intensity".<br>
+                     The "intensity" is the amount of influence- positive or negative- that they have on me and my practice.<br><br>
+                     <span style="color: #E73AEB">You can see them without the size inequality using the toggle below ↓</span>
+                </p>
+                <div id="equalize-div">
+                <p> Equalize?</p>
+                <label class="switch">
+                    <input id="size-toggle" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <p style="color: #E73AEB">You can also filter Entries by Year using the sliders below ↓
+                </p>
+                <p>From: <span id="minselection">1590</span></p>
+                <div id="minyear">
+                    <input type="range" min="1" max="100" value="0" class="yearslider" id="minyear-slider">
+                    
+                </div>
+                <p>To: <span id="maxselection">2022</span></p>
+                <div id="maxyear">
+                    <input type="range" min="1" max="100" value="100" class="yearslider" id="maxyear-slider">
+                </div>
+            </div>
+        </div>
+
     </section>
 
 </body>

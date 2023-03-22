@@ -1,10 +1,10 @@
-const dataJSON = [
+var dataJSON = [
 
     {
         "title":"Ajrakh Blockprints",
         "Type":"Craft",
         "Creator":"Khatri Community",
-        "Year":"1590",
+        "Year":1590,
         "Relevance":"Craft Culture",
         "Intensity":1,
         "imgURL":"assets/ab.jpg",
@@ -15,7 +15,7 @@ const dataJSON = [
         "title":"Folio from the Baburnama",
         "Type":"Manuscript",
         "Creator":"Unknown Artist",
-        "Year":"1590",
+        "Year":1590,
         "Relevance":"Aesthetic Heritage",
         "Intensity":3,
         "imgURL":"assets/ffb.jpg",
@@ -23,10 +23,10 @@ const dataJSON = [
     },
 
     {
-        "title":"Rajput Miniature Paintingl",
+        "title":"Rajput Miniature Painting",
         "Type":"Traditional Art",
         "Creator":"Unknown Artist",
-        "Year":"1840",
+        "Year":1840,
         "Relevance":"Aesthetic Heritage",
         "Intensity":3,
         "imgURL":"assets/rmp.jpg",
@@ -35,10 +35,10 @@ const dataJSON = [
     },
 
     {
-        "title":"Victoria Terminus",
+        "title":"Chhatrapati Shivaji Terminus (Victoria Terminus)",
         "Type":"Architecture",
-        "Creator":["Frederick William Stevens", "Axel Haig"],
-        "Year":"1888",
+        "Creator":["Frederick William Stevens", " Axel Haig"],
+        "Year":1888,
         "Relevance":"Colonial Imagery",
         "Intensity":2,
         "imgURL":"assets/vt.jpg",
@@ -49,7 +49,7 @@ const dataJSON = [
         "title":"Bharat Mata",
         "Type":"Painting",
         "Creator":"Abanindranath Tagore",
-        "Year":"1905",
+        "Year":1905,
         "Relevance":"Spirit",
         "Intensity":3,
         "imgURL":"assets/bm.jpg",
@@ -60,7 +60,7 @@ const dataJSON = [
         "title":"The Dream",
         "Type":"Painting",
         "Creator":"Henri Rousseau",
-        "Year":"1910",
+        "Year":1910,
         "Relevance":"Primitivism",
         "Intensity":2,
         "imgURL":"assets/td.jpg",
@@ -72,7 +72,7 @@ const dataJSON = [
         "title":"D. B. House",
         "Type":"Architecture",
         "Creator":"Uknown Designer",
-        "Year":"1913",
+        "Year":1913,
         "Relevance":"Colonial Imagery",
         "Intensity":2,
         "imgURL":"assets/dbh.jpg",
@@ -83,7 +83,7 @@ const dataJSON = [
         "title":"Gandhiji: Linocut Poster",
         "Type":"Poster",
         "Creator":"Nandalal Bose",
-        "Year":"1930",
+        "Year":1930,
         "Relevance":"Visual Activism",
         "Intensity":4,
         "imgURL":"assets/glp.jpg",
@@ -94,7 +94,7 @@ const dataJSON = [
         "title":"Haripura Poster",
         "Type":"Poster",
         "Creator":"Nandalal Bose",
-        "Year":"1937",
+        "Year":1937,
         "Relevance":"Visual Activism",
         "Intensity":2,
         "imgURL":"assets/hp.jpg",
@@ -105,7 +105,7 @@ const dataJSON = [
         "title":"Commemorative Front Page, The Hindu",
         "Type": "News Graphic",
         "Creator": "Unknown Designer",
-        "Year": "1947",
+        "Year":1940,
         "Relevance": "Civic Identity",
         "Intensity": 6,
         "imgURL":"assets/hfp.jpg",
@@ -116,7 +116,7 @@ const dataJSON = [
         "title":"Illustrations in the original manuscript of the Constitution of India",
         "Type":"Illustration",
         "Creator":"Nandalal Bose",
-        "Year":"1950",
+        "Year":1950,
         "Relevance":"Civic Identity",
         "Intensity":6,
         "imgURL":"assets/coi.jpg",
@@ -127,7 +127,7 @@ const dataJSON = [
         "title":"Painting 4",
         "Type":"Painting",
         "Creator":"Vasudeo Gaitonde",
-        "Year":"1962",
+        "Year":1962,
         "Relevance":"Spirit",
         "Intensity":1,
         "imgURL":"assets/p4.jpg",
@@ -138,7 +138,7 @@ const dataJSON = [
         "title":"The Palace of Assembly",
         "Type":"Architecture",
         "Creator":"Le Corbusier",
-        "Year":"1965",
+        "Year":1965,
         "Relevance":"Post-Independence Westernisation",
         "Intensity":4,
         "imgURL":"assets/tpa.jpg",
@@ -149,7 +149,7 @@ const dataJSON = [
         "title":"The Amul Girl",
         "Type":"Brand Mascot",
         "Creator":"Eustace Fernandes",
-        "Year":"1966",
+        "Year":1966,
         "Relevance":"Indian Advertising",
         "Intensity":4,
         "imgURL":"assets/tag.jpg",
@@ -160,7 +160,7 @@ const dataJSON = [
         "title":"Shikar India: Air India Poster",
         "Type":"Poster",
         "Creator":"K. K. Save",
-        "Year":"1968",
+        "Year":1968,
         "Relevance":"Indian Advertising",
         "Intensity":6,
         "imgURL":"assets/sip.jpg",
@@ -171,7 +171,7 @@ const dataJSON = [
         "title":"Raga Todi: Air India Post Card",
         "Type":"Post Card",
         "Creator":"Avinash Godbole",
-        "Year":"1975",
+        "Year":1975,
         "Relevance":"Interdisciplinary Contextualisation",
         "Intensity":5,
         "imgURL":"assets/aipc.jpg",
@@ -182,7 +182,7 @@ const dataJSON = [
         "title":"Authority and Identity in India",
         "Type":"Essay",
         "Creator":"T. G. Vaidyanathan",
-        "Year":"1989",
+        "Year":1989,
         "Relevance":"Indian Identity",
         "Intensity":5,
         "imgURL":"assets/aii.jpg",
@@ -193,7 +193,7 @@ const dataJSON = [
         "title":"When Was Modernism",
         "Type":"Book",
         "Creator":"Geeta Kapur",
-        "Year":"2000",
+        "Year":2000,
         "Relevance":"Indian Art History",
         "Intensity":4,
         "imgURL":"assets/wwm.jpg",
@@ -203,8 +203,8 @@ const dataJSON = [
     {
         "title":"South Asian Technospaces",
         "Type":"Book",
-        "Creator":["Radhika Gajjala", "Venkataramana Gajjala"],
-        "Year":"2008",
+        "Creator":["Radhika Gajjala", " Venkataramana Gajjala"],
+        "Year":2008,
         "Relevance":"Internet and India",
         "Intensity":4,
         "imgURL":"assets/sat.jpg",
@@ -215,7 +215,7 @@ const dataJSON = [
         "title":"Handpainted Signage",
         "Type":"Signage",
         "Creator":"Unknown Artisan",
-        "Year":"2012",
+        "Year":2012,
         "Relevance":"Visual Vernacular",
         "Intensity":3,
         "imgURL":"assets/hs.jpg",
@@ -227,7 +227,7 @@ const dataJSON = [
         "title":"Swadeshi Color",
         "Type":"Essay",
         "Creator":"Natasha Eaton",
-        "Year":"2013",
+        "Year":2013,
         "Relevance":"Indian Art History",
         "Intensity":3,
         "imgURL":"assets/sc.jpg",
@@ -238,7 +238,7 @@ const dataJSON = [
         "title":"Blockprinted Textiles of India: Imprints of Culture",
         "Type": "Book",
         "Creator": "Eiluned Edwards",
-        "Year": "2016",
+        "Year":2010,
         "Relevance": "Craft Culture",
         "Intensity": 3,
         "imgURL": "assets/bti.jpg",
@@ -249,7 +249,7 @@ const dataJSON = [
         "title":"Truck Art",
         "Type":"Craft",
         "Creator":"Trucking Community",
-        "Year":"2021",
+        "Year":2021,
         "Relevance":"Visual Vernacular",
         "Intensity":1,
         "imgURL":"assets/ta.jpg",
@@ -260,7 +260,7 @@ const dataJSON = [
         "title":"Bandish Blues",
         "Type":"Song",
         "Creator":"The Darshan Doshi Trio",
-        "Year":"2021",
+        "Year":2021,
         "Relevance":"Interdisciplinary Contextualisation",
         "Intensity":4,
         "imgURL":"assets/bb.jpg",
@@ -270,8 +270,8 @@ const dataJSON = [
     {
         "title":"Metamorphosis",
         "Type":"Installation",
-        "Creator": ["Sameer Kulavoor", "Sandeep Meher"],
-        "Year":"2022",
+        "Creator": ["Sameer Kulavoor", " Sandeep Meher"],
+        "Year":2022,
         "Relevance":"Visual Vernacular",
         "Intensity":3,
         "imgURL":"assets/met.jpg",
@@ -281,8 +281,8 @@ const dataJSON = [
     {
         "title":"Mehram",
         "Type":"Song",
-        "Creator":["Asfar Hussain", "Arooj Aftab"],
-        "Year":"2022",
+        "Creator":["Asfar Hussain", " Arooj Aftab"],
+        "Year":2022,
         "Relevance":"Interdisciplinary Contextualisation",
         "Intensity":4,
         "imgURL":"assets/meh.jpg",
@@ -290,7 +290,7 @@ const dataJSON = [
     }
 
     ];    
-
+var dataJSON = dataJSON.sort((a, b) => (a.Year > b.Year) ? 1 : -1);
 let dataContainerA = document.querySelector("#data-container-A");
 let dataContainerB = document.querySelector("#data-container-B");
 let dataContainerC = document.querySelector("#data-container-C");
@@ -321,7 +321,7 @@ let modalHTML = `
                                     <p>${"Ephemera Type: " + x.Type}</p>
                                 </div>
                                 <div class="data-designer">
-                                    <p>${"Designer(s): " + x.Creator}</p>
+                                    <p>${"Creator(s): " + x.Creator}</p>
                                 </div>
                                 <div class="data-relevance">
                                     <p>${"Relevance: " + x.Relevance}</p>
@@ -336,10 +336,9 @@ let modalHTML = `
 let newData = document.createElement("div");
 let newModal = document.createElement("div");
 let i = dataJSON.indexOf(x);
-console.log(i);
 newData.classList.add("data-" + [i]);
 newData.classList.add("data");
-newModal.classList.add("modal-" +[i]);
+newModal.classList.add("modal-" + [i]);
 newModal.classList.add("modal-wrapper");
 newData.innerHTML = dataHTML;
 newModal.innerHTML = modalHTML;
@@ -349,19 +348,19 @@ newData.style.margin = ((x.Intensity * 2.5) + "px") ;
 modalContainer.appendChild(newModal);
 
 
-if (x.Year.slice(0, 2) == "15" || x.Year.slice(0, 2) == "16" || x.Year.slice(0, 2) == "17") {
+if (x.Year < 1800) {
     dataContainerA.appendChild(newData);
 }
 
-if (x.Year.slice(0, 2) == "18") {
+if (x.Year < 1900 && x.Year >= 1800) {
     dataContainerB.appendChild(newData);    
 }
 
-if (x.Year.slice(0, 2) == "19") {
+if (x.Year < 2000 && x.Year >= 1900) {
     dataContainerC.appendChild(newData);
 }
 
-else if (x.Year.slice(0, 2) == "20") {
+else if (x.Year < 2100 && x.Year >= 2000) {
     dataContainerD.appendChild(newData);
 }
 
@@ -371,7 +370,6 @@ for (let i = 0; i < dataJSON.length; i++){
 
     let thisData = document.querySelector(".data-" + [i]);
     let thisModal = document.querySelector(".modal-" + [i]);
-    console.log(thisData, thisModal);
     thisData.addEventListener("click", function(){
         thisModal.style.display = "block";
         window.onclick = function(){
@@ -385,64 +383,89 @@ for (let i = 0; i < dataJSON.length; i++){
   }
 
 
+  
+let controlButton = document.getElementById("control-button");
+let controlModal = document.getElementById("control-modal-wrapper");
+controlButton.addEventListener("click", function(){
+    controlModal.style.display = "block";
+    window.onclick = function(){
+        if (event.target == controlModal) {
+            controlModal.style.display = "none";
+        }
+    }
+})
 
 
-
-// let dataDivs = document.querySelectorAll(".data");
-// console.log("this is the test for: " + dataDivs[9]);
-
-
-// dataDivs.forEach(addEventListener("click", function(){
-//     dataDivs[x].onclick = function(){
-//         getElementsByClassName("modal-" + [x]).style.display = "block";
-
-//     }
-
-//     this.window.onclick = function(){
-//         if (event.target == getElementsByClassName("modal-" + [x]))
-// {
-//     getElementsByClassName("modal-" + [x]).style.display = "none"
-// }    }
-
-// }))
+var allData = document.querySelectorAll(".data");
+var sizeToggle = document.getElementById("size-toggle");
 
 
+sizeToggle.addEventListener('change', function(){
 
 
-
+if  (this.checked) {
 
     
+    for(let i = 0; i < dataJSON.length; i++){
+        allData[i].style.width = "120px";
+        allData[i].style.height = "120px";
+    }
+    console.log("all data resized to 120px");
+}
 
+ if (this.checked == false) {
+    for(let i = 0; i < dataJSON.length; i++){
+        allData[i].style.width = (dataJSON[i].Intensity * 40) + "px";
+        allData[i].style.height = (dataJSON[i].Intensity * 40) + "px";
+    }
+         console.log("data sized by intensity");
+   }
+ })
 
+ var minYear = document.getElementById("minyear-slider");
+ var maxYear = document.getElementById("maxyear-slider");
+ var yearArray = [];
+ 
 
+for(let i = 0; i < dataJSON.length; i++){
+    yearArray.push(dataJSON[i].Year);
 
+ };
 
+ var yearArray = yearArray.sort((a, b) => (a > b) ? 1 : -1);
+ let m = yearArray.length - 1;
+ 
+ minYear.min = yearArray[0];
+ minYear.max = yearArray[m];
+ minYear.value = yearArray[0];
+ maxYear.min = yearArray[0];
+ maxYear.max = yearArray[m];
+ maxYear.value = yearArray[m];
 
+ var usedata = [];
+ 
+minYear.addEventListener("change", function(){
+document.getElementById("minselection").innerHTML = minYear.value; 
+console.log("now displaying entries dated from: " + minYear.value + " to: " + maxYear.value);
+for(let i = 0; i < dataJSON.length; i++) {
+         filteredData = document.querySelector(".data-"+ [i]);
+if (dataJSON[i].Year >= minYear.value && dataJSON[i].Year <= maxYear.value) {
+filteredData.style.display = "block";
+}
+else filteredData.style.display = "none";
 
-
-
-// var thisData = document.getElementsByClassName("data-" + [i]);
-// var thisModal = document.getElementsByClassName("modal-" + [i]);
-// data.addEventListener("click", function(){
-
-// thisData.onclick = function() {
-// thisModal.style.display = "block";
-// console.log("modal displayed");
-// }
-// window.onclick = function() {
-// if (event.target == thisModal) {
-//     thisModal.style.display = "none";
-// }}
-// })
-
-
-
-
-
-
-
-
-
-// var modalWrapper = document.querySelector(".modal-wrapper");
-// var modalcta = document.querySelector(".data");
-
+}
+})
+ 
+maxYear.addEventListener("change", function(){
+ 
+document.getElementById("maxselection").innerHTML = maxYear.value; 
+console.log("now displaying entries dated from: " + minYear.value + " to: " + maxYear.value);
+for(let i = 0; i < dataJSON.length; i++) {
+        let filteredData = document.querySelector(".data-"+ [i]);
+if (dataJSON[i].Year >= minYear.value && dataJSON[i].Year <= maxYear.value) {
+filteredData.style.display = "block";
+}
+else filteredData.style.display = "none";
+ }
+})
