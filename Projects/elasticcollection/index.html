@@ -29,10 +29,12 @@
         </div>
     </header>
 
+
+<section id="content"> 
 <!-- SIDEBAR WITH YEARS -->
 
     <nav>
-        <p id="navp1">&#60;1700's</p>
+        <p id="navp1"></p>
         <div id="arrow">
             <?xml version="1.0" encoding="UTF-8"?>
             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.97 727.33">
@@ -49,7 +51,7 @@
   <polygon points="0 718.7 4.99 727.33 9.97 718.7 0 718.7"/>
             </svg>
         </div>
-        <p id="navp2">2010's</p>
+        <p id="navp2"></p>
     </nav>
 
 <!-- DATA -->
@@ -80,39 +82,6 @@
         </section>
     </section>
 
-<!-- DATA INFO MODALS -->
-
-    <section id="modal-container">
-        <div class="modal-wrapper">
-            <div class="modal">
-                <div class="data-img">
-                </div>
-                <div class="data-info">
-                    <div class="data-name">
-                        <h2>Commemorative Front Page, the Hindu</h2>
-                    </div>
-                    <div class="data-other-info">
-                        
-                        <div class="data-year">
-                            <p>Year: 1947</p>
-                        </div>
-                        <div class="data-type">
-                            <p>Type: Newsprint</p>
-                        </div>
-                        <div class="data-designer">
-                            <p>Designer(s): Unknown</p>
-                        </div>
-                        <div class="data-relevance">
-                            <p>Relevance: Identity in Design</p>
-                        </div>
-                        <div class="data-url">
-                            <p>Read More at <a href="www.google.com">The Hindu</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <!-- NAVIGATION BUTTONS -->
 
@@ -122,37 +91,73 @@
         <div class="button-wrapper"><a href="external-links.html"><button id="links-button">External <span class="buttonB-bold">Links</span></button></a></div>
         <div><button id="control-button"><i class="fa-solid fa-sliders"></i></button></div>
     </section>
+</section>   
 
-    <section id="control-modal-wrapper">
-        <div id="control-modal">
-            <div id="control-header">Welcome to the Control Panel</div>
-            <div>
-                <p>Entries on this Page are sized by their "intensity".<br>
-                     The "intensity" is the amount of influence- positive or negative- that they have on me and my practice.<br><br>
-                     <span style="color: #E73AEB">You can see them without the size inequality using the toggle below ↓</span>
-                </p>
-                <div id="equalize-div">
-                <p> Equalize?</p>
-                <label class="switch">
-                    <input id="size-toggle" type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
+<!-- DATA INFO MODALS -->
+
+<section id="modal-container">
+    <div class="modal-wrapper">
+        <div class="modal">
+            <div class="data-img">
+            </div>
+            <div class="data-info">
+                <div class="data-name">
+                    <h2>Commemorative Front Page, the Hindu</h2>
                 </div>
-                <p style="color: #E73AEB">You can also filter Entries by Year using the sliders below ↓
-                </p>
-                <p>From: <span id="minselection">1590</span></p>
-                <div id="minyear">
-                    <input type="range" min="1" max="100" value="0" class="yearslider" id="minyear-slider">
+                <div class="data-other-info">
                     
-                </div>
-                <p>To: <span id="maxselection">2022</span></p>
-                <div id="maxyear">
-                    <input type="range" min="1" max="100" value="100" class="yearslider" id="maxyear-slider">
+                    <div class="data-year">
+                        <p>Year: 1947</p>
+                    </div>
+                    <div class="data-type">
+                        <p>Type: Newsprint</p>
+                    </div>
+                    <div class="data-designer">
+                        <p>Designer(s): Unknown</p>
+                    </div>
+                    <div class="data-relevance">
+                        <p>Relevance: Identity in Design</p>
+                    </div>
+                    <div class="data-url">
+                        <p>Read More at <a href="www.google.com">The Hindu</a></p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-    </section>
+<section id="control-modal-wrapper">
+    <div id="control-modal">
+        <div id="control-header">Welcome to the Control Panel</div>
+        <div>
+            <p>Entries on this Page are sized by their "intensity".<br>
+                 The "intensity" is the amount of influence- positive or negative- that they have on me and my practice.<br><br>
+                 <span style="color: #E73AEB">You can see them without the size inequality using the toggle below ↓</span>
+            </p>
+            <div id="equalize-div">
+            <p> Equalize?</p>
+            <label class="switch">
+                <input id="size-toggle" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <p style="color: #E73AEB">You can also filter Entries by Year using the sliders below ↓
+            </p>
+            <p>From: <span id="minselection">1590</span></p>
+            <div id="minyear">
+                <input type="range" min="1" max="100" value="0" class="yearslider" id="minyear-slider">
+                
+            </div>
+            <p>To: <span id="maxselection">2022</span></p>
+            <div id="maxyear">
+                <input type="range" min="1" max="100" value="100" class="yearslider" id="maxyear-slider">
+            </div>
+        </div>
+    </div>
+
+</section>
+
 
 </body>
 </html>
