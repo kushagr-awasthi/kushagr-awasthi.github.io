@@ -81,7 +81,14 @@ h1 {
 
 #subheadwrapper {
     border: var(--test);
+    height: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
+
 
 h2 {
     font-family: expo-sans-pro-condensed, sans-serif;
@@ -141,8 +148,9 @@ h2 {
 }
 
 .buttonB-bold {
-    color:#E7EB3A;
+    color:black;
     font-weight: 700;
+    text-shadow: -2px 0px 0px #E7EB3A;
 }
 
 #home-button:hover {
@@ -177,8 +185,10 @@ p:first-of-type:first-letter{
     font-weight: 300;
     font-size: 3em;
     float: left;
-    color: white;
+    color: black;
+    text-shadow: -5px 0px 0px #E7EB3A;
     margin-right: 0.05em;
+    margin-top: -0.1em;
 }
 
 

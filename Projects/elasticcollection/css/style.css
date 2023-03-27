@@ -28,6 +28,115 @@ body {
     height: auto;
 }
 
+
+/* ---------------LANDING-------------------- */
+
+#landing {
+    display: block;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    animation: bckg-pulse ease-in-out alternate infinite 1.3s;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+@keyframes bckg-pulse {
+    100% {
+        background: #E9BAB0CC;
+    }
+    0% {
+        background: #E7EB3ACC;
+    }
+}
+
+#landing-content {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#landing-header > h1 {
+    letter-spacing: 0.05em;
+    font-size: 90px;
+}
+
+#h1-seg-B span {
+    text-shadow: -0.1em 0px 0px #E73AEB;
+}
+
+.growA {
+    animation: letter-pulse-A 4s ease-in-out infinite alternate;
+    display: inline-block;
+}
+.growB {
+    animation: letter-pulse-B 4s ease-in-out infinite alternate;
+    display: inline-block;
+}
+.growC {
+    animation: letter-pulse-C 4s ease-in-out infinite alternate;
+    display: inline-block;
+    
+}
+
+@keyframes letter-pulse-A {
+    0% {transform: scale(1.5)}
+    50% {transform: scale(1)}
+    100% {transform: scale(1);}
+}
+
+@keyframes letter-pulse-B {
+    0% {transform: scale(1)}
+    50% {transform: scale(1.5)}
+    100% {transform: scale(1)}
+}
+
+@keyframes letter-pulse-C {
+    0% {transform: scale(1)}
+    50% {transform: scale(1)}
+    100% {transform: scale(1.5)}
+}
+
+#landing-text {
+    max-width: 600px;
+    font-family: expo-sans-pro-condensed, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 16px;
+}
+
+#close-landing {
+    width: 150px;
+    height: 50px;
+    border: solid 1px black;
+    border-radius: 0;
+    background-color: white;
+    transition: 0.25s ease-in-out;
+    font-family: expo-sans-pro-condensed, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+#close-landing:hover {
+    color: white;
+    background-color: #E73AEB;
+}
+
 /* ----------------HEADER-------------------- */
 
 header {
@@ -86,6 +195,12 @@ h1 {
 
 #subheadwrapper {
     border: var(--test);
+    height: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 h2 {
@@ -187,13 +302,15 @@ svg {
 }
 
 .buttonA-bold {
-    color:#E73AEB;
+    color:black;
     font-weight: 700;
+    text-shadow: -2px 0px 0px #E73AEB;
 }
 
 .buttonB-bold {
-    color:#E7EB3A;
+    color:black;
     font-weight: 700;
+    text-shadow: -2px 0px 0px #E7EB3A;
 }
 
 #about-button:hover {
@@ -257,6 +374,7 @@ svg {
     background: beige;
     transition: ease-in-out 0.15s;
     overflow: hidden;
+    animation: pulse ease-in-out 1s infinite alternate;
 }
 
 .data:hover {
@@ -281,7 +399,7 @@ svg {
 
 
 .modal-wrapper {
-    display: none;
+    visibility: hidden;
     position: fixed;
     z-index: 4;
     left: 0;
@@ -290,6 +408,8 @@ svg {
     height: 100%;
     overflow: auto;
     background-color: #E7EB3ACC;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
 }
 
 .modal {
@@ -306,6 +426,7 @@ svg {
     overflow: hidden;
     display: flex;
     flex-flow: row nowrap;
+    
 }
 
 .data-img {
@@ -409,6 +530,12 @@ svg {
     color: white;
 }
 
+.data-url:hover {
+   background-color: white;
+   transition: 0.25s ease-in-out;
+   color: black;
+}
+
 .data-url a {
     color: #E73AEB;
     font-weight: 700;
@@ -416,15 +543,20 @@ svg {
 }
 
 .data-url a:visited {
-    color: white;
+    color: #E7EB3A;
     font-weight: 700;
     text-decoration:underline;
 }
 
+@keyframes pulse{
+    0% {transform: scale(1);}
+    100% {transform: scale(1.1);}
+  }
+
 /* CONTROL MODALS */
 
 #control-modal-wrapper {
-    display: none;
+    visibility: hidden;
     position: fixed;
     z-index: 4;
     left: 0;
@@ -433,6 +565,7 @@ svg {
     height: 100%;
     overflow: auto;
     background-color: #E73AEBCC;
+    transition: 0.3s ease-in-out;
 }
 
 #control-modal {
@@ -577,9 +710,18 @@ svg {
 
 /*-----------------2X MEDIA QUERIES: <850PX AND <600PX------------------------ */
 
+@media (max-width: 1200px) {
+    /* LANDING ON SMALL COMPS */
+#landing-header > h1 {
+    font-size: 65px;
+}
+}
 
 @media (max-width: 850px) {
-
+/* LANDING ON TABS */
+    #landing-header > h1 {
+        font-size: 45px;
+    }
 /* HEADER ON TABS */
     h1 {
         font-size: 50px;
@@ -595,11 +737,26 @@ svg {
 }
 
 @media (max-width: 600px) {
+/* LANDING ON TABS */
+#landing-header > h1 {
+    font-size: 34px;
+    letter-spacing: 0.025em;
+}
 
-    #content {
+#landing-content {
+    width: 95vw;
+}
+
+
+
+
+
+#content {
 
         top: 90px;
     }
+
+
 
 /* HEADER ON MOBILE */
 

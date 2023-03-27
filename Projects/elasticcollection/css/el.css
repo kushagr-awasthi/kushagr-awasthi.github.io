@@ -81,7 +81,14 @@ h1 {
 
 #subheadwrapper {
     border: var(--test);
+    height: 1em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
+
 
 h2 {
     font-family: expo-sans-pro-condensed, sans-serif;
@@ -136,8 +143,9 @@ h2 {
 }
 
 .buttonB-bold {
-    color:#E73AEB;
+    color: black;
     font-weight: 700;
+    text-shadow: -2px 0px 0px #E73AEB;
 }
 
 #home-button:hover {
@@ -163,6 +171,7 @@ h2 {
     column-count: 2;
     column-gap: 20px;
     column-rule: #fbfc8d dashed 2px;
+    overflow-wrap: break-word;
 
 }
 #content a {

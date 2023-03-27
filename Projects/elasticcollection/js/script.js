@@ -512,11 +512,15 @@ for (let i = 0; i < dataJSON.length; i++){
 // to the current data (thisData) add a "click" event listener 
     thisData.addEventListener("click", function(){
 // On click set the display of the corresponding modal (i is the same thus modal-1 and data-1 will always correspond) to "block" (i.e. visible)
-        thisModal.style.display = "block";
+        thisModal.style.visibility = "visible";
+        thisModal.style.opacity = "1";
+        console.log("Modal-" + [i] + " visible")
 // Close the modal when clicking on the window outside the modal
         window.onclick = function(){
             if (event.target == thisModal) {
-                thisModal.style.display = "none";
+                thisModal.style.visibility = "hidden";
+                thisModal.style.opacity = "0";
+                console.log("Modal-" + [i] + " hidden")
             }
         }
     })
@@ -531,11 +535,14 @@ let controlModal = document.getElementById("control-modal-wrapper");
 // Add a "click" event listener to the button
 controlButton.addEventListener("click", function(){
 // On click set the display of the control modal to "block" (i.e. visible)
-    controlModal.style.display = "block";
+    controlModal.style.visibility = "visible";
+    controlModal.style.opacity = "1";
 // Close the modal when clicking on the window outside the modal
     window.onclick = function(){
         if (event.target == controlModal) {
-            controlModal.style.display = "none";
+            controlModal.style.visibility = "hidden";
+            controlModal.style.opacity = "0";
+            console.log("Control Panel Hidden");
         }
     }
 })
@@ -551,16 +558,18 @@ var sizeToggle = document.getElementById("size-toggle");
 
 // add a "change" event listener to the toggle switch
 sizeToggle.addEventListener('change', function(){
-
+    
 // Using an if/else statement...
-if  (this.checked) {
 
+if  (this.checked) {
 // if the switch is on (checked) Loop through all of the data divs and set the size and width to 120px.  
     for(let i = 0; i < dataJSON.length; i++){
         allData[i].style.width = "120px";
         allData[i].style.height = "120px";
+        
     }
     console.log("all data resized to 120px");
+    resizeNav();
 }
 
  if (this.checked == false) {
@@ -568,11 +577,12 @@ if  (this.checked) {
     for(let i = 0; i < dataJSON.length; i++){
         allData[i].style.width = (dataJSON[i].Intensity * 40) + "px";
         allData[i].style.height = (dataJSON[i].Intensity * 40) + "px";
+        
     }
          console.log("data sized by intensity");
-
+         resizeNav();
    }
-
+   
  })
 
 //-------------------------------------------------------------------------FILTERS: BY YEAR
@@ -580,22 +590,32 @@ if  (this.checked) {
 
 //Set up 2 sliders (in index.html) which allow users to filter by max and min year.
 // Set up variables that get the min and max sliders
+
  var minYear = document.getElementById("minyear-slider");
  var maxYear = document.getElementById("maxyear-slider");
+
  // Create an empty array where we will put in all the years of the data
+
  var yearArray = [];
  
 // using a for let loop, iterate through our data and push(add) every year value into the year array
+
+
 for(let i = 0; i < dataJSON.length; i++){
     yearArray.push(dataJSON[i].Year);
-
  };
+
 // Create two Variables that get the Year Callouts on the main page.
+
  var navMsA = document.getElementById("navp1");
 var navMsB = document.getElementById("navp2");
+
 // Sort the Year Array in ascending order. i.e. chronological.
+
  var yearArray = yearArray.sort((a, b) => (a > b) ? 1 : -1);
+
  // Set up a new variable called m (max) which gives the # of the last year value. -1 because array.length will start count from 0
+
  let m = yearArray.length - 1;
  
  // Set the min and max range of the minimum Year Slider to 0 and m. Set the default value to 0 (oldest Year).
@@ -633,7 +653,7 @@ else filteredData.style.display = "none";
 
 }
 
-nav.style.height = dataConHeight;
+resizeNav();
 })
 // Add a change event listener to the maximum year slider 
 maxYear.addEventListener("change", function(){
@@ -657,18 +677,11 @@ filteredData.style.display = "block";
 else filteredData.style.display = "none";
  }
 
-// Create new variables that fetch the nav (the one with the arrow and years) and the data container wrapper
-//Then get the style attributes of the Data Container and specifically its height
-//Set the nav's height to the Data Container's Height (in CSS, Min-Height limits the minimum to the viewport height).
 
 // Create new variables that fetch the nav (the one with the arrow and years) and the data container wrapper
 //Then get the style attributes of the Data Container and specifically its height
 //Set the nav's height to the Data Container's Height (in CSS, Min-Height limits the minimum to the viewport height).
- let nav = document.querySelector("nav");
- let dataCon = document.querySelector("#data-containers-wrapper");
- let dataConStyle = getComputedStyle(dataCon);
- let dataConHeight = dataConStyle.height;
- nav.style.height = dataConHeight;
+ resizeNav();
 
 })
 
@@ -678,19 +691,40 @@ else filteredData.style.display = "none";
 
 // Set the Nav height to the container height by default.
 
+resizeNav();
+
+// Set the Nav height to the container height if the window is resized.
+
+window.onresize = function() {
+resizeNav();
+console.log("Nav Bar Resized due to Window Resize");
+};
+
+// Landing Button
+
+let landingButton = document.querySelector("#close-landing");
+let landingPage = document.querySelector("#landing");
+
+landingButton.addEventListener("click", function(){
+
+landingPage.style.visibility = "hidden";
+landingPage.style.opacity = "0";
+
+})
+
+
+function resizeNav() {
 let nav = document.querySelector("nav");
 let dataCon = document.querySelector("#data-containers-wrapper");
 let dataConStyle = getComputedStyle(dataCon);
 let dataConHeight = dataConStyle.height;
 nav.style.height = dataConHeight;
+}
 
-// Set the Nav height to the container height if the window is resized.
+let linksArray = [];
 
-window.onresize = function() {
-    let nav = document.querySelector("nav");
-let dataCon = document.querySelector("#data-containers-wrapper");
-let dataConStyle = getComputedStyle(dataCon);
-let dataConHeight = dataConStyle.height;
-nav.style.height = dataConHeight;
-console.log("Nav Bar Resized due to Window Resize");
-};
+for(x of dataJSON){
+    linksArray.push(x.readMore);
+}
+
+console.log(linksArray);
