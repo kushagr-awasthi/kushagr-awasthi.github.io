@@ -1,0 +1,276 @@
+html{
+  padding: 0;
+  margin: 0;
+  font-family: "bilo", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color:rgb(106, 114, 132)
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.bolded {
+  font-weight: 900;
+}
+
+.caption {
+  font-size: 0.66rem;
+}
+
+/*-------------------INITIALIZER------------------- */
+
+
+#initializer {
+  visibility: visible;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(130, 137, 145, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 5;
+  opacity: 100%;
+  transition: 0.25s ease-in-out;
+}
+
+#initializer > i {
+    float: left;
+    line-height: 1.5em;
+    color: white;
+}
+#initializer > h2 {
+  display: inline;
+  color: white;
+}
+
+/*-------------------HEADER------------------- */
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  z-index: 3;
+
+}
+
+#logo {
+  height: 100px;
+  margin: 10px;
+}
+
+/*-------------------MAIN SCROLL CONTAINER------------------- */
+
+#main {
+  scroll-snap-type: y mandatory;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+  z-index: 2;
+
+}
+
+/*-------------------LANDING BCKG (outside of scroll div)------------------- */
+
+#landing-bckg{
+position: fixed;
+z-index: 1;
+width: 100%;
+height: 100vh;
+background-image: url(assets/rain-clouds.gif);
+background-attachment: fixed;
+background-size: cover;
+background-repeat: no-repeat;
+margin: 0;
+overflow: hidden;
+}
+
+#landing-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: calc(100vw - 354px);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+#title > h2 {
+  font-size: 6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 0.9em;
+  color: white;
+}
+
+#title > h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  line-height: 0.9em;
+  text-transform: uppercase;
+}
+
+#avg-callout {
+  font-weight: 900;
+}
+
+/*------------------------------------------------- */
+/*------------------SCROLL CHILDREN---------------- */
+/*------------------------------------------------- */
+
+
+/*-------------------LANDING PLACEHOLDER------------------ */
+
+#landing{
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  scroll-snap-stop: normal;
+  scroll-snap-align: start;
+  }
+
+
+/*-------------------PARTICLE VISUALIZER------------------ */
+
+#particle-visualizer {
+  scroll-snap-stop: normal;
+  scroll-snap-align: end;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  position: relative;
+  background-color: white;
+}
+
+#particle-visualizer-content {
+  width: 100vw;
+  height: calc(100vh - 150px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#particle-visualizer-content h4 {
+
+  font-size: 3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 0.9em;
+  color: rgba(75, 81, 94, 1);
+
+}
+
+#visualize-button {
+
+  height: auto;
+  width: auto;
+  background-color: rgb(106, 114, 132);
+  color: white;
+  border: none;
+  padding: 0.5em;
+
+}
+
+#month-avgs-grid{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  height: auto;
+
+}
+
+.month-avg-button{
+  border: solid rgba(106, 114, 132, 0.5) 2px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0);
+  transition: 0.1s ease-in-out;
+}
+
+.month-avg-button:hover {
+  background: rgba(106, 114, 132, 1);
+  color: white;
+  
+}
+#particle-visualizer-bckg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+
+/* #text {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .data {
+    
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+    
+    
+  }
+  
+  button {
+    width: 150px;
+    height: 50px;
+    border-radius:25px;
+    margin-bottom: 20px;
+  }
+  
+  #greenbutton {
+    background: rgba(0, 128, 0, 0.3);
+    border: solid 2px green;
+    color: green;
+  }
+  
+  #redbutton {
+    background: rgba(255, 0, 0, 0.3);
+    border: solid 2px red;
+    color: red;
+    visibility: hidden;
+  } */
+  
+
+
+
+
+  @media (max-width: 800px){
+    #landing-content{
+    max-width: calc(95vw);
+    }
+    #title > h2 {
+      font-size: 2.5rem;
+     
+    }
+    
+    #title > h3 {
+      font-size: 1.5rem;
+  
+    }  
+  }

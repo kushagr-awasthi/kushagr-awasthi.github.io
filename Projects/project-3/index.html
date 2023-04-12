@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Indian Monsoon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/ezs2xgn.css">
+    <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <section id="initializer">
+        <i style="color: white;" class="fa-solid fa-spinner fa-spin-pulse"></i>
+    <h2>Initializing...</h2>
+
+    </section>
+    <header>
+        <div id="logomark">
+            <object
+            id="logo"
+            data="assets/logo.svg"
+            type="image/svg+xml"
+           ></object>
+        </div>
+    </header>
+    <section id="landing-bckg">
+        <div id="landing-content">
+            <div id="title">
+                <h2>Every year an average <span id="avg-callout"></span>mm Rain falls in Maharashtra, India.</h2>
+                <h3>96% of it falls in the 4 Monsoon Months:<br>
+                    from June to September</h3>
+            </div>
+
+        </div>
+    </section>
+    <section id="main">
+        <section id="landing"></section>
+        <section id="particle-visualizer">
+            <div id="particle-visualizer-content">
+                <h4>When we say 96% of rainfall in 4 months...<br><span class="bolded">we mean 96%.</span> </h4>
+                <button id="visualize-button">Choose a month to visualize <i class="fa-solid fa-arrow-right"></i><br><span class="caption">1 x <i
+                            class="fa-solid fa-circle fa-fade"></i> = 1mm of rain.</span></button>
+                <div id="month-avgs-grid"></div>
+            </div>
+            
+            <div id="particle-visualizer-bckg">
+            </div>
+            
+        </section>
+    </section>
+    <button id="redbutton">
+        BelowAvg
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button id="greenbutton">
+        AboveAvg
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div id="text">
+
+
+
+
+
+</body>
+
+</html>
