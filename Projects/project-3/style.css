@@ -138,6 +138,19 @@ overflow: hidden;
   scroll-snap-align: start;
   }
 
+/*-------------------PARTICLE VISUALIZER------------------ */
+
+  #subdiv-visualizer {
+    scroll-snap-stop: normal;
+    scroll-snap-align: end;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    position: relative;
+    background-color: rgb(106, 114, 132);
+  }
 
 /*-------------------PARTICLE VISUALIZER------------------ */
 
@@ -176,15 +189,32 @@ overflow: hidden;
 
 }
 
+#pv-options-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+
+}
+
 #visualize-button {
 
-  height: auto;
-  width: auto;
+  height: 50px;
+  width: 200px;
   background-color: rgb(106, 114, 132);
   color: white;
   border: none;
   padding: 0.5em;
 
+}
+
+#monthDropDown {
+  height: 50px;
+  width: 200px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0);
+  color: rgb(106, 114, 132);
+  border: solid rgba(106, 114, 132, 1) 1px;
+  padding: 0.5em;
 }
 
 #month-avgs-grid{

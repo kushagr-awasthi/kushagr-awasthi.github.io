@@ -2,6 +2,8 @@ let collData =[];
 let avgRainfall;
 let apiKey = `579b464db66ec23bdd0000015bf2471d25f64b645d6cbc127743dc4d`;
 let api = `https://api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f?api-key=${apiKey}&format=json&limit=6000`;
+let testFig = [55, 500];
+
 
 
 getData().then(response =>
@@ -10,7 +12,9 @@ calcAVG()).then(response =>
 // createDivs(response)).then(response => 
 // countDivs()).then(response =>
 miscFunction()).then(response =>
-droplets()).then(response=> 
+droplets()).then(response=>
+  setup()).then(response=>
+    draw()).then(response=>
 hideInitializer());
 
 async function getData(){
@@ -21,25 +25,83 @@ async function getData(){
 };
 function filterAndCollate(rawData){
   // create 4 variables which house the array of data for the 4 subdivisions
-     let mtData = rawData.records.filter((record) => record.subdivision === "Matathwada");
-     let vbData = rawData.records.filter((record) => record.subdivision === "Vidarbha");
-     let kkData = rawData.records.filter((record) => record.subdivision === "Konkan & Goa");
-     let mmData = rawData.records.filter((record) => record.subdivision === "Madhya Maharashtra");
-  
+     let subdivisionsArray = [];
+     for(let i = 0; i < rawData.records.length; i++){
+      subdivisionsArray.push(rawData.records[i].subdivision);
+     }
+     subdivisionsArray = new Set(subdivisionsArray);
+     subdivisionsArray = Array.from(subdivisionsArray);
+     
+     subdivsIdArray = [];
+
+     for(let i = 0; i < subdivisionsArray.length; i++){
+      let subdiv = subdivisionsArray[i];
+      let matches = subdiv.match(/\b(\w)/g);
+      let id = matches.join('');
+      subdivsIdArray.push(id);
+     }
+
+     let collatedSubdivArray = [];
+     for(let i = 0; i < subdivisionsArray.length; i++){
+         let object = {"id":subdivsIdArray[i] + "Data","name":subdivisionsArray[i]};
+         collatedSubdivArray.push(object);
+     }
+     subdivisionsArray = collatedSubdivArray;
+     console.log(subdivisionsArray);
+    
+     let ANIData = rawData.records.filter((record) => record.subdivision === "Andaman & Nicobar");
+     let APData = rawData.records.filter((record) => record.subdivision === "Arunachal Pradesh");
+     let AMData = rawData.records.filter((record) => record.subdivision === "Assam & Meghalaya");
+     let NMMTData = rawData.records.filter((record) => record.subdivision === "Naga Mani Mizo Tripura");
+     let SHWBSData = rawData.records.filter((record) => record.subdivision === "Sub Himalayan West Bengal & Sikkim");
+     let GWBData = rawData.records.filter((record) => record.subdivision === "Gangetic West Bengal");
+     let OData = rawData.records.filter((record) => record.subdivision === "Orissa");
+     let JData = rawData.records.filter((record) => record.subdivision === "Jharkhand");
+     let BData = rawData.records.filter((record) => record.subdivision === "Bihar");
+     let EUPData = rawData.records.filter((record) => record.subdivision === "East Uttar Pradesh");
+     let WUPData = rawData.records.filter((record) => record.subdivision === "West Uttar Pradesh");
+     let UData = rawData.records.filter((record) => record.subdivision === "Uttarakhand");
+     let PData = rawData.records.filter((record) => record.subdivision === "Punjab");
+     let HPData = rawData.records.filter((record) => record.subdivision === "Himachal Pradesh");
+     let JKData = rawData.records.filter((record) => record.subdivision === "Jammu & Kashmir");
+     let WRData = rawData.records.filter((record) => record.subdivision === "West Rajasthan");
+     let ERData = rawData.records.filter((record) => record.subdivision === "East Rajasthan");
+     let WMPData = rawData.records.filter((record) => record.subdivision === "West Madhya Pradesh");
+     let EMPData = rawData.records.filter((record) => record.subdivision === "East Madhya Pradesh");
+     let GRData = rawData.records.filter((record) => record.subdivision === "Gujarat Region");
+     let SKData = rawData.records.filter((record) => record.subdivision === "Saurashtra & Kutch");
+     let CData = rawData.records.filter((record) => record.subdivision === "Chattisgarh");
+     let CAPData = rawData.records.filter((record) => record.subdivision === "Coastal Andhra Pradesh");
+     let TData = rawData.records.filter((record) => record.subdivision === "Telangana");
+     let RData = rawData.records.filter((record) => record.subdivision === "Rayalseema");
+     let TNData = rawData.records.filter((record) => record.subdivision === "Tamil Nadu");
+     let CKData = rawData.records.filter((record) => record.subdivision === "Coastal Karnataka");
+     let NIKData = rawData.records.filter((record) => record.subdivision === "North Interior Karnataka");
+     let SIKData = rawData.records.filter((record) => record.subdivision === "South Interior Karnataka");
+     let KData = rawData.records.filter((record) => record.subdivision === "Kerala");
+     let LData = rawData.records.filter((record) => record.subdivision === "Lakshadweeo");
+
+     let MData = rawData.records.filter((record) => record.subdivision === "Matathwada");
+     let VData = rawData.records.filter((record) => record.subdivision === "Vidarbha");
+     let KGData = rawData.records.filter((record) => record.subdivision === "Konkan & Goa");
+     let MMData = rawData.records.filter((record) => record.subdivision === "Madhya Maharashtra");
+
+
+
      // Creating Object array with year, months*12;
-  for(let i = 0; i < mtData.length; i++){
-         let collJan = Number(mtData[i].jan) + Number(vbData[i].jan) + Number(kkData[i].jan) + Number(mmData[i].jan);
-         let collFeb = Number(mtData[i].feb) + Number(vbData[i].feb) + Number(kkData[i].feb) + Number(mmData[i].feb);
-         let collMar = Number(mtData[i].mar) + Number(vbData[i].mar) + Number(kkData[i].mar) + Number(mmData[i].mar);
-         let collApr = Number(mtData[i].apr) + Number(vbData[i].apr) + Number(kkData[i].apr) + Number(mmData[i].apr);
-         let collMay = Number(mtData[i].may) + Number(vbData[i].may) + Number(kkData[i].may) + Number(mmData[i].may);
-         let collJun = Number(mtData[i].jun) + Number(vbData[i].jun) + Number(kkData[i].jun) + Number(mmData[i].jun);
-         let collJul = Number(mtData[i].jul) + Number(vbData[i].jul) + Number(kkData[i].jul) + Number(mmData[i].jul);
-         let collAug = Number(mtData[i].aug) + Number(vbData[i].aug) + Number(kkData[i].aug) + Number(mmData[i].aug);
-         let collSep = Number(mtData[i].sep) + Number(vbData[i].sep) + Number(kkData[i].sep) + Number(mmData[i].sep);
-         let collOct = Number(mtData[i].oct) + Number(vbData[i].oct) + Number(kkData[i].oct) + Number(mmData[i].oct);
-         let collNov = Number(mtData[i].nov) + Number(vbData[i].nov) + Number(kkData[i].nov) + Number(mmData[i].nov);
-         let collDec = Number(mtData[i].dec) + Number(vbData[i].dec) + Number(kkData[i].dec) + Number(mmData[i].dec);
+  for(let i = 0; i < MData.length; i++){
+         let collJan = Number(MData[i].jan) + Number(VData[i].jan) + Number(KGData[i].jan) + Number(MMData[i].jan);
+         let collFeb = Number(MData[i].feb) + Number(VData[i].feb) + Number(KGData[i].feb) + Number(MMData[i].feb);
+         let collMar = Number(MData[i].mar) + Number(VData[i].mar) + Number(KGData[i].mar) + Number(MMData[i].mar);
+         let collApr = Number(MData[i].apr) + Number(VData[i].apr) + Number(KGData[i].apr) + Number(MMData[i].apr);
+         let collMay = Number(MData[i].may) + Number(VData[i].may) + Number(KGData[i].may) + Number(MMData[i].may);
+         let collJun = Number(MData[i].jun) + Number(VData[i].jun) + Number(KGData[i].jun) + Number(MMData[i].jun);
+         let collJul = Number(MData[i].jul) + Number(VData[i].jul) + Number(KGData[i].jul) + Number(MMData[i].jul);
+         let collAug = Number(MData[i].aug) + Number(VData[i].aug) + Number(KGData[i].aug) + Number(MMData[i].aug);
+         let collSep = Number(MData[i].sep) + Number(VData[i].sep) + Number(KGData[i].sep) + Number(MMData[i].sep);
+         let collOct = Number(MData[i].oct) + Number(VData[i].oct) + Number(KGData[i].oct) + Number(MMData[i].oct);
+         let collNov = Number(MData[i].nov) + Number(VData[i].nov) + Number(KGData[i].nov) + Number(MMData[i].nov);
+         let collDec = Number(MData[i].dec) + Number(VData[i].dec) + Number(KGData[i].dec) + Number(MMData[i].dec);
          collJan = Math.round((collJan + Number.EPSILON) * 100) / 100;
          collFeb = Math.round((collFeb + Number.EPSILON) * 100) / 100;
          collMar = Math.round((collMar + Number.EPSILON) * 100) / 100;
@@ -55,11 +117,11 @@ function filterAndCollate(rawData){
   
          let collTotal = collJan + collFeb + collMar + collApr + collMay + collJun + collJul + collAug + collSep + collOct + collNov + collDec;
          collTotal = Math.round((collTotal + Number.EPSILON) * 100) / 100;
-         let dataObj = { year: mtData[i].year, jan: collJan, feb: collFeb, mar: collMar, apr: collApr, may: collMay, jun: collJun, jul: collJul, aug: collAug, sep: collSep, oct: collOct, nov: collNov, dec: collDec, total: collTotal};
+         let dataObj = { year: MData[i].year, jan: collJan, feb: collFeb, mar: collMar, apr: collApr, may: collMay, jun: collJun, jul: collJul, aug: collAug, sep: collSep, oct: collOct, nov: collNov, dec: collDec, total: collTotal};
          collData.push(dataObj);
          
     }
-  return collData;  
+   
 }
 function calcAVG(){
   let tRainfallArray = [];
@@ -76,71 +138,7 @@ function calcAVG(){
   avgRainfall = Math.round((avgRainfall + Number.EPSILON) * 100) / 100;
   return avgRainfall;
 }
-// function createDivs(avg){
-//     for (let i = 0; i < collData.length; i++) {
-//       let newDiv = document.createElement("div");
-//       let content = `
-//                    <p><strong>${collData[i].year}</strong></p>
-//                    <p>January Rainfall: ${collData[i].jan + " mm/m<sup>2</sup>"}</p>
-//                    <p>February Rainfall: ${collData[i].feb + " mm/m<sup>2</sup>"}</p>
-//                    <p>March Rainfall: ${collData[i].mar + " mm/m<sup>2</sup>"}</p>
-//                    <p>April Rainfall: ${collData[i].apr + " mm/m<sup>2</sup>"}</p>
-//                    <p>May Rainfall: ${collData[i].may + " mm/m<sup>2</sup>"}</p>
-//                    <p>June Rainfall: ${collData[i].jun + " mm/m<sup>2</sup>"}</p>
-//                    <p>July Rainfall: ${collData[i].jul + " mm/m<sup>2</sup>"}</p>
-//                    <p>August Rainfall: ${collData[i].aug + " mm/m<sup>2</sup>"}</p>
-//                    <p>September Rainfall: ${collData[i].sep + " mm/m<sup>2</sup>"}</p>
-//                    <p>October Rainfall: ${collData[i].oct + " mm/m<sup>2</sup>"}</p>
-//                    <p>November Rainfall: ${collData[i].nov + " mm/m<sup>2</sup>"}</p>
-//                    <p>December Rainfall: ${collData[i].dec + " mm/m<sup>2</sup>"}</p>
-//                    <p>Total Rainfall: ${collData[i].total + " mm/m<sup>2</sup>"}</p>
-                   
-//                    `;
-//       let textCon = document.querySelector("#text");
-//       newDiv.innerHTML = content;
-//       newDiv.classList.add("data");
-//       newDiv.classList.add("data-" + [i]);
-//       textCon.appendChild(newDiv);
-//       if (collData[i].total > avg){
-//         newDiv.style.background = "green";
-//         newDiv.classList.add("abvAvg");
-//       }
-      
-//       else if (collData[i].total < avg){
-//         newDiv.style.background = "red";
-//         newDiv.classList.add("belAvg");
-//       }
-      
-//        else newDiv.style.background = "blue";
-//      }
-//     return collData;}
-// function countDivs(){
-// let abvAvgDivs = document.querySelectorAll(".abvAvg");
-// let belAvgDivs = document.querySelectorAll(".belAvg");
-// let red = document.querySelector("#red");
-// let green = document.getElementById("green");
-// let greenButton = document.getElementById("greenbutton");
-// let redButton = document.getElementById("redbutton");
-// green.addEventListener("click", function(){
-//   for(let i = 0; i < belAvgDivs.length; i++){
-//   if (belAvgDivs[i].style.display == "block"){  
-//   belAvgDivs[i].style.display = "none";
-//   greenButton.style.display = "block";}
-//   else belAvgDivs[i].style.display = "block";
-//         greenButton.style.display = "none";
-//   }  
-// });
-// red.addEventListener("click", function(){
-//   for(let i = 0; i < abvAvgDivs.length; i++){
-//   if (abvAvgDivs[i].style.display == "block"){  
-//   abvAvgDivs[i].style.display = "none";
-//   redButton.style.visibility = "visible";}
-//   else abvAvgDivs[i].style.display = "block";
-//     redButton.style.visibility = "hidden";
-        
-//   }  
-// });
-// }
+
 function miscFunction(){
 
   let avgCallout = document.querySelector("#avg-callout");
@@ -237,16 +235,22 @@ for(let i = 0; i < avgArray.length; i++){
     avgArray[i].average = Math.round((avgArray[i].average + Number.EPSILON) * 100) / 100;
 }
   console.log(avgArray);
-let avgCon = document.querySelector("#month-avgs-grid");
-for(let i = 0; i<avgArray.length; i++){
+  let monthDD = document.querySelector("#monthDropDown");
+  let monthCallout = document.querySelector("#pv-month-callout");
+  let averageCallout = document.querySelector("#pv-avg-callout");
 
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("month-avg-button");
-    newDiv.classList.add(avgArray[i].month + "-avg");
-    newDiv.innerHTML = `<h3>${avgArray[i].month}</h3>
-                        <p>${avgArray[i].average}</p>`;
-    avgCon.appendChild(newDiv);
-}
+  monthCallout.innerHTML = "January";
+  averageCallout.innerHTML = avgArray[0].average + "mm";
+
+  monthDD.addEventListener("change", function(){
+
+    for(let i = 0; i < avgArray.length; i++){
+      if (monthDD.value == avgArray[i].month){
+        monthCallout.innerHTML = avgArray[i].month;
+        averageCallout.innerHTML = avgArray[i].average + "mm";
+      }
+    }
+})
 
 }
 
@@ -285,6 +289,7 @@ class Particle {
 
 
 }
+
 let particles = [];
 
 function setup() {
@@ -294,7 +299,7 @@ function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
   cnv.parent('particle-visualizer-bckg');
 
-  for(let i = 0;i< 1800;i++){
+  for(let i = 0;i< testFig[1];i++){
     particles.push(new Particle());
   }
 }
@@ -303,7 +308,7 @@ function draw() {
 
   background('white');
 
-  for(let i = 0;i< 1800;i++) {
+  for(let i = 0;i< testFig[1];i++) {
     particles[i].createParticle();
     particles[i].moveParticle();
 

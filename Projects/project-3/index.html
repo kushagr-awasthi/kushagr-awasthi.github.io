@@ -41,11 +41,30 @@
     </section>
     <section id="main">
         <section id="landing"></section>
+        <section id="subdiv-visualizer"></section>
         <section id="particle-visualizer">
             <div id="particle-visualizer-content">
-                <h4>When we say 96% of rainfall in 4 months...<br><span class="bolded">we mean 96%.</span> </h4>
+                <h4>In <span id="pv-month-callout"></span>, in MH it rains<br> an average of <span id="pv-avg-callout" class="bolded"></span> </h4>
+                <div id="pv-options-wrapper">
                 <button id="visualize-button">Choose a month to visualize <i class="fa-solid fa-arrow-right"></i><br><span class="caption">1 x <i
-                            class="fa-solid fa-circle fa-fade"></i> = 1mm of rain.</span></button>
+                            class="fa-solid fa-circle fa-fade"></i> = 1mm of rain.</span>
+                </button>
+                <select name="monthDropDown" id="monthDropDown">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+
+                </select>
+            </div>
                 <div id="month-avgs-grid"></div>
             </div>
             
