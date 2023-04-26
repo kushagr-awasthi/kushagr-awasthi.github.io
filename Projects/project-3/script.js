@@ -8,21 +8,27 @@ let testFig = [55, 500];
 
 getData().then(response =>
 filterAndCollate(response)).then(response => 
-calcAVG()).then(response => 
+setupLanding(response)).then(response => 
 // createDivs(response)).then(response => 
 // countDivs()).then(response =>
-miscFunction()).then(response =>
-droplets()).then(response=>
-  setup()).then(response=>
-    draw()).then(response=>
+
+setupYearVisualizer(response)).then(response =>
+setupParticleVisualizer(response)).then(response=>
+setupComparer(response)).then(response=>
 hideInitializer());
 
 async function getData(){
   
   let response = await fetch(api);
   const rawData = await response.json();
+  console.log("data fetched");
   return rawData;
 };
+
+
+
+
+
 function filterAndCollate(rawData){
   // create 4 variables which house the array of data for the 4 subdivisions
      let subdivisionsArray = [];
@@ -47,39 +53,8 @@ function filterAndCollate(rawData){
          collatedSubdivArray.push(object);
      }
      subdivisionsArray = collatedSubdivArray;
-     console.log(subdivisionsArray);
-    
-     let ANIData = rawData.records.filter((record) => record.subdivision === "Andaman & Nicobar");
-     let APData = rawData.records.filter((record) => record.subdivision === "Arunachal Pradesh");
-     let AMData = rawData.records.filter((record) => record.subdivision === "Assam & Meghalaya");
-     let NMMTData = rawData.records.filter((record) => record.subdivision === "Naga Mani Mizo Tripura");
-     let SHWBSData = rawData.records.filter((record) => record.subdivision === "Sub Himalayan West Bengal & Sikkim");
-     let GWBData = rawData.records.filter((record) => record.subdivision === "Gangetic West Bengal");
-     let OData = rawData.records.filter((record) => record.subdivision === "Orissa");
-     let JData = rawData.records.filter((record) => record.subdivision === "Jharkhand");
-     let BData = rawData.records.filter((record) => record.subdivision === "Bihar");
-     let EUPData = rawData.records.filter((record) => record.subdivision === "East Uttar Pradesh");
-     let WUPData = rawData.records.filter((record) => record.subdivision === "West Uttar Pradesh");
-     let UData = rawData.records.filter((record) => record.subdivision === "Uttarakhand");
-     let PData = rawData.records.filter((record) => record.subdivision === "Punjab");
-     let HPData = rawData.records.filter((record) => record.subdivision === "Himachal Pradesh");
-     let JKData = rawData.records.filter((record) => record.subdivision === "Jammu & Kashmir");
-     let WRData = rawData.records.filter((record) => record.subdivision === "West Rajasthan");
-     let ERData = rawData.records.filter((record) => record.subdivision === "East Rajasthan");
-     let WMPData = rawData.records.filter((record) => record.subdivision === "West Madhya Pradesh");
-     let EMPData = rawData.records.filter((record) => record.subdivision === "East Madhya Pradesh");
-     let GRData = rawData.records.filter((record) => record.subdivision === "Gujarat Region");
-     let SKData = rawData.records.filter((record) => record.subdivision === "Saurashtra & Kutch");
-     let CData = rawData.records.filter((record) => record.subdivision === "Chattisgarh");
-     let CAPData = rawData.records.filter((record) => record.subdivision === "Coastal Andhra Pradesh");
-     let TData = rawData.records.filter((record) => record.subdivision === "Telangana");
-     let RData = rawData.records.filter((record) => record.subdivision === "Rayalseema");
-     let TNData = rawData.records.filter((record) => record.subdivision === "Tamil Nadu");
-     let CKData = rawData.records.filter((record) => record.subdivision === "Coastal Karnataka");
-     let NIKData = rawData.records.filter((record) => record.subdivision === "North Interior Karnataka");
-     let SIKData = rawData.records.filter((record) => record.subdivision === "South Interior Karnataka");
-     let KData = rawData.records.filter((record) => record.subdivision === "Kerala");
-     let LData = rawData.records.filter((record) => record.subdivision === "Lakshadweeo");
+
+     
 
      let MData = rawData.records.filter((record) => record.subdivision === "Matathwada");
      let VData = rawData.records.filter((record) => record.subdivision === "Vidarbha");
@@ -121,9 +96,15 @@ function filterAndCollate(rawData){
          collData.push(dataObj);
          
     }
-   
+    console.log("Maharashtra data filtered and collated");
+    return rawData;
 }
-function calcAVG(){
+
+
+
+
+
+function setupLanding(rawData){
   let tRainfallArray = [];
   for(let i = 0; i < collData.length; i++){
     tRainfallArray.push(collData[i].total);
@@ -136,10 +117,11 @@ function calcAVG(){
   
   avgRainfall = totalRainfall/tRainfallArray.length;
   avgRainfall = Math.round((avgRainfall + Number.EPSILON) * 100) / 100;
-  return avgRainfall;
-}
 
-function miscFunction(){
+  let maxRain = Math.max(...tRainfallArray);
+  let minRain = Math.min(...tRainfallArray);
+
+
 
   let avgCallout = document.querySelector("#avg-callout");
   
@@ -162,32 +144,252 @@ for(let n of counters) {
     }
   }
   updateCount();
+  console.log("landing setup");
+  return rawData;
 }
-
-
-// var scrollTrigger;
-// var ref = document.querySelector("#landing");
-// var refStyle = getComputedStyle(ref);
-// var refHeight = (refStyle.height).slice(0, -2)/2;
-// var header = document.querySelector("header");
-// var body = document.querySelector("#main");
-// scrollTrigger = refHeight;
-
-
-// body.addEventListener("scroll", function() {
-//   if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
-//     header.style.background = "blue";
-//   } else {
-//     header.style.background = "red";
-//   }
-// });
-
-
-
 
 }
 
-function droplets(){
+function setupYearVisualizer(rawData){
+  function colorBars(i, newBar){
+
+  let percent8k = (collData[i].total/7800)*100;
+  newBar.style.opacity = percent8k + "%";
+  newBar.style.background = "var(--primary-color)";
+  
+  }
+
+  for(let i = 0; i < collData.length; i++){
+  let barsCon = document.querySelector("#bars-container");
+  let newBar = document.createElement("div");
+  // let barContent = `<div class="bar-content">
+  //                   <p class="bolded">Year:${collData[i].year}</p>
+  //                   <p>Jan: ${collData[i].jan}mm</p>
+  //                   <p>Feb: ${collData[i].feb}mm</p>
+  //                   <p>Mar: ${collData[i].mar}mm</p>
+  //                   <p>Apr: ${collData[i].apr}mm</p>
+  //                   <p>May: ${collData[i].may}mm</p>
+  //                   <p>Jun: ${collData[i].jun}mm</p>
+  //                   <p>Jul: ${collData[i].jul}mm</p>
+  //                   <p>Aug: ${collData[i].aug}mm</p>
+  //                   <p>Sep: ${collData[i].sep}mm</p>
+  //                   <p>Oct: ${collData[i].oct}mm</p>
+  //                   <p>Nov: ${collData[i].nov}mm</p>
+  //                   <p>Dec: ${collData[i].dec}mm</p>
+  //                   <p>Total: ${collData[i].total}mm</p>
+  //                   </div>`
+  // newBar.innerHTML = barContent
+  let yvCallout = document.querySelector("#yv-callout");
+  let avgButton = document.querySelector("#view-by-avg-button");
+  let scaleButton = document.querySelector("#view-by-scale-button");
+  newBar.classList.add("bar");
+  newBar.style.animationDelay = (i * 0.02) + "s";
+  barsCon.appendChild(newBar);
+  
+  newBar.addEventListener("mouseover", function(){
+    yvCallout.innerHTML = "In " + collData[i].year + " it rained " + collData[i].total + " mm in MH.";
+    newBar.style.flexGrow = "5"
+    newBar.style.border = "dotted black 2px"
+   
+  })
+
+  newBar.addEventListener("mouseout", function(){
+    yvCallout.innerHTML = "";
+    newBar.style.flexGrow =  "1";
+    newBar.style.border = "none";
+    
+  })
+
+  scaleButton.classList.add("btnclicked");
+  colorBars(i, newBar);
+
+  avgButton.addEventListener("click", function(){
+    
+    avgButton.classList.toggle("btnclicked");
+    scaleButton.classList.toggle("btnclicked");
+
+    if (collData[i].total >= avgRainfall){
+      newBar.style.background = "var(--primary-color)";
+      newBar.style.opacity = "1";
+      
+    }
+    else{ newBar.style.background = "var(--primary-color)";
+         newBar.style.opacity = "0.5";}
+
+    
+
+  })
+  
+  scaleButton.addEventListener("click", function(){
+    scaleButton.classList.toggle("btnclicked");
+    avgButton.classList.toggle("btnclicked");
+    colorBars(i, newBar);
+    
+
+  })
+  }
+  console.log("year visualizer setup");
+  return rawData
+
+}
+
+function setupComparer(rawData){
+
+  let dropDownA = document.querySelector("#state-dropdown-A");
+  let dropDownB = document.querySelector("#state-dropdown-B");
+
+  createA();
+  createB();
+
+
+  dropDownA.addEventListener("change", function(){
+    let oldDOM = document.querySelector(".result-A");
+      let currentAValue = dropDownA.value;
+      let currentBValue = dropDownB.value;
+      let resultA;
+      let resultB;
+      let percent6k;
+      let resultCon = document.querySelector("#comparison-result-A");
+  
+      if (currentAValue == "Maharashtra & Goa"){
+         resultA = avgRainfall;
+      }
+      else resultA = calcComparison(currentAValue);
+      
+       
+      if (currentBValue == "Maharashtra & Goa"){
+        resultB = avgRainfall;
+      }
+      else resultB = calcComparison(currentBValue);
+    
+     
+      percent6k = (resultA/6000) * 100;
+      oldDOM.style.height = percent6k + "%";
+      oldDOM.style.opacity = percent6k + "%";
+
+  })
+
+  dropDownB.addEventListener("change", function(){
+    let oldDOM = document.querySelector(".result-B");
+      let currentAValue = dropDownA.value;
+      let currentBValue = dropDownB.value;
+      let resultA;
+      let resultB;
+      let percent6k;
+      let resultCon = document.querySelector("#comparison-result-A");
+  
+      if (currentAValue == "Maharashtra & Goa"){
+         resultA = avgRainfall;
+      }
+      else resultA = calcComparison(currentAValue);
+      
+       
+      if (currentBValue == "Maharashtra & Goa"){
+        resultB = avgRainfall;
+      }
+      else resultB = calcComparison(currentBValue);
+    
+     
+      percent6k = (resultB/6000) * 100;
+      oldDOM.style.height = percent6k + "%";
+      oldDOM.style.opacity = percent6k + "%";
+  })
+
+
+  function createA(){let currentAValue = dropDownA.value;
+    let currentBValue = dropDownB.value;
+    let resultA;
+    let resultB;
+    let percent6k;
+    let resultCon = document.querySelector("#comparison-result-A");
+
+    if (currentAValue == "Maharashtra & Goa"){
+       resultA = avgRainfall;
+    }
+    else resultA = calcComparison(currentAValue);
+    
+     
+    if (currentBValue == "Maharashtra & Goa"){
+      resultB = avgRainfall;
+    }
+    else resultB = calcComparison(currentBValue);
+  
+    percent6k = (resultA/6000) * 100;
+    
+   
+   
+    let resultDOM = document.createElement("div");
+    resultDOM.classList.add("result");
+    resultDOM.classList.add("result-A");
+    resultDOM.style.height = percent6k + "%";
+    resultDOM.style.opacity = percent6k + "%";
+    resultCon.appendChild(resultDOM);
+    };
+function createB(){
+      let currentAValue = dropDownA.value;
+      let currentBValue = dropDownB.value;
+      let resultA;
+      let resultB;
+      let percent6k;
+      let resultCon = document.querySelector("#comparison-result-B");
+      
+      if (currentAValue == "Maharashtra & Goa"){
+         resultA = avgRainfall;
+      }
+      else resultA = calcComparison(currentAValue);
+      
+       
+      if (currentBValue == "Maharashtra & Goa"){
+        resultB = avgRainfall;
+      }
+      else resultB = calcComparison(currentBValue);
+  
+      percent6k = (resultB/6000) * 100;
+      let oldDOM = document.querySelector(".result-B");
+      if(oldDOM !== null){
+      oldDOM.remove();}
+      let resultDOM = document.createElement("div");
+      resultDOM.classList.add("result");
+      resultDOM.classList.add("result-B");
+      resultDOM.style.height = percent6k + "%";
+      resultDOM.style.opacity = percent6k + "%";
+      resultCon.appendChild(resultDOM);
+      };
+
+
+function calcComparison(subdiv){
+
+  let thisData = rawData.records.filter((record) => record.subdivision == subdiv);
+let thisArray = [];
+
+
+for (let i = 0; i < thisData.length; i++){
+
+  thisArray.push(thisData[i].annual);
+}
+
+thisArray = thisArray.filter((x) => x !== 'NA');
+let numberArray = [];
+for (let i = 0; i < thisArray.length; i++){
+  numberArray.push(parseInt(thisArray[i]));
+}
+thisArray = numberArray;
+thisTotal = 0;
+for(let i = 0; i < thisArray.length; i++){
+  thisTotal += thisArray[i];
+}
+
+thisAvg = thisTotal/thisArray.length;
+thisAvg = Math.round((thisAvg + Number.EPSILON) * 100) / 100;
+
+return thisAvg
+
+}
+console.log("comparer setup");
+}
+
+
+function setupParticleVisualizer(rawData){
     let janArray = [];
     let febArray = [];
     let marArray = [];
@@ -234,7 +436,7 @@ let avgArray = [{month: "January", average: avgJan}, {month: "February", average
 for(let i = 0; i < avgArray.length; i++){
     avgArray[i].average = Math.round((avgArray[i].average + Number.EPSILON) * 100) / 100;
 }
-  console.log(avgArray);
+
   let monthDD = document.querySelector("#monthDropDown");
   let monthCallout = document.querySelector("#pv-month-callout");
   let averageCallout = document.querySelector("#pv-avg-callout");
@@ -251,16 +453,58 @@ for(let i = 0; i < avgArray.length; i++){
       }
     }
 })
-
+console.log("particle visualizer setup");
+return rawData;
 }
 
 function hideInitializer(){
   let initializer = document.querySelector("#initializer");
   initializer.style.opacity = "0";
   initializer.style.visibility = "hidden";
+  console.log("initializer hidden and site loaded succesfully");
 }
 
-// PARTICLE GENERATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// P5
 
 class Particle {
 

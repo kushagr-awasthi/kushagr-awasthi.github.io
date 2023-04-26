@@ -41,7 +41,10 @@
     </section>
     <section id="main">
         <section id="landing"></section>
-        <section id="subdiv-visualizer"></section>
+        
+        <section id="subdiv-visualizer">
+
+        </section>
         <section id="particle-visualizer">
             <div id="particle-visualizer-content">
                 <h4>In <span id="pv-month-callout"></span>, in MH it rains<br> an average of <span id="pv-avg-callout" class="bolded"></span> </h4>
@@ -71,6 +74,114 @@
             <div id="particle-visualizer-bckg">
             </div>
             
+        </section>
+        <section id="year-visualizer">
+            <div id="yv-content-wrapper">
+                <div id="yv-text-wrapper">
+                    <h4>More than 100 years of Monsoon Data:<br><span class="bolded">Now Visualised.</span></h4>
+                    <h5 id="yv-callout"></h5>
+                    <button id="view-by-scale-button">Color by Data</button>
+                    <button id="view-by-avg-button">Color by +/- Avg.</button>
+                    
+                </div>
+                <div id="bars-wrapper">
+                    <div id="bars-container"> 
+                
+                </div>
+                   
+                </div>
+            </div>
+        </section>
+        <section id="comparer">
+        
+            <div id="comparer-content">
+                <div id="comparer-text">
+                    <h4 class="bolded">Rain Much?</h4>
+                    <h5>Compare Regions</h5>
+                </div>
+                <div id="comparisons-container">
+                    <div id="compare-A-wrapper">
+                        <div class="comparison-selector">
+                            <select name="state-dropdown-A" id="state-dropdown-A">
+                                <option selected value="Maharashtra & Goa">Maharashtra & Goa</option>
+                                <option value="Andaman & Nicobar Islands">Andaman & Nicobar</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam & Meghalaya">Assam & Meghalaya</option>
+                                <option value="Naga Mani Mizo Tripura">Nagaland, Manipur, Mizoram & Tripura</option>
+                                <option value="Sub Himalayan West Bengal & Sikkim">Sub-Himalayan West Bengal & Sikkim</option>
+                                <option value="Gangetic West Bengal">Gangetic West Bengal</option>
+                                <option value="Orissa">Orissa</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="East Uttar Pradesh">East Uttar Pradesh</option>
+                                <option value="West Uttar Pradesh">West Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                                <option value="West Rajasthan">West Rajasthan</option>
+                                <option value="East Rajasthan">East Rajasthan</option>
+                                <option value="West Madhya Pradesh">West Madhya Pradesh</option>
+                                <option value="East Madhya Pradesh">East Madhya Pradesh</option>
+                                <option value="Gujarat Region">Gujarat Region</option>
+                                <option value="Saurashtra & Kutch">Saurashtra & Kutch</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Coastal Andhra Pradesh">Coastal Andhra Pradesh</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Rayalseema">Rayalseema</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Coastal Karnataka">Coastal Karnataka</option>
+                                <option value="North Interior Karnataka">North Interior Karnataka</option>
+                                <option value="South Interior Karnataka">South Interior Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                            </select>
+                        </div>
+                        <div class="comparison-result" id="comparison-result-A">
+                        </div>
+                    </div>
+                    <div id="compare-B-wrapper">
+                        <div class="comparison-selector">
+                            <select name="state-dropdown-B" id="state-dropdown-B">
+                                <option value="Maharashtra & Goa">Maharashtra & Goa</option>
+                                <option selected value="Andaman & Nicobar Islands">Andaman & Nicobar</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam & Meghalaya">Assam & Meghalaya</option>
+                                <option value="Naga Mani Mizo Tripura">Nagaland, Manipur, Mizoram & Tripura</option>
+                                <option value="Sub Himalayan West Bengal & Sikkim">Sub-Himalayan West Bengal & Sikkim</option>
+                                <option value="Gangetic West Bengal">Gangetic West Bengal</option>
+                                <option value="Orissa">Orissa</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="East Uttar Pradesh">East Uttar Pradesh</option>
+                                <option value="West Uttar Pradesh">West Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
+                                <option value="West Rajasthan">West Rajasthan</option>
+                                <option value="East Rajasthan">East Rajasthan</option>
+                                <option value="West Madhya Pradesh">West Madhya Pradesh</option>
+                                <option value="East Madhya Pradesh">East Madhya Pradesh</option>
+                                <option value="Gujarat Region">Gujarat Region</option>
+                                <option value="Saurashtra & Kutch">Saurashtra & Kutch</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Coastal Andhra Pradesh">Coastal Andhra Pradesh</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Rayalseema">Rayalseema</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Coastal Karnataka">Coastal Karnataka</option>
+                                <option value="North Interior Karnataka">North Interior Karnataka</option>
+                                <option value="South Interior Karnataka">South Interior Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                            </select>
+                        </div>
+                       <div class="comparison-result" id="comparison-result-B">
+                        
+                        </div>
+                    </div>
+                </div>
         </section>
     </section>
     <button id="redbutton">

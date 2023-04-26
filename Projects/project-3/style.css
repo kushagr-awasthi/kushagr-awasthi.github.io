@@ -12,12 +12,89 @@ html{
   box-sizing: border-box;
 }
 
+:root{
+  --primary-color: rgba(75, 81, 94, 1);
+}
+
+
+/*-------------------DEFAULTS-------------------*/
+
+
 .bolded {
   font-weight: 900;
 }
 
 .caption {
   font-size: 0.66rem;
+}
+
+h2 {
+  font-size: 6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 0.9em;
+  color: white;
+  margin: 0;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: white;
+  line-height: 0.9em;
+  text-transform: uppercase;
+}
+
+h4 {
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 0.9em;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+h5 {
+  font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 0.9em;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+button {
+
+  height: 50px;
+  width: 200px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0);
+  color: var(--primary-color);
+  border: solid var(--primary-color) 1px;
+  padding: 0.5em;
+  transition: ease-in-out 0.2s;
+}
+
+button:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btnclicked {
+  background: var(--primary-color);
+  color: white;
+}
+
+select {
+  height: 50px;
+  width: 200px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0);
+  color: var(--primary-color);
+  border: solid var(--primary-color) 1px;
+  padding: 0.5em;
 }
 
 /*-------------------INITIALIZER------------------- */
@@ -28,7 +105,7 @@ html{
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(130, 137, 145, 0.7);
+  background-color: var(--primary-color);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 5;
@@ -53,7 +130,6 @@ header {
   width: 100%;
   height: 120px;
   z-index: 3;
-
 }
 
 #logo {
@@ -102,21 +178,6 @@ overflow: hidden;
   z-index: 0;
 }
 
-#title > h2 {
-  font-size: 6rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 0.9em;
-  color: white;
-}
-
-#title > h3 {
-  font-size: 3rem;
-  font-weight: 500;
-  color: white;
-  line-height: 0.9em;
-  text-transform: uppercase;
-}
 
 #avg-callout {
   font-weight: 900;
@@ -138,7 +199,8 @@ overflow: hidden;
   scroll-snap-align: start;
   }
 
-/*-------------------PARTICLE VISUALIZER------------------ */
+
+/*-------------------SUBDIV VISUALIZER------------------ */
 
   #subdiv-visualizer {
     scroll-snap-stop: normal;
@@ -185,7 +247,7 @@ overflow: hidden;
   font-weight: 500;
   text-transform: uppercase;
   line-height: 0.9em;
-  color: rgba(75, 81, 94, 1);
+  color: var(--primary-color);
 
 }
 
@@ -199,47 +261,13 @@ overflow: hidden;
 
   height: 50px;
   width: 200px;
-  background-color: rgb(106, 114, 132);
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 0.5em;
 
 }
 
-#monthDropDown {
-  height: 50px;
-  width: 200px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0);
-  color: rgb(106, 114, 132);
-  border: solid rgba(106, 114, 132, 1) 1px;
-  padding: 0.5em;
-}
-
-#month-avgs-grid{
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
-  width: 100%;
-  height: auto;
-
-}
-
-.month-avg-button{
-  border: solid rgba(106, 114, 132, 0.5) 2px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0);
-  transition: 0.1s ease-in-out;
-}
-
-.month-avg-button:hover {
-  background: rgba(106, 114, 132, 1);
-  color: white;
-  
-}
 #particle-visualizer-bckg {
   width: 100vw;
   height: 100vh;
@@ -249,7 +277,173 @@ overflow: hidden;
   z-index: 1;
 }
 
+/*-------------------YEAR VISUALIZER------------------ */
 
+#year-visualizer {
+  scroll-snap-stop: normal;
+  scroll-snap-align: end;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  position: relative;
+  background-color: white;
+}
+
+#yv-content-wrapper {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+#yv-text-wrapper{
+
+  flex: 0.2;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#yv-text-wrapper h4{
+
+  display: block;
+  overflow: hidden;
+}
+
+#bars-wrapper {
+
+  flex: 0.8;
+}
+
+#bars-container {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 400px;
+}
+
+.bar {
+  height: 100%;
+  flex: auto;
+  overflow: hidden;
+  animation: baranim 0.4s ease-in-out infinite alternate;
+  transition: ease-in-out 0.2s;
+  border-radius: 20px;
+}
+
+.bar-content {
+  visibility: hidden;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+
+
+
+
+@keyframes baranim{
+  0% {transform: translateY(-10px);}
+  100% {transform: translateY(10px);}
+}
+ 
+
+
+
+/*-------------------COMPARER------------------ */
+
+#comparer {
+  scroll-snap-stop: normal;
+  scroll-snap-align: end;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#comparer-content {
+  display: flex;
+  position: relative;
+  bottom: 0;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+#comparer-text {
+  flex: 20%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#comparisons-container {
+  flex: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+#compare-A-wrapper{
+  flex: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-right: solid var(--primary-color) 1px;
+}
+
+#compare-B-wrapper{
+  flex: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.comparison-selector {
+  flex: 0.05;
+  width: 100%;
+  padding-left: 10%;
+}
+
+.comparison-result {
+  flex: 0.85;
+  width: 80%;
+  border: solid 1px var(--primary-color);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.result{
+  width:100%;
+   height:80%; 
+   background: var(--primary-color);
+  animation: rise 1s ease-in-out infinite alternate;
+
+  transform-origin: bottom center;
+  transition: ease-in-out 1s;
+
+
+}
+@keyframes rise{
+  0%{transform: scaleY(1)}
+
+  100%{transform: scaleY(1.05);} 
+} 
 
 /* #text {
     display: grid;
