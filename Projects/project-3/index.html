@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Indian Monsoon</title>
+    <title>Rain Event: The Indian Monsoon</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ezs2xgn.css">
     <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 </head>
 
 <body>
     <section id="initializer">
         <i style="color: white;" class="fa-solid fa-spinner fa-spin-pulse"></i>
-    <h2>Initializing...</h2>
+    <h6>Initializing...</h6>
 
     </section>
     <header>
@@ -40,17 +41,18 @@
         </div>
     </section>
     <section id="main">
-        <section id="landing"></section>
-        
+        <section id="landing">
+        </section>
         <section id="subdiv-visualizer">
 
         </section>
         <section id="particle-visualizer">
             <div id="particle-visualizer-content">
-                <h4>In <span id="pv-month-callout"></span>, in MH it rains<br> an average of <span id="pv-avg-callout" class="bolded"></span> </h4>
+                <h4><span class="bolded">Rain Time? </span>See MH Rain by Month</h4>
+                <h5>In <span id="pv-month-callout"></span>, in MH it rains an average of <span id="pv-avg-callout" class="bolded"></span> </h5>
                 <div id="pv-options-wrapper">
                 <button id="visualize-button">Choose a month to visualize <i class="fa-solid fa-arrow-right"></i><br><span class="caption">1 x <i
-                            class="fa-solid fa-circle fa-fade"></i> = 1mm of rain.</span>
+                            class="fa-solid fa-circle fa-fade"></i> = 2mm of rain.</span>
                 </button>
                 <select name="monthDropDown" id="monthDropDown">
                     <option value="January">January</option>
@@ -78,17 +80,38 @@
         <section id="year-visualizer">
             <div id="yv-content-wrapper">
                 <div id="yv-text-wrapper">
-                    <h4>More than 100 years of Monsoon Data:<br><span class="bolded">Now Visualised.</span></h4>
-                    <h5 id="yv-callout"></h5>
-                    <button id="view-by-scale-button">Color by Data</button>
-                    <button id="view-by-avg-button">Color by +/- Avg.</button>
+                    <h4><span class="bolded">Rain Check?</span> See Rain Data by Year</h4>
                     
+                    <div id="yv-button-wrapper">
+                        <button id="view-by-scale-button">Color by Data</button>
+                        <button id="view-by-avg-button">Color by +/- Avg.</button>
+                        <div id="yv-key-wrapper">
+                            <div id="scale-key" class="yv-key">
+                                <div class="yv-key-visual"></div>
+                                <div class="yv-key-caption">
+                                    <div class="yv-key-min"><p class="caption">0mm</p></div>
+                                    <div class="yv-key-max"><p class="caption">7800mm</p></div>
+                                </div>
+                            </div>
+                             <div id="avg-key" class="yv-key">
+                                <div class="yv-key-visual">
+                                    <div id="avg-div-A"></div>
+                                    <div id="avg-div-B"></div>
+                                </div>
+                                <div class="yv-key-caption">
+                                    <div class="yv-key-min"><p class="caption">below average</p></div>
+                                    <div class="yv-key-max"><p class="caption">above average</p></div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div id="yv-callout-wrapper">
+                        <h5 id="yv-callout">Click+Hold one of the year bars below <i class="fa-solid fa-arrow-down"></i></h5>
+                    </div>
                 </div>
                 <div id="bars-wrapper">
-                    <div id="bars-container"> 
-                
-                </div>
-                   
+                    <div id="bars-container">
+                    </div>
                 </div>
             </div>
         </section>
@@ -96,8 +119,8 @@
         
             <div id="comparer-content">
                 <div id="comparer-text">
-                    <h4 class="bolded">Rain Much?</h4>
-                    <h5>Compare Regions</h5>
+                    <h4><span class="bolded">Rain Much?</span> Compare Regions</h4>
+                    <h5 id="comparer-callout"></h5>
                 </div>
                 <div id="comparisons-container">
                     <div id="compare-A-wrapper">
@@ -136,6 +159,7 @@
                                 <option value="Kerala">Kerala</option>
                                 <option value="Lakshadweep">Lakshadweep</option>
                             </select>
+                            <label for="state-dropdown-A" class="caption">Based on <span id="cp-dd-A-cpt">117</span> years of data.</label>
                         </div>
                         <div class="comparison-result" id="comparison-result-A">
                         </div>
@@ -176,6 +200,7 @@
                                 <option value="Kerala">Kerala</option>
                                 <option value="Lakshadweep">Lakshadweep</option>
                             </select>
+                            <label for="state-dropdown-B" class="caption">Based on <span id="cp-dd-B-cpt">112</span> years of data.</label>
                         </div>
                        <div class="comparison-result" id="comparison-result-B">
                         
@@ -184,19 +209,6 @@
                 </div>
         </section>
     </section>
-    <button id="redbutton">
-        BelowAvg
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-    <button id="greenbutton">
-        AboveAvg
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div id="text">
-
-
-
-
 
 </body>
 

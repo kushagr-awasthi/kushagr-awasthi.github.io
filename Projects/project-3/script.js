@@ -151,11 +151,13 @@ for(let n of counters) {
 }
 
 function setupYearVisualizer(rawData){
+
+
   function colorBars(i, newBar){
 
   let percent8k = (collData[i].total/7800)*100;
   newBar.style.opacity = percent8k + "%";
-  newBar.style.background = "var(--primary-color)";
+  newBar.style.background = `rgba(75, 81, 94, ${percent8k})`;
   
   }
 
@@ -178,24 +180,44 @@ function setupYearVisualizer(rawData){
   //                   <p>Dec: ${collData[i].dec}mm</p>
   //                   <p>Total: ${collData[i].total}mm</p>
   //                   </div>`
-  // newBar.innerHTML = barContent
+  // newBar.innerHTML = barContent;
   let yvCallout = document.querySelector("#yv-callout");
   let avgButton = document.querySelector("#view-by-avg-button");
   let scaleButton = document.querySelector("#view-by-scale-button");
+  let avgKey = document.querySelector("#avg-key");
+  let scaleKey = document.querySelector("#scale-key");
+
+  avgKey.style.display = "none";
   newBar.classList.add("bar");
   newBar.style.animationDelay = (i * 0.02) + "s";
   barsCon.appendChild(newBar);
   
-  newBar.addEventListener("mouseover", function(){
+  newBar.addEventListener("mousedown", function(){
     yvCallout.innerHTML = "In " + collData[i].year + " it rained " + collData[i].total + " mm in MH.";
-    newBar.style.flexGrow = "5"
-    newBar.style.border = "dotted black 2px"
+    newBar.style.flexGrow = 5;
+    newBar.style.borderLeft = " dotted white 2px";
+    newBar.style.borderRight = " dotted white 2px";
    
   })
 
-  newBar.addEventListener("mouseout", function(){
-    yvCallout.innerHTML = "";
-    newBar.style.flexGrow =  "1";
+  newBar.addEventListener("mouseup", function(){
+    yvCallout.innerHTML = `Click+Hold one of the year bars below <i class="fa-solid fa-arrow-down"></i>`;
+    newBar.style.flexGrow = 1;
+    newBar.style.border = "none";
+    
+  })
+
+  newBar.addEventListener("touchstart", function(){
+    yvCallout.innerHTML = "In " + collData[i].year + " it rained " + collData[i].total + " mm in MH.";
+    newBar.style.flexGrow = 5;
+    newBar.style.borderLeft = " dotted white 2px";
+    newBar.style.borderRight = " dotted white 2px";
+   
+  })
+
+  newBar.addEventListener("touchend", function(){
+    yvCallout.innerHTML = `Click+Hold one of the year bars below <i class="fa-solid fa-arrow-down"></i>`;
+    newBar.style.flexGrow = 1;
     newBar.style.border = "none";
     
   })
@@ -207,7 +229,8 @@ function setupYearVisualizer(rawData){
     
     avgButton.classList.toggle("btnclicked");
     scaleButton.classList.toggle("btnclicked");
-
+    scaleKey.style.display = "none";
+    avgKey.style.display = "flex";
     if (collData[i].total >= avgRainfall){
       newBar.style.background = "var(--primary-color)";
       newBar.style.opacity = "1";
@@ -215,16 +238,19 @@ function setupYearVisualizer(rawData){
     }
     else{ newBar.style.background = "var(--primary-color)";
          newBar.style.opacity = "0.5";}
-
     
+    
+    console.log("Years colored by +/- Average");
 
   })
   
   scaleButton.addEventListener("click", function(){
+    scaleKey.style.display = "flex";
+    avgKey.style.display = "none";
     scaleButton.classList.toggle("btnclicked");
     avgButton.classList.toggle("btnclicked");
     colorBars(i, newBar);
-    
+    console.log("Years colored by data");
 
   })
   }
@@ -235,128 +261,136 @@ function setupYearVisualizer(rawData){
 
 function setupComparer(rawData){
 
-  let dropDownA = document.querySelector("#state-dropdown-A");
-  let dropDownB = document.querySelector("#state-dropdown-B");
+let dropDownA = document.querySelector("#state-dropdown-A");
+let dropDownB = document.querySelector("#state-dropdown-B");
 
-  createA();
-  createB();
+createA();
+createB();
+updateCallout();
 
-
-  dropDownA.addEventListener("change", function(){
+dropDownA.addEventListener("change", function(){
     let oldDOM = document.querySelector(".result-A");
       let currentAValue = dropDownA.value;
       let currentBValue = dropDownB.value;
       let resultA;
       let resultB;
       let percent6k;
-      let resultCon = document.querySelector("#comparison-result-A");
+      let yearCall = document.querySelector("#cp-dd-A-cpt");
+      let mainCall = document.querySelector("#comparer-callout");
+      let comparison;
   
       if (currentAValue == "Maharashtra & Goa"){
          resultA = avgRainfall;
+
       }
-      else resultA = calcComparison(currentAValue);
+      else {resultA = calcComparison(currentAValue);}
+      
       
        
       if (currentBValue == "Maharashtra & Goa"){
         resultB = avgRainfall;
       }
-      else resultB = calcComparison(currentBValue);
+      else {resultB = calcComparison(currentBValue);}
+
+      if (resultA >= resultB){
+        comparison = Math.round((resultA - resultB)/resultB * 100);
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+      }
+
+      else if (resultB >= resultA){
+        comparison = Math.round((resultB - resultA)/resultA * 100);
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+      }
     
-     
+      
       percent6k = (resultA/6000) * 100;
       oldDOM.style.height = percent6k + "%";
       oldDOM.style.opacity = percent6k + "%";
+      yearCall.innerHTML = getYearCount(currentAValue);
+      console.log("Now Comparing: " + currentAValue + " with " + currentBValue);
 
   })
 
-  dropDownB.addEventListener("change", function(){
+dropDownB.addEventListener("change", function(){
     let oldDOM = document.querySelector(".result-B");
       let currentAValue = dropDownA.value;
       let currentBValue = dropDownB.value;
-      let resultA;
       let resultB;
       let percent6k;
-      let resultCon = document.querySelector("#comparison-result-A");
+      let yearCall = document.querySelector("#cp-dd-B-cpt");
+      let mainCall = document.querySelector("#comparer-callout");
+      let comparison;
   
       if (currentAValue == "Maharashtra & Goa"){
          resultA = avgRainfall;
+         
       }
       else resultA = calcComparison(currentAValue);
+           
       
        
       if (currentBValue == "Maharashtra & Goa"){
         resultB = avgRainfall;
+        
+
       }
       else resultB = calcComparison(currentBValue);
-    
+      
+      if (resultA >= resultB){
+        comparison = Math.round((resultA - resultB)/resultB * 100);
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+      }
+
+      else if (resultB >= resultA){
+        comparison = Math.round((resultB - resultA)/resultA * 100);
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+      }
      
       percent6k = (resultB/6000) * 100;
       oldDOM.style.height = percent6k + "%";
       oldDOM.style.opacity = percent6k + "%";
+      yearCall.innerHTML = getYearCount(currentBValue);
+      console.log("Now Comparing: " + currentAValue + " with " + currentBValue);
   })
 
-
-  function createA(){let currentAValue = dropDownA.value;
-    let currentBValue = dropDownB.value;
+function createA(){
+    let currentAValue = dropDownA.value;
     let resultA;
-    let resultB;
     let percent6k;
     let resultCon = document.querySelector("#comparison-result-A");
+    let resultDOM = document.createElement("div");
 
     if (currentAValue == "Maharashtra & Goa"){
-       resultA = avgRainfall;
-    }
+       resultA = avgRainfall;}
     else resultA = calcComparison(currentAValue);
-    
-     
-    if (currentBValue == "Maharashtra & Goa"){
-      resultB = avgRainfall;
-    }
-    else resultB = calcComparison(currentBValue);
-  
+
     percent6k = (resultA/6000) * 100;
-    
-   
-   
-    let resultDOM = document.createElement("div");
     resultDOM.classList.add("result");
     resultDOM.classList.add("result-A");
     resultDOM.style.height = percent6k + "%";
     resultDOM.style.opacity = percent6k + "%";
     resultCon.appendChild(resultDOM);
-    };
+    }
 function createB(){
-      let currentAValue = dropDownA.value;
+
       let currentBValue = dropDownB.value;
-      let resultA;
       let resultB;
       let percent6k;
       let resultCon = document.querySelector("#comparison-result-B");
-      
-      if (currentAValue == "Maharashtra & Goa"){
-         resultA = avgRainfall;
-      }
-      else resultA = calcComparison(currentAValue);
-      
+      let resultDOM = document.createElement("div");
        
       if (currentBValue == "Maharashtra & Goa"){
-        resultB = avgRainfall;
-      }
+        resultB = avgRainfall;}
       else resultB = calcComparison(currentBValue);
   
       percent6k = (resultB/6000) * 100;
-      let oldDOM = document.querySelector(".result-B");
-      if(oldDOM !== null){
-      oldDOM.remove();}
-      let resultDOM = document.createElement("div");
       resultDOM.classList.add("result");
       resultDOM.classList.add("result-B");
       resultDOM.style.height = percent6k + "%";
       resultDOM.style.opacity = percent6k + "%";
       resultCon.appendChild(resultDOM);
-      };
-
-
+      }
+      
 function calcComparison(subdiv){
 
   let thisData = rawData.records.filter((record) => record.subdivision == subdiv);
@@ -377,17 +411,79 @@ thisArray = numberArray;
 thisTotal = 0;
 for(let i = 0; i < thisArray.length; i++){
   thisTotal += thisArray[i];
+
 }
 
 thisAvg = thisTotal/thisArray.length;
 thisAvg = Math.round((thisAvg + Number.EPSILON) * 100) / 100;
 
-return thisAvg
+
+return thisAvg;
 
 }
+function getYearCount(subdiv){
+  let thisYearCount 
+  if (subdiv == "Maharashtra & Goa"){
+    thisYearCount = collData.length;
+  }
+  else{
+  let thisData = rawData.records.filter((record) => record.subdivision == subdiv);
+  let thisArray = [];
+  
+  
+  for (let i = 0; i < thisData.length; i++){
+  
+    thisArray.push(thisData[i].annual);
+  }
+  
+  thisArray = thisArray.filter((x) => x !== 'NA');
+  let numberArray = [];
+  for (let i = 0; i < thisArray.length; i++){
+    numberArray.push(parseInt(thisArray[i]));
+  }
+
+  thisArray = numberArray;
+  thisYearCount = thisArray.length;}
+  
+
+  return thisYearCount;
+}
+function updateCallout(){
+  let currentAValue = dropDownA.value;
+  let currentBValue = dropDownB.value;
+  let resultA;
+  let resultB;
+  let comparison;
+  let mainCall = document.querySelector("#comparer-callout");
+
+  if (currentAValue == "Maharashtra & Goa"){
+    resultA = avgRainfall;
+    
+ }
+ else resultA = calcComparison(currentAValue);
+      
+ 
+  
+ if (currentBValue == "Maharashtra & Goa"){
+   resultB = avgRainfall;
+   
+
+ }
+ else resultB = calcComparison(currentBValue);
+
+  if (resultA >= resultB){
+    comparison = Math.round((resultA - resultB)/resultB * 100);
+    mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+  }
+
+  else if (resultB >= resultA){
+    comparison = Math.round((resultB - resultA)/resultA * 100);
+    mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+}}
+
 console.log("comparer setup");
-}
 
+}
 
 function setupParticleVisualizer(rawData){
     let janArray = [];
@@ -443,16 +539,60 @@ for(let i = 0; i < avgArray.length; i++){
 
   monthCallout.innerHTML = "January";
   averageCallout.innerHTML = avgArray[0].average + "mm";
+  createParticles(Math.round(avgArray[0].average/2));
 
   monthDD.addEventListener("change", function(){
-
+    let cycleCount;
     for(let i = 0; i < avgArray.length; i++){
       if (monthDD.value == avgArray[i].month){
         monthCallout.innerHTML = avgArray[i].month;
         averageCallout.innerHTML = avgArray[i].average + "mm";
+        cycleCount = Math.round(avgArray[i].average/2);
       }
     }
+    
+    updateParticles(cycleCount);
+    console.log("Now Visualizing " + monthDD.value);
 })
+
+function createParticles(cycleCount){
+  let particleCon = document.querySelector("#particle-visualizer-bckg");
+
+  for(let i = 0; i < cycleCount; i++){
+    let leftOffset = Math.round((Math.random() * 100)) + "%";
+    let topOffset = Math.round((Math.random() * 100)) + "%";
+    let timeFunction = (3 + (Math.random() * 8)) + "s";
+    let size = 5 + (Math.round((Math.random() * 5))) + "px";
+    let opacity = Math.round(10 + (Math.random() * 100)) + "%";
+    
+    let particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.style.width = size;
+    particle.style.height = size;
+    particle.style.left = leftOffset;
+    particle.style.top = topOffset;
+    particle.style.opacity = opacity;
+    particle.style.animationDuration = timeFunction;
+    
+    particleCon.appendChild(particle);
+      
+      
+      
+    }
+}
+function updateParticles(cycleCount){
+  let particleCon = document.querySelector("#particle-visualizer-bckg");
+  let allParticles = document.querySelectorAll(".particle");
+ allParticles.forEach((particle) => {
+  particle.remove();
+ })
+createParticles(cycleCount);
+}
+
+
+
+
+
 console.log("particle visualizer setup");
 return rawData;
 }
@@ -463,103 +603,3 @@ function hideInitializer(){
   initializer.style.visibility = "hidden";
   console.log("initializer hidden and site loaded succesfully");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// P5
-
-class Particle {
-
-  constructor(){
-    this.x = random(0,width);
-    this.y = random(0,height);
-    this.r = random(1,8);
-    this.xSpeed = random(0,0);
-    this.ySpeed = random(0.5,4.5);
-  }
-
-  createParticle() {
-    noStroke();
-    fill('rgba(106,114,132,0.5)');
-    circle(this.x,this.y,this.r);
-  }
-
-  moveParticle() {
-    if(this.x < 0 || this.x > width)
-      this.xSpeed*=-1;
-    if(this.y < 0 || this.y > height)
-      this.ySpeed*=-1;
-    this.x+=this.xSpeed;
-    this.y+=this.ySpeed;
-  }
-
-
-}
-
-let particles = [];
-
-function setup() {
-  var canvasDiv = document.getElementById("particle-visualizer-bckg");
-  var width = canvasDiv.offsetWidth;
-  var height = canvasDiv.offsetheight;
-  let cnv = createCanvas(windowWidth, windowHeight);
-  cnv.parent('particle-visualizer-bckg');
-
-  for(let i = 0;i< testFig[1];i++){
-    particles.push(new Particle());
-  }
-}
-
-function draw() {
-
-  background('white');
-
-  for(let i = 0;i< testFig[1];i++) {
-    particles[i].createParticle();
-    particles[i].moveParticle();
-
-  }
-
-}
-
-  // PARTICLE GENERATION ENDS
-
-
