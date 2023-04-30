@@ -9,12 +9,14 @@ let testFig = [55, 500];
 getData().then(response =>
 filterAndCollate(response)).then(response => 
 setupLanding(response)).then(response => 
+setupSubdivVisualizer(response)).then(response =>
 // createDivs(response)).then(response => 
 // countDivs()).then(response =>
 
 setupYearVisualizer(response)).then(response =>
 setupParticleVisualizer(response)).then(response=>
 setupComparer(response)).then(response=>
+misc(response)).then(response=>
 hideInitializer());
 
 async function getData(){
@@ -24,10 +26,6 @@ async function getData(){
   console.log("data fetched");
   return rawData;
 };
-
-
-
-
 
 function filterAndCollate(rawData){
   // create 4 variables which house the array of data for the 4 subdivisions
@@ -100,9 +98,94 @@ function filterAndCollate(rawData){
     return rawData;
 }
 
+function setupSubdivVisualizer(rawData){
+  
+  let MData = rawData.records.filter((record) => record.subdivision === "Matathwada");
+  let VData = rawData.records.filter((record) => record.subdivision === "Vidarbha");
+  let KGData = rawData.records.filter((record) => record.subdivision === "Konkan & Goa");
+  let MMData = rawData.records.filter((record) => record.subdivision === "Madhya Maharashtra");
+  let callout = document.querySelector("#sv-callout");
+
+  let MTotal = [];
+  let VTotal = [];
+  let KGTotal = [];
+  let MMTotal = [];
+
+  for(let i = 0;i < MData.length; i++){
+          
+       MTotal.push(Number(MData[i].annual));
+       VTotal.push(Number(VData[i].annual));
+       KGTotal.push(Number(KGData[i].annual));
+       MMTotal.push(Number(MMData[i].annual));
+
+  }
+  
+  let MAvg = 0;
+  let VAvg = 0;
+  let MMAvg = 0;
+  let KGAvg = 0;
+
+  for(let i = 0; i < MTotal.length; i++){
+    MAvg += MTotal[i];
+    VAvg += VTotal[i];
+    MMAvg += MMTotal[i];
+    KGAvg += KGTotal[i];
+  }
+
+   MAvg = Math.round(((MAvg/MTotal.length) + Number.EPSILON) * 100) / 100;
+   VAvg = Math.round(((VAvg/MTotal.length) + Number.EPSILON) * 100) / 100;
+   MMAvg = Math.round(((MMAvg/MTotal.length) + Number.EPSILON) * 100) / 100;
+   KGAvg = Math.round(((KGAvg/MTotal.length) + Number.EPSILON) * 100) / 100;
+
+   let MMap = document.querySelector("#mt-map");
+   let VMap = document.querySelector("#vd-map");
+   let MMMap = document.querySelector("#mm-map");
+   let KGMap = document.querySelector("#kk-map");
+   
+   let MPercent = MAvg/avgRainfall * 100;
+   let VPercent = VAvg/avgRainfall * 100;
+   let MMPercent = MMAvg/avgRainfall * 100;
+   let KGPercent = KGAvg/avgRainfall * 100;
+
+
+   MMap.style.fill = `rgba(75, 81, 94, ${MPercent}%)`;
+   VMap.style.fill = `rgba(75, 81, 94, ${VPercent}%)`;
+   MMMap.style.fill = `rgba(75, 81, 94, ${MMPercent}%)`;
+   KGMap.style.fill = `rgba(75, 81, 94, ${KGPercent}%)`;
+  
+
+  
+
+  KGMap.addEventListener("mousedown", function(){
+      callout.innerHTML = `On Average, <span class="bolded">${Math.round(KGPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Konkan & Goa</span>: ${KGAvg}mm.`;
+  })
+  KGMap.addEventListener("mouseup", function(){
+    callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+MMMap.addEventListener("mousedown", function(){
+  callout.innerHTML = `On Average, <span class="bolded">${Math.round(MMPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Madhya Maharashtra</span>: ${MMAvg}mm.`;
+})
+MMMap.addEventListener("mouseup", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+MMap.addEventListener("mousedown", function(){
+  callout.innerHTML = `On Average, <span class="bolded">${Math.round(MPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Marathwada</span>: ${MAvg}mm.`;
+})
+MMap.addEventListener("mouseup", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+VMap.addEventListener("mousedown", function(){
+  callout.innerHTML = `On Average, <span class="bolded">${Math.round(VPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Vidarbha</span>: ${VAvg}mm.`;
+})
+VMap.addEventListener("mouseup", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
 
 
 
+  console.log("Sub-Division Visualizer Setup");
+  return rawData;
+}
 
 function setupLanding(rawData){
   let tRainfallArray = [];
@@ -294,12 +377,12 @@ dropDownA.addEventListener("change", function(){
 
       if (resultA >= resultB){
         comparison = Math.round((resultA - resultB)/resultB * 100);
-        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue} than in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
       }
 
       else if (resultB >= resultA){
         comparison = Math.round((resultB - resultA)/resultA * 100);
-        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue} than in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
       }
     
       
@@ -338,12 +421,12 @@ dropDownB.addEventListener("change", function(){
       
       if (resultA >= resultB){
         comparison = Math.round((resultA - resultB)/resultB * 100);
-        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue} than in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
       }
 
       else if (resultB >= resultA){
         comparison = Math.round((resultB - resultA)/resultA * 100);
-        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+        mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue} than in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
       }
      
       percent6k = (resultB/6000) * 100;
@@ -536,7 +619,9 @@ for(let i = 0; i < avgArray.length; i++){
   let monthDD = document.querySelector("#monthDropDown");
   let monthCallout = document.querySelector("#pv-month-callout");
   let averageCallout = document.querySelector("#pv-avg-callout");
-
+  let percentCallout = document.querySelector("#pv-percent-callout");
+  let asPercent = Math.round(avgArray[0].average/avgRainfall * 100);
+  percentCallout.innerHTML = asPercent;
   monthCallout.innerHTML = "January";
   averageCallout.innerHTML = avgArray[0].average + "mm";
   createParticles(Math.round(avgArray[0].average/2));
@@ -545,8 +630,10 @@ for(let i = 0; i < avgArray.length; i++){
     let cycleCount;
     for(let i = 0; i < avgArray.length; i++){
       if (monthDD.value == avgArray[i].month){
+        asPercent = Math.round(avgArray[i].average/avgRainfall * 100);
         monthCallout.innerHTML = avgArray[i].month;
         averageCallout.innerHTML = avgArray[i].average + "mm";
+        percentCallout.innerHTML = asPercent;
         cycleCount = Math.round(avgArray[i].average/2);
       }
     }
@@ -562,12 +649,12 @@ function createParticles(cycleCount){
     let leftOffset = Math.round((Math.random() * 100)) + "%";
     let topOffset = Math.round((Math.random() * 100)) + "%";
     let timeFunction = (3 + (Math.random() * 8)) + "s";
-    let size = 5 + (Math.round((Math.random() * 5))) + "px";
+    let size = 10 + (Math.round((Math.random() * 50))) + "px";
     let opacity = Math.round(10 + (Math.random() * 100)) + "%";
     
     let particle = document.createElement("div");
     particle.classList.add("particle");
-    particle.style.width = size;
+    particle.style.width = "4px";
     particle.style.height = size;
     particle.style.left = leftOffset;
     particle.style.top = topOffset;
@@ -602,4 +689,25 @@ function hideInitializer(){
   initializer.style.opacity = "0";
   initializer.style.visibility = "hidden";
   console.log("initializer hidden and site loaded succesfully");
+}
+
+function misc(){
+
+
+  
+  let scrollCon = document.querySelector("#main");
+  let logoBckg = document.querySelector("#logomark");
+  
+  
+  scrollCon.addEventListener("scroll", function() {
+    
+    // We add pageYOffset for compatibility with IE.
+    logoBckg.style.background = "var(--primary-color)";
+    logoBckg.style.right = "0";
+
+
+
+   
+  })
+
 }

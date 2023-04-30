@@ -17,6 +17,14 @@ html{
   --primary-color: rgba(75, 81, 94, 1);
 }
 
+body{
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+}
 
 /*-------------------DEFAULTS-------------------*/
 
@@ -153,9 +161,22 @@ header {
   z-index: 3;
 }
 
-#logo {
+#logomark {
+  position: fixed;
+  right: calc(100vw - 178px);
   height: 100px;
+  width: 158.62px;
   margin: 10px;
+  padding: 1px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo-svg {
+  height: 100%;
+  fill: white;
 }
 /*-------------MAIN SCROLL CONTAINER------------------- */
 
@@ -232,9 +253,131 @@ overflow: hidden;
     flex-flow: column nowrap;
     justify-content: flex-end;
     position: relative;
-    background-color: rgb(106, 114, 132);
+    background-color: white;
+
   }
 
+  #sv-content-wrapper {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: calc(100vh - 120px);
+  }
+
+  #sv-text{
+    flex: 0.35;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+  }
+
+  #sv-map-wrapper{
+    flex: 0.65;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #mh-map {
+    max-height: 80%;
+    max-width: 90vw;
+  }
+
+#kk-map{
+  stroke: white;
+  stroke-width: 6px;
+}
+
+#mm-map{
+  stroke: white;
+  stroke-width: 6px;
+}
+
+#vd-map{
+  stroke: white;
+  stroke-width: 6px;
+}
+
+#mt-map{
+  stroke: white;
+  stroke-width: 6px;
+}
+
+  #kk-map:hover{
+    stroke: var(--primary-color);
+    
+  }
+  #mm-map:hover{
+    stroke: var(--primary-color);
+    
+  }
+  #mt-map:hover{
+    stroke: var(--primary-color);
+    
+  }
+  #vd-map:hover{
+    stroke: var(--primary-color);
+    
+  }
+
+  #sv-key-wrapper{
+    height: 50px;
+    width: 200px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0);
+    color: var(--primary-color);
+    padding: 0;
+    transition: ease-in-out 0.2s;
+  
+  }
+
+  #sv-key {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 50px;
+    margin: 0 3px;
+  }
+  
+  .sv-key-visual{
+    flex: 0.55;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgba(106, 114, 132, 0), rgba(106, 114, 132, 0.52));
+    
+  }
+  .sv-key-caption{
+    flex: 0.45;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .sv-key-min{
+    flex: 0.5;
+    text-align: left;
+  }
+  
+  .sv-key-max{
+    flex: 0.5;
+    text-align: right;
+  }
+  
+  
+  
+  
+    
+  
+  
 /*-------------------PARTICLE VISUALIZER------------------ */
 
 #particle-visualizer {
@@ -252,7 +395,7 @@ overflow: hidden;
 
 #particle-visualizer-content {
   width: 100vw;
-  height: 25vh;
+  height: calc(0.35 * (100vh - 150px));
   top: 150px;
   position: absolute;
   left: 0;
@@ -303,7 +446,6 @@ overflow: hidden;
 
 .particle {
 
-  border-radius: 50%;
   background: grey;
   animation: rain infinite linear;
   position: absolute;
@@ -329,6 +471,7 @@ overflow: hidden;
   justify-content: flex-end;
   position: relative;
   background-color: white;
+  overflow: hidden;
 }
 
 #yv-content-wrapper {
@@ -445,6 +588,7 @@ overflow: hidden;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  overflow-x: scroll;
 
 }
 
@@ -583,41 +727,29 @@ overflow: hidden;
   100%{transform: scaleY(1.05);} 
 } 
 
-/* #text {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-  }
+footer {
+  scroll-snap-stop: normal;
+  scroll-snap-align: end;
+  width: 100%;
+  height: 25vh;
+  background: url(assets/rain-clouds.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 10px white solid;
   
-  .data {
-    
-    border: 1px solid blue;
-    border-radius: 10px;
-    padding: 10px;
-    
-    
-  }
-  
-  button {
-    width: 150px;
-    height: 50px;
-    border-radius:25px;
-    margin-bottom: 20px;
-  }
-  
-  #greenbutton {
-    background: rgba(0, 128, 0, 0.3);
-    border: solid 2px green;
-    color: green;
-  }
-  
-  #redbutton {
-    background: rgba(255, 0, 0, 0.3);
-    border: solid 2px red;
-    color: red;
-    visibility: hidden;
-  } */
-  
+}
+
+footer h5  {
+  color: white;
+}
+
+footer h6  {
+  color: white;
+}
 
 
 
@@ -635,6 +767,10 @@ overflow: hidden;
       font-size: 1.5rem;
   
     }  
+
+    #bars-container {
+      width: 1800px;
+    }
   }
 
 
