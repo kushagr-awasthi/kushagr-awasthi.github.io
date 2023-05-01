@@ -873,6 +873,7 @@ footer h6  {
 
       height: 35px;
       flex: 50%;
+      font-size:0.75rem;
       
      
     }
@@ -881,6 +882,7 @@ footer h6  {
       height: 35px;
       width: 100%;
       max-width: 200px;
+      font-size:0.75rem;
       
     }
 
@@ -937,6 +939,7 @@ footer h6  {
    #visualize-button{
     height: 35px;
     flex: 50%;
+    font-size: 0.75rem;
 
 
    }
