@@ -181,6 +181,30 @@ VMap.addEventListener("mouseup", function(){
 callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
 })
 
+KGMap.addEventListener("touchstart", function(){
+  callout.innerHTML = `On Average, <span class="bolded">${Math.round(KGPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Konkan & Goa</span>: ${KGAvg}mm.`;
+})
+KGMap.addEventListener("touchend", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+MMMap.addEventListener("touchstart", function(){
+callout.innerHTML = `On Average, <span class="bolded">${Math.round(MMPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Madhya Maharashtra</span>: ${MMAvg}mm.`;
+})
+MMMap.addEventListener("touchend", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+MMap.addEventListener("touchstart", function(){
+callout.innerHTML = `On Average, <span class="bolded">${Math.round(MPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Marathwada</span>: ${MAvg}mm.`;
+})
+MMap.addEventListener("touchend", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
+VMap.addEventListener("touchstart", function(){
+callout.innerHTML = `On Average, <span class="bolded">${Math.round(VPercent)}%</span> of Annual MH Rainfall occurs in <span class="bolded">Vidarbha</span>: ${VAvg}mm.`;
+})
+VMap.addEventListener("touchend", function(){
+callout.innerHTML = `Select a subdivision below <i class="fa-solid fa-arrow-down"></i>`;
+})
 
 
   console.log("Sub-Division Visualizer Setup");
@@ -556,12 +580,12 @@ function updateCallout(){
 
   if (resultA >= resultB){
     comparison = Math.round((resultA - resultB)/resultB * 100);
-    mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+    mainCall.innerHTML = `It rains ${comparison}% more in ${currentAValue} than in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
   }
 
   else if (resultB >= resultA){
     comparison = Math.round((resultB - resultA)/resultA * 100);
-    mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
+    mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue} than in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
 }}
 
 console.log("comparer setup");
@@ -654,7 +678,7 @@ function createParticles(cycleCount){
     
     let particle = document.createElement("div");
     particle.classList.add("particle");
-    particle.style.width = "4px";
+    //particle.style.width = "4px";
     particle.style.height = size;
     particle.style.left = leftOffset;
     particle.style.top = topOffset;
@@ -697,14 +721,17 @@ function misc(){
   
   let scrollCon = document.querySelector("#main");
   let logoBckg = document.querySelector("#logomark");
+  let header = document.querySelector("header");
   
   
   scrollCon.addEventListener("scroll", function() {
     
     // We add pageYOffset for compatibility with IE.
     logoBckg.style.background = "var(--primary-color)";
-    logoBckg.style.right = "0";
-
+    logoBckg.style.right = "5vw";
+    logoBckg.style.border = "solid var(--primary-color) 1px";
+    header.classList.add("color-header");
+   
 
 
    

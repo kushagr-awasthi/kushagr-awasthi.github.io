@@ -1,3 +1,4 @@
+/* #region Basic */
 html{
   padding: 0;
   margin: 0;
@@ -22,13 +23,9 @@ body{
   padding: 0;
 }
 
-a {
-  color: white;
-}
+/* #endregion */
 
-/*-------------------DEFAULTS-------------------*/
-
-
+/* #region Default */
 .bolded {
   font-weight: 900;
 }
@@ -92,6 +89,10 @@ button {
   border: solid var(--primary-color) 1px;
   padding: 0.5em;
   transition: ease-in-out 0.2s;
+  font-family: "bilo", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13.33px;
 }
 
 button:hover {
@@ -106,13 +107,18 @@ button:hover {
 
 select {
   height: 50px;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0);
   color: var(--primary-color);
   border: solid var(--primary-color) 1px;
   padding: 0.5em;
+  font-family: "bilo", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13.33px;
 }
 
 label {
@@ -121,10 +127,24 @@ label {
 
 :focus {
   outline: var(--primary-color) solid 1px;
+  box-shadow: inset 0px 0px 0px 0px red;
 }
 
+a {
+  color: white;
+}
 
-/*-------------------INITIALIZER------------------- */
+/* #endregion */
+
+
+
+
+/*------------------------------------------------- */
+/*------------------OUT OF SCROLL---------------- */
+/*------------------------------------------------- */
+
+
+/* #region Initializer */
 
 
 #initializer {
@@ -150,9 +170,9 @@ label {
   color: white;
 }
 
+/* #endregion */
 
-
-/*-------------------HEADER------------------- */
+/* #region Header */
 
 header {
   position: fixed;
@@ -163,11 +183,9 @@ header {
 
 #logomark {
   position: fixed;
-  right: calc(100vw - 178px);
+  right: calc(95vw - 178px);
   height: 100px;
   width: 158.62px;
-  margin: 10px;
-  padding: 1px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -178,19 +196,10 @@ header {
   height: 100%;
   fill: white;
 }
-/*-------------MAIN SCROLL CONTAINER------------------- */
 
-#main {
-  scroll-snap-type: y mandatory;
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
-  position: fixed;
-  z-index: 2;
+/* #endregion */
 
-}
-
-/*-------------------LANDING BCKG (outside of scroll div)------------------- */
+/* #region Landing Bckg: fixed outside scroll */
 
 #landing-bckg{
 position: fixed;
@@ -212,7 +221,6 @@ overflow: hidden;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90vw;
-  max-width: calc(100vw - 354px);
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -225,12 +233,28 @@ overflow: hidden;
   font-weight: 900;
 }
 
+/* #endregion */
+
+/* #region Main Scroll Container */
+
+#main {
+  scroll-snap-type: y mandatory;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+  z-index: 2;
+
+}
+/* #endregion */
+
+
 /*------------------------------------------------- */
 /*------------------SCROLL CHILDREN---------------- */
 /*------------------------------------------------- */
 
 
-/*-------------------LANDING PLACEHOLDER------------------ */
+/* #region Landing Placeholder*/
 
 #landing{
   width: 100%;
@@ -241,8 +265,9 @@ overflow: hidden;
   scroll-snap-align: start;
   }
 
+  /* #endregion */
 
-/*-------------------SUBDIV VISUALIZER------------------ */
+/* #region Subdiv Visualizer */
 
   #subdiv-visualizer {
     scroll-snap-stop: normal;
@@ -271,6 +296,7 @@ overflow: hidden;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
+    padding: 0 5vw;
   }
 
   #sv-map-wrapper{
@@ -376,9 +402,9 @@ overflow: hidden;
   
   
     
+  /* #endregion */
   
-  
-/*-------------------PARTICLE VISUALIZER------------------ */
+/* #region Particle Visualizer */
 
 #particle-visualizer {
   scroll-snap-stop: normal;
@@ -395,20 +421,27 @@ overflow: hidden;
 
 #particle-visualizer-content {
   width: 100vw;
-  height: calc(0.35 * (100vh - 150px));
-  top: 150px;
+  height: calc(100vh - 120px);
+  bottom: 0;
   position: absolute;
   left: 0;
-  bottom: 0;
   z-index: 2;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   align-items: left;
+  padding: 0 5vw;
   
 }
 
-#particle-visualizer-content h4 {
+#particle-visualizer-text{
+  height: calc(0.35 * (100vh - 120px));
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+
+/* #particle-visualizer-content h4 {
 
   font-size: 3rem;
   font-weight: 500;
@@ -416,7 +449,7 @@ overflow: hidden;
   line-height: 0.9em;
   color: var(--primary-color);
 
-}
+} */
 
 #pv-options-wrapper {
   display: flex;
@@ -431,9 +464,17 @@ overflow: hidden;
   background-color: var(--primary-color);
   color: white;
   border: none;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-shadow: inset 0px 0px 0px 0px red;
   padding: 0.5em;
+  font-size: 13.33px;
+  
 
 }
+
+
 
 #particle-visualizer-bckg {
   width: 100vw;
@@ -449,6 +490,7 @@ overflow: hidden;
   background: grey;
   animation: rain infinite linear;
   position: absolute;
+  width: 4px;
 
 
 }
@@ -459,7 +501,9 @@ overflow: hidden;
   100%{top: 100vh;}
 } 
 
-/*-------------------YEAR VISUALIZER------------------ */
+/* #endregion */
+
+/* #region Year Visualizer */
 
 #year-visualizer {
   scroll-snap-stop: normal;
@@ -490,6 +534,7 @@ overflow: hidden;
   flex-flow: column nowrap;
   align-items: flex-start;
   justify-content: space-around;
+  padding: 0 5vw;
 
 }
 
@@ -637,10 +682,9 @@ overflow: hidden;
   100% {transform: translateY(10px);}
 }
  
+/* #endregion */
 
-
-
-/*-------------------COMPARER------------------ */
+/* #region Comparer */
 
 #comparer {
   scroll-snap-stop: normal;
@@ -664,16 +708,23 @@ overflow: hidden;
   height: calc(100vh - 150px);
 }
 #comparer-text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
   flex: 20%;
   width: 100%;
   overflow: hidden;
+  padding: 0 5vw;
 }
 
 #comparisons-container {
   flex: 80%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   width: 100%;
+
+  
+
 }
 
 #compare-A-wrapper{
@@ -683,6 +734,7 @@ overflow: hidden;
   align-items: center;
   justify-content: space-between;
   border-right: solid var(--primary-color) 1px;
+  padding: 0 5vw;
 }
 
 #compare-B-wrapper{
@@ -691,18 +743,19 @@ overflow: hidden;
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 0 5vw;
 
 }
 
 .comparison-selector {
   flex: 0.05;
   width: 100%;
-  padding-left: 10%;
+  padding-left: 0;
 }
 
 .comparison-result {
   flex: 0.85;
-  width: 80%;
+  width: 100%;
   border: solid 1px var(--primary-color);
   display: flex;
   flex-flow: column nowrap;
@@ -727,6 +780,9 @@ overflow: hidden;
   100%{transform: scaleY(1.05);} 
 } 
 
+/* #endregion */
+
+/* #region footer */
 footer {
   scroll-snap-stop: normal;
   scroll-snap-align: end;
@@ -751,26 +807,224 @@ footer h6  {
   color: white;
 }
 
+/* #endregion */
 
 
+/*------------------------------------------------- */
+/*------------------MEDIA QUERIES---------------- */
+/*------------------------------------------------- */
 
-  @media (max-width: 800px){
-    #landing-content{
-    max-width: calc(95vw);
-    }
-    #title > h2 {
-      font-size: 2.5rem;
-     
-    }
-    
-    #title > h3 {
-      font-size: 1.5rem;
-  
-    }  
+  @media (max-width: 1024px){
 
+    /* #region Year Visualizer */
     #bars-container {
       width: 1800px;
     }
+    /* #endregion */
+  
   }
+
+
+  @media (max-width: 600px){
+
+/* #region Default */
+    .caption {
+      font-size: 0.66rem;
+
+    }
+    
+    h2 {
+      font-size: 4rem;
+   
+    }
+
+    #title > h2 {
+      font-size: 2rem;
+     
+    }
+    
+    
+    h3 {
+      font-size: 1rem;
+
+    }
+
+    #title > h3 {
+      font-size: 1.5rem;
+  
+    } 
+    
+    h4 {
+        font-size: 2rem;
+
+    }
+    
+    h5 {
+      font-size: 1rem;
+   
+    }
+    
+    h6 {
+      font-size: 0.66rem;
+
+    }
+
+    button {
+
+      height: 35px;
+      flex: 50%;
+      
+     
+    }
+    
+    select {
+      height: 35px;
+      width: 100%;
+      max-width: 200px;
+      
+    }
+
+/* #endregion */
+
+/* #region Header */
+
+
+
+
+
+
+
+   .color-header{
+    background: var(--primary-color);
+    height: 50px;
+   }
+   #logomark{
+    right: calc(95vw - 89px);
+    height: 50px;
+    width: 79px;
+   }
+
+   /* #endregion */
+
+/* #region Landing Bckg: fixed out of scroll */
+   #landing-content{
+    max-width: calc(95vw);
+    }
+/* #endregion */
+
+/* #region Subdiv Visualizer */
+
+#sv-content-wrapper {
+  height: calc(100vh - 70px);
+}
+   #sv-key-wrapper{
+    height: 50px;
+    width: 100%;
+  
+  }
+/* #endregion */
+
+/* #region Particle Visualizer */
+#particle-visualizer-content{
+  height: calc(100vh - 70px);
+}
+
+    #pv-options-wrapper{
+      flex-flow: row nowrap;
+      width: 100%;
+    }
+
+   #visualize-button{
+    height: 35px;
+    flex: 50%;
+
+
+   }
+
+   #monthDropDown {
+    max-width:  unset;
+    flex: 50%;
+   }
+   
+   .particle {
+    width: 2px;
+  }
+/* #endregion */
+
+/* #region Year Visualizer */
+#yv-content-wrapper {
+   
+  height: calc(100vh - 70px);
+  justify-content: space-between;
+  
+}
+
+#yv-text-wrapper{
+
+  flex: 0.45;
+
+
+}
+
+#yv-button-wrapper{
+
+  flex-flow: row wrap;
+  width: 100%;
+  height: 85px;
+  align-items: space-between;
+}
+
+
+#yv-key-wrapper{
+  height: 35px;
+  flex: 1;
+  
+
+}
+
+#scale-key {
+  margin: 0;
+}
+
+#avg-key {
+  margin: 0;
+}
+
+#bars-wrapper {
+
+  flex: 0.5;
+
+
+}
+
+
+#bars-container {
+  width: 1800px;
+}
+
+/* #endregion */
+
+ /* #region Comparer */
+ #comparer-content {
+
+  height: calc(100vh - 70px);
+}
+
+#comparer-text {
+  flex: 35%;
+
+}
+
+#comparisons-container {
+  flex: 65%;
+
+
+  
+
+}
+ /* #endregion */
+  }
+
+
 
 
