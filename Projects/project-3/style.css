@@ -137,8 +137,6 @@ a {
 /* #endregion */
 
 
-
-
 /*------------------------------------------------- */
 /*------------------OUT OF SCROLL---------------- */
 /*------------------------------------------------- */
@@ -627,14 +625,45 @@ overflow: hidden;
 
 
 #bars-wrapper {
-
+  position: relative;
   flex: 0.65;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
   overflow-x: scroll;
 
+}
+
+#bars-bckg {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+
+}
+
+.bar-marker {
+  height: 100%;
+  flex: 16.67%;
+  border-left: solid var(--primary-color) 1px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.bar-marker:first-of-type {
+  justify-content: space-between;
+}
+.bar-marker:last-of-type {
+  flex: 14.16%;
+  border-right: solid var(--primary-color) 1px;
+}
+
+.bar-marker p {
+  writing-mode: vertical-rl;
+  margin-bottom: 10px;
 }
 
 #bars-container {
@@ -643,6 +672,8 @@ overflow: hidden;
   align-items: center;
   height: 100%;
   width: 100vw;
+  position: absolute;
+  z-index: 3;
 }
 
 .bar {
@@ -814,18 +845,21 @@ footer h6  {
 /*------------------MEDIA QUERIES---------------- */
 /*------------------------------------------------- */
 
+
   @media (max-width: 1024px){
 
     /* #region Year Visualizer */
     #bars-container {
       width: 1800px;
     }
+
+    #bars-bckg {
+      width: 1800px;
+    }
     /* #endregion */
-  
   }
 
-
-  @media (max-width: 600px){
+@media (max-width: 600px){
 
 /* #region Default */
     .caption {
@@ -1002,6 +1036,9 @@ footer h6  {
 
 
 #bars-container {
+  width: 1800px;
+}
+#bars-bckg {
   width: 1800px;
 }
 
