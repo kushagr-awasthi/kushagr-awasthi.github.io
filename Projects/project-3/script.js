@@ -2,7 +2,6 @@ let collData =[];
 let avgRainfall;
 let apiKey = `579b464db66ec23bdd0000015bf2471d25f64b645d6cbc127743dc4d`;
 let api = `https://api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f?api-key=${apiKey}&format=json&limit=6000`;
-let testFig = [55, 500];
 
 
 
@@ -23,7 +22,7 @@ async function getData(){
   
   let response = await fetch(api);
   const rawData = await response.json();
-  console.log("data fetched");
+  console.log(rawData);
   return rawData;
 };
 
@@ -410,9 +409,9 @@ dropDownA.addEventListener("change", function(){
       }
     
       
-      percent6k = (resultA/6000) * 100;
-      oldDOM.style.height = percent6k + "%";
-      oldDOM.style.opacity = percent6k + "%";
+      percent6k = (resultA/6000);
+      oldDOM.style.height = (percent6k * 100) + "%";
+      oldDOM.style.background = `rgba(75, 81, 94, ${percent6k})`;
       yearCall.innerHTML = getYearCount(currentAValue);
       console.log("Now Comparing: " + currentAValue + " with " + currentBValue);
 
@@ -453,9 +452,9 @@ dropDownB.addEventListener("change", function(){
         mainCall.innerHTML = `It rains ${comparison}% more in ${currentBValue} than in ${currentAValue}.<br><span class="caption">It rains an avg ${resultA}mm every year in ${currentAValue}. It rains an avg ${resultB}mm every year in ${currentBValue}.</span>`;
       }
      
-      percent6k = (resultB/6000) * 100;
-      oldDOM.style.height = percent6k + "%";
-      oldDOM.style.opacity = percent6k + "%";
+      percent6k = (resultB/6000);
+      oldDOM.style.height = (percent6k * 100) + "%";
+      oldDOM.style.background = `rgba(75, 81, 94, ${percent6k})`;
       yearCall.innerHTML = getYearCount(currentBValue);
       console.log("Now Comparing: " + currentAValue + " with " + currentBValue);
   })
@@ -471,11 +470,11 @@ function createA(){
        resultA = avgRainfall;}
     else resultA = calcComparison(currentAValue);
 
-    percent6k = (resultA/6000) * 100;
+    percent6k = (resultA/6000);
     resultDOM.classList.add("result");
     resultDOM.classList.add("result-A");
-    resultDOM.style.height = percent6k + "%";
-    resultDOM.style.opacity = percent6k + "%";
+    resultDOM.style.height = (percent6k * 100) + "%";
+    resultDOM.style.background = `rgba(75, 81, 94, ${percent6k})`;
     resultCon.appendChild(resultDOM);
     }
 function createB(){
@@ -490,11 +489,11 @@ function createB(){
         resultB = avgRainfall;}
       else resultB = calcComparison(currentBValue);
   
-      percent6k = (resultB/6000) * 100;
+      percent6k = (resultB/6000);
       resultDOM.classList.add("result");
       resultDOM.classList.add("result-B");
-      resultDOM.style.height = percent6k + "%";
-      resultDOM.style.opacity = percent6k + "%";
+      resultDOM.style.height = (percent6k * 100) + "%";
+      resultDOM.style.background = `rgba(75, 81, 94, ${percent6k})`;
       resultCon.appendChild(resultDOM);
       }
       
