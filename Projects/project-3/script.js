@@ -1,6 +1,6 @@
 let collData =[];
 let avgRainfall;
-let apiKey = `579b464db66ec23bdd0000015bf2471d25f64b645d6cbc127743dc4d`;
+let apiKey = `579b464db66ec23bdd00000192eb97adea4f479850af451bee063deb`;
 let api = `https://api.data.gov.in/resource/8e0bd482-4aba-4d99-9cb9-ff124f6f1c2f?api-key=${apiKey}&format=json&limit=6000`;
 
 
