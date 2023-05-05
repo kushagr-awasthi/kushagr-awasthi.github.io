@@ -31,7 +31,7 @@ body{
 }
 
 .caption {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   text-transform: none;
 }
 
@@ -666,6 +666,18 @@ overflow: hidden;
   margin-bottom: 10px;
 }
 
+#scrollcall {
+  justify-content: space-between;
+  
+}
+
+#scroll {
+  visibility: hidden;
+  writing-mode: unset;
+  margin: 0 10px;
+
+}
+
 #bars-container {
   display: flex;
   flex-flow: row nowrap;
@@ -818,25 +830,46 @@ footer {
   scroll-snap-stop: normal;
   scroll-snap-align: end;
   width: 100%;
-  height: 25vh;
+  height: 12.5vh;
   background: url(assets/rain-clouds.gif);
   background-size: cover;
   background-attachment: fixed;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  align-items: left;
+  justify-content: center;
+  border-top: 10px white solid;
+  padding:0 5vw;
+  overflow: hidden;
+  
+}
+
+#footer-content{
+  display: flex;
+  flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
-  border-top: 10px white solid;
-  
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  overflow: hidden;
+
 }
 
 footer h5  {
   color: white;
+  width: 100%;
+
+
 }
 
 footer h6  {
   color: white;
+ width: 100%;
+
 }
+
+
 
 /* #endregion */
 
@@ -855,6 +888,11 @@ footer h6  {
 
     #bars-bckg {
       width: 1800px;
+    }
+
+    #scroll {
+      
+      visibility: visible;
     }
     /* #endregion */
   }
@@ -1040,7 +1078,10 @@ footer h6  {
 #bars-bckg {
   width: 1800px;
 }
-
+#scroll {
+      
+  visibility: visible;
+}
 /* #endregion */
 
  /* #region Comparer */
