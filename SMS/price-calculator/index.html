@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://use.typekit.net/qhz2eru.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+    <header>
+        <h1>Cost to Price Calculator</h1>
+    </header>
+    <form>
+        <div class="flex-container">
+            <div class="material">
+                <label for="m1-rate">Material 1: Rate per Unit*</label>
+                <input type="number" id="m1-rate" name="m1-rate" placeholder="eg. 100">
+                <label for="m1-qty">Material 1: Quantity*</label>
+                <input type="number" id="m1-qty" name="m1-qty" placeholder="eg. 1.5">
+            </div>
+            <div class="material">
+                <label for="m2-rate">Material 2: Rate per Unit</label>
+                <input type="number" id="m2-rate" name="m2-rate" placeholder="eg. 100">
+                <label for="m1-qty">Material 2: Quantity</label>
+                <input type="number" id="m2-qty" name="m2-qty" placeholder="eg. 1.5">
+            </div>
+            <div class="material">
+                <label for="m3-rate">Material 3: Rate per Unit</label>
+                <input type="number" id="m3-rate" name="m3-rate" placeholder="eg. 100">
+                <label for="m3-qty">Material 3: Quantity</label>
+                <input type="number" id="m3-qty" name="m3-qty" placeholder="eg. 1.5">
+            </div>
+            <div class="material">
+                <label for="m4-rate">Material 4: Rate per Unit</label>
+                <input type="number" id="m4-rate" name="m4-rate" placeholder="eg. 100">
+                <label for="m4-qty">Material 4: Quantity</label>
+                <input type="number" id="m4-qty" name="m4-qty" placeholder="eg. 1.5">
+            </div>
+        </div>
+        <div class="flex-container">
+            <label for="labour">Labour Cost:</label>
+            <select name="labour" id="labour">
+                <option value="other">Enter Custom Labour Cost</option>
+                <option value="450">Angrakha Kurta | ₹450</option>
+                <option value="650">Blouse | ₹650</option>
+                <option value="750">Blouse w/pads| ₹750</option>
+                <option value="750">Blouse w/Dori | ₹750</option>
+                <option value="150">Boxer Shorts| ₹150</option>
+                <option value="1550">Chaaliskali | ₹1550</option>
+                <option value="650">Chaubiskali | ₹650</option>
+                <option value="750">Chaubiskali w/lining | ₹750</option>
+                <option value="300">Churidaar | ₹300</option>
+                <option value="550">Coord Set | ₹550</option>
+                <option value="800">Coord Set: Slip-Dress+Overlay | ₹800</option>
+                <option value="550">Crop Top | ₹550</option>
+                <option value="550">Dress: Short | ₹550</option>
+                <option value="550">Dress: Long | ₹550</option>
+                <option value="600">Dress: Shirt Dress | ₹600</option>
+                <option value="750">Dress w/collar | ₹750</option>
+                <option value="750">Dress w/lining | ₹750</option>
+                <option value="150">Dupatta | ₹150</option>
+                <option value="450">Dhoti | ₹450</option>
+                <option value="250">Harem | ₹250</option>
+                <option value="450">Jacket: Short | ₹450</option>
+                <option value="500">Jacket: Long | ₹500</option>
+                <option value="750">Jacket w/lining | ₹750</option>
+                <option value="700">Jumpsuit | ₹700</option>
+                <option value="350">Kaftan | ₹350</option>
+                <option value="400">Kaftan w/lining| ₹400</option>
+                <option value="350">Kurta | ₹350</option>
+                <option value="400">Kurta w/buttons | ₹400</option>
+                <option value="525">Kurta w/lining | ₹525</option>
+                <option value="250">Pants | ₹250</option>
+                <option value="300">Pants w/pleats | ₹300</option>
+                <option value="350">Pants w/t-lining | ₹350</option>
+                <option value="300">Pants: Bell-bottomed | ₹300</option>
+                <option value="300">Palazzo | ₹300</option>
+                <option value="300">Peplum Top | ₹300</option>
+                <option value="450">Reversible Blouse | ₹450</option>
+                <option value="800">Reversible Jacket | ₹800</option>
+                <option value="250">Salwar | ₹250</option>
+                <option value="50">Scarf | ₹50</option>
+                <option value="150">Scarf: Triangle Scarf | ₹150</option>
+                <option value="550">Shirt | ₹550</option>
+                <option value="350">Shorts | ₹350</option>
+                <option value="300">Shrugs | ₹300</option>
+                <option value="450">Skirt | ₹450</option>
+                <option value="550">Skirt w/t-lining | ₹550</option>
+                <option value="800">Skirt Kalidaar | ₹800</option>
+                <option value="250">Top: Dori Top | ₹250</option>
+                <option value="250">Top w/buttons | ₹250</option>
+                <option value="400">Top w/lining | ₹400</option>
+                <option value="450">Tunic w/frills | ₹450</option>
+                <option value="450">Tunic w/collar | ₹450</option>
+                <option value="450">Wayfarer | ₹450</option>
+                
+            </select>
+            <label for="othlab">Add Other Labour Cost</label>
+            <input type="number" id="othlab" name="othlab" placeholder="eg. 100">
+            <label for="gst">GST Rate</label>
+            <select name="gst" id="gst">
+                <option value="3">3%</option>
+                <option value="5">5%</option>
+                <option value="12">12%</option>
+                <option value="18">18%</option>
+                <option value="28">28%</option>
+            </select>
+            <label for="addserv">Additional Costs:</label>
+            <input type="number" id="addcost" name="addcost" placeholder="eg. 100">
+            <div>
+            <label for="addbox">Add Necklace Box?</label>
+            <input type="checkbox" id="addbox" name="addbox" value="On">
+        </div>
+        <label for="markupmultiplier">Markup Multiplier*</label>
+        <input type="number" id="markupmultiplier" name="markupmultiplier" placeholder="for 15% enter 15">
+            <button type="button" id="submit">Calculate Price</button>
+            
+            <div id="result">
+            </div>
+        </div>
+
+
+    </form>
+</body>
+</html>
