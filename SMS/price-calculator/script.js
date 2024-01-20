@@ -14,10 +14,10 @@ let gstSelector = document.querySelector("#gst");
 let boxSelector = document.querySelector("#addbox");
 let markupMultiplier = document.querySelector("#markupmultiplier");
 
-let taggingSurcharge = 30;
-let packagingSurcharge = 38;
+let taggingSurcharge = 35;
+let packagingSurcharge = 48;
 // let boxSurcharge = 39;
-let OAR = 0.805;
+let OAR = 0.875;
 
 console.log(othlabLabel);
 labourSelector.addEventListener("change", function(){
@@ -78,11 +78,13 @@ let markup = (cost * (1 + markupMultiplier.value/100)) - cost;
 let markedup = cost * (1 + markupMultiplier.value/100);
 let pretaxprice = parseInt(markedup + taggingSurcharge + boxSurcharge + packagingSurcharge);
 let gst = parseInt(pretaxprice * (gstSelector.value/100));
-let price = parseInt(pretaxprice + gst);
+let gatewayCharges = parseInt((pretaxprice + gst) * 0.03);
+let price = parseInt(pretaxprice + gst + gatewayCharges);
+
 
 
 result.style.display = "block";
-result.innerHTML = `<p>Prime Cost: ₹${primeCost}</p><p>Additional Costs: ₹${addCost}</p><p>Overhead: ₹${overheadAbsorbed}</p><hr class="total-line"><p><b>Total Cost: ₹${cost}</b></p><hr class="total-line"><p>Markup: ₹${parseInt(markup)}</p><p>Surcharges: Tagging- ₹${taggingSurcharge} | Packaging- ₹${packagingSurcharge + boxSurcharge}<hr class="total-line"> <p><b>Sub Price: ₹${pretaxprice}</b></p><hr class="total-line"></p><p>GST: ₹${gst}</p><hr class="total-line"><p id="price">Price: ₹${price}</p>`;
+result.innerHTML = `<p>Prime Cost: ₹${primeCost}</p><p>Additional Costs: ₹${addCost}</p><p>Overhead: ₹${overheadAbsorbed}</p><hr class="total-line"><p><b>Total Cost: ₹${cost}</b></p><hr class="total-line"><p>Markup: ₹${parseInt(markup)}</p><p>Surcharges: Tagging- ₹${taggingSurcharge} | Packaging- ₹${packagingSurcharge + boxSurcharge}<hr class="total-line"> <p><b>Sub Price: ₹${pretaxprice}</b></p><hr class="total-line"></p><p>GST: ₹${gst}<p>Gateway Charges: ₹${gatewayCharges} </p></p><hr class="total-line"><p id="price">Price: ₹${price}</p>`;
 document.querySelector("#submit").innerHTML = "Update Price";
 }}
 markupMultiplier.addEventListener("change", function(){
