@@ -1,0 +1,87 @@
+:root {
+
+    --testoutline: none;
+    --testoutlineyellow: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 70px;
+    width: 500px;
+    border: var(--testoutline);
+    overflow: visible;
+    transform-origin: 50% 50%;
+}
+
+#logo-wrapper > div {
+    height: 100%;
+}
+
+#dividing-line {
+    /*flex: 14.28%;*/
+    background-color: white;
+}
+
+#chakra-wrapper {
+    flex: auto;
+    border: var(--testoutlineyellow);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-end;
+  
+}
+
+#chakra-wrapper > svg {
+    height: 28.56%;
+    fill: white;
+}
+
+#moon-wrapper {
+    flex: auto;
+    border: var(--testoutlineyellow);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+   
+}
+
+#moon-wrapper > svg {
+    height: 28.56%;
+    fill: white;
+}
+
+@keyframes logorotate {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+/*
+    100% {
+        transform: rotate(0deg);
+    } */
+}
