@@ -9,6 +9,7 @@ dividingLine = document.getElementById("dividing-line");
 logoWrapper = document.getElementById("logo-wrapper");
 body = document.body;
 menu = document.getElementById("menu");
+menuItems = document.querySelectorAll(".menu-item");
 let images = ["testimg.jpg", "testimg2.jpg", "testimg3.jpg", "testimg4.jpg"]; // only if images in divideline background desired
 
 
@@ -52,17 +53,26 @@ function stopAnim() {
     dividingLine.style.flex = "80%";
     logoWrapper.style.width = "60vw";
 
+
 }
 
 function animstopstart() {
     if (logoWrapper.classList.contains("stopped") == true) {
         intervalID = setInterval(changeLogo, 2500);
         console.log("started");
+        for (let i = 0; i < menuItems.length; i++){
+            menuItems[i].style.opacity = "0";}
+
+        menu.style.height = "100%";
     }
 
     else if (logoWrapper.classList.contains("stopped") == false) {
         stopAnim();
         console.log("stopped");
+        for (let i = 0; i < menuItems.length; i++){
+            menuItems[i].style.opacity = "100%";
+       }
+       menu.style.height = "95vh";
     }
     logoWrapper.classList.toggle("stopped")
 }
@@ -87,3 +97,7 @@ window.addEventListener("scroll", function () {
     }
 
 })
+
+
+
+  
