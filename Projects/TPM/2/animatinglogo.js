@@ -61,10 +61,10 @@ document.addEventListener('mousemove', function(e) {
 
 // Listen for the device orientation event and handle the device's rotation
 window.addEventListener('deviceorientation', function(event) {
-    const gamma = event.gamma; // Device rotation around the y-axis in degrees
+    const alpha = event.alpha; // Device rotation around the y-axis in degrees
 
     // You can scale the rotation to your needs, here assuming -90 to 90 degrees
-    const rotationDegrees = gamma; // Direct use of gamma for rotation
+    const rotationDegrees = alpha; // Direct use of gamma for rotation
 
     // Update the CSS transform property to rotate and scale the element
     logoWrapper.style.transform = `rotate(${rotationDegrees}deg) scale(${100 + rotationDegrees}%)`;
