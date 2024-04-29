@@ -59,16 +59,36 @@ document.addEventListener('mousemove', function(e) {
     })
 });
 
-// Listen for the device orientation event and handle the device's rotation
-window.addEventListener('deviceorientation', function(event) {
-    const alpha = event.alpha; // Device rotation around the y-axis in degrees
+// Function to set up device orientation handling
+function setupDeviceOrientation() {
+    window.addEventListener('deviceorientation', function(event) {
+        const gamma = event.gamma; // Device rotation around the y-axis in degrees
 
-    // You can scale the rotation to your needs, here assuming -90 to 90 degrees
-    const rotationDegrees = alpha; // Direct use of gamma for rotation
+        // You can scale the rotation to your needs, here assuming -90 to 90 degrees
+        const rotationDegrees = gamma; // Direct use of gamma for rotation
 
-    // Update the CSS transform property to rotate and scale the element
-    logoWrapper.style.transform = `rotate(${rotationDegrees}deg) scale(${100 + rotationDegrees}%)`;
-});
+        // Update the CSS transform property to rotate and scale the element
+        logoWrapper.style.transform = `rotate(${rotationDegrees}deg) scale(${100 + rotationDegrees}%)`;
+    });
+}
+
+// Check if DeviceOrientationEvent is available and if permission is required
+if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+    // Request permission from the user
+    DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+            if (permissionState === 'granted') {
+                setupDeviceOrientation(); // Set up the event listener if permission is granted
+            } else {
+                console.warn('Permission to use device orientation not granted.');
+            }
+        })
+        .catch(console.error);
+} else {
+    // For browsers that don't require permission or don't support device orientation
+    setupDeviceOrientation();
+}
+
 
 
 //-------------------SCROLL CHANGES-----------------------------
