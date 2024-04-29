@@ -20,7 +20,7 @@ baseUnit = (height / 7); // base unit is derived from the logo grid which is 7 *
 chakraWrapper.style.paddingRight = baseUnit + "px";
 moonWrapper.style.paddingLeft = baseUnit + "px";
 let lwheight = parseFloat(window.getComputedStyle(logoWrapper).height);
-let randomFlex = 14.28 + Math.random() * (80 - 14.28);
+let randomFlex = 14.28 + Math.random() * (100 - 14.28);
 let randomWidth = lwheight + Math.random() * (window.screen.width / 2);
 logoWrapper.style.minWidth = logoWrapper.style.height;
 dividingLine.style.flex = randomFlex + "%";
@@ -33,49 +33,43 @@ if (!intervalID) {
     intervalID = setInterval(changeLogo, 2500);
 };
 
-//anim starts/stops based on mouse events
-dividingLine.addEventListener("mouseenter", animstopstart);
-dividingLine.addEventListener("mouseout", animstopstart);
+
 
 //main anim functions
 function changeLogo() {
     newWidth = lwheight + Math.random() * (window.screen.width / 2);
-    newFlex = 14.28 + Math.random() * (80 - 14.28);
+    newFlex = 14.28 + Math.random() * (100 - 14.28);
 
     dividingLine.style.flex = newFlex + "%";
     logoWrapper.style.width = newWidth + "px";
 }
 
-function stopAnim() {
 
-    clearInterval(intervalID);
-    intervalID = null;
-    dividingLine.style.flex = "80%";
-    logoWrapper.style.width = "60vw";
+document.addEventListener('mousemove', function(e) {
 
+    const centerX = window.innerWidth / 2; // Center of the screen
+    const mouseX = e.clientX; // Mouse X position
 
-}
+    // Calculate rotation angle based on the difference between mouse X and center X
+    const rotationDegrees = (mouseX - centerX) / centerX * 90; // Scale rotation: +/- 90 degrees
 
-function animstopstart() {
-    if (logoWrapper.classList.contains("stopped") == true) {
-        intervalID = setInterval(changeLogo, 2500);
-        console.log("started");
-        for (let i = 0; i < menuItems.length; i++){
-            menuItems[i].style.opacity = "0";}
+    // Update the CSS transform property to rotate element
+    document.addEventListener('mousemove', function(e) {
+    logoWrapper.style.transform = `rotate(${rotationDegrees}deg) scale(${100 + rotationDegrees}%)`;
+    })
+});
 
-        menu.style.height = "100%";
-    }
+// Listen for the device orientation event and handle the device's rotation
+window.addEventListener('deviceorientation', function(event) {
+    const gamma = event.gamma; // Device rotation around the y-axis in degrees
 
-    else if (logoWrapper.classList.contains("stopped") == false) {
-        stopAnim();
-        console.log("stopped");
-        for (let i = 0; i < menuItems.length; i++){
-            menuItems[i].style.opacity = "100%";
-       }
-       menu.style.height = "95vh";
-    }
-    logoWrapper.classList.toggle("stopped")
-}
+    // You can scale the rotation to your needs, here assuming -90 to 90 degrees
+    const rotationDegrees = gamma; // Direct use of gamma for rotation
+
+    // Update the CSS transform property to rotate and scale the element
+    logoWrapper.style.transform = `rotate(${rotationDegrees}deg) scale(${100 + rotationDegrees}%)`;
+});
+
 
 //-------------------SCROLL CHANGES-----------------------------
 
@@ -94,9 +88,12 @@ window.addEventListener("scroll", function () {
         menu.style.backgroundColor = "black";
         moon.style.fill = "black";
         chakra.style.fill = "black";
+
+    
     }
 
 })
+
 
 
 
