@@ -32,13 +32,23 @@ h2 {
     color: var(--foreground-color);
 }
 
-h2.hindi {
+.h2-hindi {
+    font-family: akhand-devanagari, sans-serif;
+    font-style: normal;
+    line-height: 1em;
+    text-align: center;
+    color: var(--foreground-color);
     font-weight: 400;
     font-size: 120px;
 }
 
 
-h2.english {
+.h2-english {
+    font-family: akhand-devanagari, sans-serif;
+    font-style: normal;
+    line-height: 1em;
+    text-align: center;
+    color: var(--foreground-color);
     font-size: 84px;
     font-weight: 200;
 }
@@ -441,10 +451,10 @@ section {
 
 #sec-3-content-wrapper {
     position: absolute;
-    top: 0%;
+    bottom: 0%;
     left: 0%;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -455,12 +465,11 @@ section {
 }
 
 #sec-3-text-wrapper {
-    flex: 60vh;
+    width: 60vw;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-end;
-
     overflow: hidden;
 }
 
@@ -497,11 +506,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
     font-size: 48px;
-    color: var(--background-color);
+    color: var(--foreground-color);
 
 }
+
 
 /* #endregion*/
 /* #region -----------------------SEC4-------------------------- */
@@ -578,7 +587,7 @@ section {
 }
 
 /* #endregion */
-
+/* #region -----------------------SEC5-------------------------- */
 #sec-5 {
     width: 100vw;
     height:100vh;
@@ -586,22 +595,26 @@ section {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
-    z-index: 0;
+    
 }
 
 #sec-5-bckg {
     height: 85%;
     width: 100%;
     display: grid;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;;
     grid-template-columns: auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto auto;
     grid-gap: 10px;
+    z-index: 0;
     
 }
 
 #grid-img-1 {
     grid-area: 1 / 1 / 4 / 7;
-    
+    filter: brightness(0.5);
     background-image: url(images/3d\ book-top.png);
     background-size: cover;
     background-position: 0 20%;
@@ -609,7 +622,7 @@ section {
 }
 #grid-img-2 {
     grid-area: 4 / 1 / 7 / 4;
-    
+    filter: brightness(0.5);
     background-image: url(images/3d\ book-chakra\ fc.png);
     background-size: cover;
 
@@ -617,8 +630,23 @@ section {
 
 #grid-img-3 {
     grid-area: 4 / 4 / 7 / 7;
-    
+    filter: brightness(0.5);
     background-image: url(images/3d\ book-moon\ fc.png);
     background-size: cover;
 
 }
+
+#sec-5-text {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 0%;
+}
+
+/* #endregion */
