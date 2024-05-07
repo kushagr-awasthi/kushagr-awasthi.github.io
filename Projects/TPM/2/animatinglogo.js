@@ -11,14 +11,16 @@ let chakraWrapper = document.getElementById("chakra-wrapper")
     slide1 = document.getElementById("slide-1")
     slide2 = document.getElementById("slide-2")
     allP = document.querySelectorAll("p")
-    allH2 = document.querySelectorAll("h2");
+    allH2 = document.querySelectorAll("h2")
     fadeInOutElements = document.querySelectorAll(".fadein")
     eyeGif = document.querySelector("#eye-blink")
     slideCon = document.querySelector("#slide-container")
-    sec1 = document.querySelector("#sec-1");
-    sec2 = document.querySelector("#sec-2");
-    sec4 = document.querySelector("#sec-4");
-    sec5 = document.querySelector("#sec-5");
+    sec1 = document.querySelector("#sec-1")
+    sec2 = document.querySelector("#sec-2")
+    sec4 = document.querySelector("#sec-4")
+    sec5 = document.querySelector("#sec-5")
+    menuIcon = document.querySelector("#menu-icon")
+    menu = document.querySelector("#sidebar-menu");
     const root = document.querySelector(":root");
 
 
@@ -140,18 +142,13 @@ window.addEventListener("scroll", function(){
 let images = [
         'images/1.webp', 'images/2.webp', 'images/3.webp', 'images/4.webp',
         'images/5.webp', 'images/6.webp', 'images/7.webp', 'images/8.webp',
-        'images/9.webp', 'images/10.webp', 'images/11.webp', 'images/12.webp',
-        'images/13.webp', 'images/14.webp', 'images/15.webp', 'images/16.webp',
-        'images/17.webp', 'images/18.webp', 'images/19.webp', 'images/20.webp',
-        'images/21.webp', 'images/22.webp', 'images/23.webp', 'images/24.webp',
-        'images/25.webp', 'images/26.webp', 'images/27.webp', 'images/28.webp',
+        'images/9.webp', 'images/27.webp', 'images/28.webp',
         'images/29.webp', 'images/30.webp', 'images/31.webp', 'images/32.webp',
         'images/33.webp', 'images/34.webp', 'images/35.webp', 'images/36.webp',
         'images/37.webp', 'images/38.webp', 'images/39.webp'
     ];
 
 
-  console.log(images);
   
   images = shuffleArray(images);
     
@@ -166,7 +163,6 @@ let images = [
       return array;
   }
     
-    console.log(images);
     
   const container = slideCon;
   images.forEach((src, index) => {
@@ -378,11 +374,17 @@ newItem.classList.add("grid-item");
 newItem.innerHTML = itemHTML;
 DataContainer.appendChild(newItem);
 
-
-
-
-
-
-
-
 }
+
+/*
+menuIcon.addEventListener("click", function(){
+    if (menu.classList.contains("menu-closed") === true && menu.classList.contains("menu-open") === false ) {
+        menu.classList.remove("menu-closed");
+        menu.classList.add("menu-open");
+    }
+    else if(menu.classList.contains("menu-open") === true && menu.classList.contains("menu-closed") === false) {
+        menu.classList.remove("menu-open");
+        menu.classList.add("menu-closed");
+    }
+
+})*/

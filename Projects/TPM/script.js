@@ -8,7 +8,14 @@ let chakraWrapper = document.getElementById("chakra-wrapper")
     moonWrapper = document.getElementById("moon-wrapper");
     dividingLine = document.getElementById("dividing-line");
     logoWrapper = document.getElementById("logo-wrapper");
+    sizeSlider = document.getElementById("size-ranger");
+    header = document.querySelector("header");
 
+header.style.height = sizeSlider.value + "px";
+
+sizeSlider.addEventListener("input", function(){
+    header.style.height = sizeSlider.value + "px";
+})  
 //Set Padding of Moon and Chakra to % of height
 
 let height = window.getComputedStyle(chakraWrapper).height;

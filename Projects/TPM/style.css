@@ -8,8 +8,16 @@
     box-sizing: border-box;
 }
 
+input {
+position: absolute;
+bottom: 50px;
+left: 50%;
+transform: translateX(-50%);
+}
 body {
     background-color: black;
+    height: 100vh;
+
 }
 
 header {
@@ -20,12 +28,17 @@ header {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: 50% 50%;
 }
 
 #logo-wrapper {
     display: flex;
     flex-flow: row nowrap;
-    height: 70px;
+    height: 100%;
     width: 500px;
     border: var(--testoutline);
     overflow: visible;

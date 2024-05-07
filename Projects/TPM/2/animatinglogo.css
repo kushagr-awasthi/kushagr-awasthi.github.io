@@ -72,9 +72,13 @@ h3.english {
 
 }
 
-h4.hindi {}
+h4.hindi {
+    display: initial;
+}
 
-h4.english {}
+h4.english {
+    display: initial;
+}
 
 p {
     font-family: "aktiv-grotesk-condensed", sans-serif;
@@ -92,17 +96,21 @@ p.english {
     font-weight: 100;
 }
 
-p.hindi < strong {
+p.hindi  strong {
     font-weight: 700;
 }
 
-p.english < strong {
+p.english > strong {
     font-weight: 400;
 }
 
-p.hindi < i {}
+p.hindi > i {
+    display: initial;
+}
 
-p.english < i {}
+p.english > i {
+    display: initial;
+}
 
 
 .hindi-caption {
@@ -118,9 +126,13 @@ p.english < i {}
     color: var(--background-color);
 }
 
-a.hindi {}
+a.hindi {
+    display: initial;
+}
 
-a.english {}
+a.english {
+    display: initial;
+}
 
 button {
     all: unset;
@@ -161,6 +173,32 @@ section {
 }
 
 /* #endregion */
+/* #region -----------------------MENU-------------------------- */
+
+#sidebar-menu {
+    width: 30vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--background-color);
+
+}
+
+.menu-open {
+    transform: translateX(0%);
+    opacity: 100%;
+}
+
+.menu-closed {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+
+
+/* #endregion*/
 /* #region ----------------------LANDING------------------------ */
 
 .spacer {
@@ -265,13 +303,15 @@ section {
 }
 
 #logo-wrapper {
+    will-change: transform;
     display: flex;
     flex-flow: row nowrap;
     height: 70px;
     width: 500px;
     border: var(--testoutline);
     transform-origin: 50% 50%;
-    transition: var(--brand-ease) 1s;
+    transition: width var(--brand-ease) 1s;
+    /*transition: transform 0s;*/
     z-index: 0;
 
 }
@@ -320,7 +360,7 @@ section {
     fill: var(--foreground-color);
     transform-origin: 50% 50%;
     animation: svgrotate 1s ease-in-out infinite;
-    transition: 0.5s var(--brand-ease);
+    transition: 0.2s var(--ease-in-out);
 }
 
 @keyframes svgrotate {
@@ -447,6 +487,7 @@ section {
     background-attachment: fixed;
     filter: brightness(0.5);
     z-index: -2;
+
 }
 
 #sec-3-content-wrapper {
@@ -462,6 +503,7 @@ section {
     z-index: -1;
 
 
+
 }
 
 #sec-3-text-wrapper {
@@ -471,6 +513,7 @@ section {
     align-items: center;
     justify-content: flex-end;
     overflow: hidden;
+
 }
 
 #sec-3-hindi-wrapper {
@@ -480,6 +523,7 @@ section {
     display: flex;
     flex-flow: column-reverse;
     justify-content: flex-end;
+
 }
 
 #sec-3-english-wrapper {
@@ -503,9 +547,10 @@ section {
 
 #sec-3-icon-wrapper {
     flex: 30vh;
+    width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     font-size: 48px;
     color: var(--foreground-color);
 
@@ -530,7 +575,7 @@ section {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     row-gap: 10px;
     column-gap: 10px;
     z-index: 0;
@@ -557,13 +602,13 @@ section {
     filter: grayscale();
 }
 
-.item-img > button {
+.item-img>button {
     border-color: var(--background-color);
     color: var(--background-color);
     filter: none;
 }
 
-.item-img > button:hover {
+.item-img>button:hover {
     border-color: var(--background-color);
     color: var(--foreground-color);
     background-color: var(--background-color);
@@ -574,15 +619,15 @@ section {
     flex: 20%;
     background-color: var(--foreground-color);
     padding: 0 10px;
-    
+
 }
 
 
-.item-img button{
+.item-img button {
     opacity: 0;
 }
 
-.item-img:hover button{
+.item-img:hover button {
     opacity: 1;
 }
 
@@ -590,12 +635,12 @@ section {
 /* #region -----------------------SEC5-------------------------- */
 #sec-5 {
     width: 100vw;
-    height:100vh;
+    height: 100vh;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
-    
+
 }
 
 #sec-5-bckg {
@@ -604,12 +649,13 @@ section {
     display: grid;
     position: absolute;
     bottom: 0%;
-    left: 0%;;
+    left: 0%;
+    ;
     grid-template-columns: auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto auto;
     grid-gap: 10px;
     z-index: 0;
-    
+
 }
 
 #grid-img-1 {
@@ -620,6 +666,7 @@ section {
     background-position: 0 20%;
 
 }
+
 #grid-img-2 {
     grid-area: 4 / 1 / 7 / 4;
     filter: brightness(0.5);
