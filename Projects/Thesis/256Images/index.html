@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://use.typekit.net/bfg6enl.css">
 <script src="script.js" defer></script>
 <script src="https://kit.fontawesome.com/a38888a039.js" crossorigin="anonymous"></script>
+
 <body>
     <button id="control-button">
         <i class="fa-solid fa-bars"></i>
     </button>
+    <a href="block view/index.html">
+    <button id="folder-button">
+        <i class="fa-solid fa-folder"></i>
+    </button></a>
     <button id="clear-canvas-button">Clear Canvas</button>
     <section id="control-center">
-        <button id="control-close-button">
-            <i class="fa-solid fa-x"></i>
-        </button>
-        <h2>Brush Size</h2>
-        <input id="brush-sizer" type="range" min="10" max="500" value="50">
+        <div id="close-button-wrapper">
+            <button id="control-close-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div id="controls">
+            <div>
+                <label for="brush-sizer">Brush Size</label>
+                <input id="brush-sizer" type="range" min="10" max="500" value="50">
+            </div>
+            <div>
+                <label for="speed-slider">Speed</label>
+                <input id="speed-slider" type="range" min="1" max="10" value="1">
+            </div>
+            <div>
+                <label for="colorise-checkbox">Colorise?</label>
+                <input id="colorise-checkbox" type="checkbox" checked>
+            </div>
+        </div>
     </section>
     <canvas id="main-canvas"></canvas>
+    <h2 id="main-cta">Click Anywhere to begin!</h2>
 </body>
+
 </html>

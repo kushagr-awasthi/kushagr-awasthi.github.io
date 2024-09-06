@@ -9,10 +9,45 @@ body {
     background-color: var(--green);
 }
 
+
+#main-cta {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+    animation: pulse 01s infinite alternate ease-in-out;
+    font-size: 15px;
+    color: white;
+    font-family: "elza", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 30px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 #control-center {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between; 
+    min-width: 400px;
     width: 20%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     z-index: 1;
@@ -31,6 +66,110 @@ body {
     background-color: var(--orange);
     border: none;
     z-index: 1;
+}
+
+#folder-button {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    border-radius: 25px;
+    background-color: var(--lilac);
+    border: none;
+    z-index: 1;
+}
+
+#controls {
+    flex: 0.9;
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#controls > div {
+    width: 100%;
+    flex: auto auto auto;
+}
+
+#brush-sizer, #speed-slider {
+    position: relative
+     -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 70%; /* Full-width */
+    height: 5px; /* Specified height */
+    background: white; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+
+  #brush-sizer::-webkit-slider-thumb, #speed-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    border-radius: 8px;
+    background: var(--lilac); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  #colorise-checkbox {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border: solid white 1px;
+    background: #ffffff;
+    width: 15px;
+    height: 15px;
+    transition: 0.5s;
+    position: relative; /* To allow absolute positioning of the tick */
+    cursor: pointer;
+  }
+  
+  #colorise-checkbox:checked {
+    background: var(--lilac);
+    color: white;
+  }
+
+  #colorise-checkbox:checked::after {
+    content: '\2713'; /* Unicode character for a tick mark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the tick mark */
+    font-size: 12px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+label {
+    font-size: 15px;
+    color: var(--primary-color);
+    font-family: "elza", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+  i {
+    color: var(--green);
+    font-size: 30px;
+  }
+
+
+#close-button-wrapper {
+    flex: 0.1;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+#control-close-button {
+    background-color: #ffffff00;
+    border: none;
 }
 
 #clear-canvas-button {
@@ -54,3 +193,4 @@ canvas {
     z-index: 0;
 
 }
+

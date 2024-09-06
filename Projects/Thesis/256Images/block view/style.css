@@ -1,0 +1,130 @@
+:root {
+    --green: #101910;
+    --lilac: #d3b9d9;
+    --orange: #f4785c;
+    --rooted: #b5e78d;
+    --open: #8cd1ed;
+    --opinionated: #ffc430;
+}
+
+body {
+    border: none;
+    background-color: white;
+}
+
+#parent-div {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#parent-div > div {
+    margin: 10px;
+}
+
+.child-div > img {
+    mix-blend-mode: luminosity;
+    height: 350px;
+    margin: 10px;
+}
+
+.child-div > img:hover {
+    mix-blend-mode: normal;
+    height: 350px;
+    margin: 10px;
+}
+
+.rectangle {
+    width: 100%;
+    height: 100%;
+}
+
+#nav-button {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border-radius: 25px;
+    background-color: var(--lilac);
+    border: none;
+    z-index: 1;
+}
+
+footer{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+footer > div {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "elza", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 15px;
+}
+
+
+#rooted-wrapper {
+    background-color: var(--rooted);
+    flex: 0.16;
+}
+
+#open-wrapper {
+    background-color: var(--open);
+    flex: 0.19;
+}
+#opinionated-wrapper {
+    background-color: var(--opinionated);
+    flex: 0.23;
+
+}
+#ornamented-wrapper {
+    background-color: var(--orange);
+    flex: 0.25;
+}
+#gracious-wrapper {
+    background-color: var(--lilac);
+    flex: 0.17;
+}
+
+input {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border: solid white 1px;
+    background: #ffffff;
+    width: 15px;
+    height: 15px;
+    transition: 0.5s;
+    position: relative; /* To allow absolute positioning of the tick */
+    cursor: pointer;
+  }
+  
+input:checked {
+    background: white;
+    color: white;
+  }
+
+input:checked::after {
+    content: '\2713'; /* Unicode character for a tick mark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the tick mark */
+    font-size: 12px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+
