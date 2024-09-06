@@ -52,7 +52,7 @@ const graciousImages = [],
 
 const constructImageArray = (arrayName, array, index) => {     
     for (let i = 0; i < index; i++){
-    let imageLink = `Images/${arrayName}/${arrayName}_${(i+1).toString().padStart(2,"0")}.webp`;
+    let imageLink = `/Projects/Thesis/256Images/Images/${arrayName}/${arrayName}_${(i+1).toString().padStart(2,"0")}.webp`;
     array.push(imageLink);
 }
 }
