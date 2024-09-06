@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500vh;
+    background: black;
+}
+#con-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#container {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    border: solid black 2px;
+}
+
+.scroll-children {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url();
+    visibility: hidden;
+
+}
+
+.scroll-children > img {
+    width: 100%;
+    height: auto;
+}
+
