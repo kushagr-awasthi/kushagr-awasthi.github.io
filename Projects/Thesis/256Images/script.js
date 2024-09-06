@@ -57,11 +57,11 @@ const constructImageArray = (arrayName, array, index) => {
 }
 }
 
-constructImageArray("gracious", graciousImages, 43);
-constructImageArray("open", openImages, 50);
-constructImageArray("opinionated", opinionatedImages, 57);
-constructImageArray("ornamented", ornamentedImages, 61);
-constructImageArray("rooted", rootedImages, 40);
+constructImageArray("Gracious", graciousImages, 43);
+constructImageArray("Open", openImages, 50);
+constructImageArray("Opinionated", opinionatedImages, 57);
+constructImageArray("Ornamented", ornamentedImages, 61);
+constructImageArray("Rooted", rootedImages, 40);
 
 
 
