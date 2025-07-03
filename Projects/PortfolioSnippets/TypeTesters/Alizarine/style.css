@@ -1,0 +1,555 @@
+:root {
+    --primary-color: white;
+    --text-color: #8affe0;
+}
+
+@font-face {
+    font-family: 'Alizarine';
+    src: url('https://cdn.glitch.global/c947325f-35d8-4c39-9bbd-c74ddc3708bc/AlizarineVF.ttf?v=1751329591680')format('ttf');
+}
+
+body {
+    box-sizing: border-box;
+    background: black;
+
+}
+
+#AZ-testersGrid {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tester-wrapper {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+/* #region Tester */
+
+.tester {
+    height: 200px;
+    display: flex;
+    position: relative;
+    background-size: 10px 10px;
+    background-image: radial-gradient(circle, rgba(30, 30, 30, 1) 1px, rgba(0, 0, 0, 1) 1px);
+    border-bottom: var(--primary-color) solid 1px;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    min-height: 150px;
+    max-height: 400px;
+    width:100%;
+    box-sizing: border-box;
+
+}
+
+.tester:first-of-type {
+    border-top: var(--primary-color) solid 1px;
+    
+}
+
+.type-out {
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #FFFFFF00;
+    color: var(--text-color);
+    font-family: 'Alizarine', serif;
+    font-size: 150px;
+    padding: 10px;
+    hyphens: auto;
+    line-height: 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+
+}
+
+.type-out:focus {
+    outline: none;
+}
+
+textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+}
+/* #endregion */
+
+/* #region Output Bar*/
+
+.output {
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 25px;
+    width: 100%;
+    margin: 0;
+    padding: 3px;
+    background: red;
+    transition: 0.5s ease-in-out;
+    display: none;
+    box-sizing: border-box;
+}
+
+
+/* #endregion*/
+
+/* #region Controls */
+
+
+.controls-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    height: 25px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 5px 0;
+    visibility:hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+      background: rgba(0, 0, 0, 0.5);
+     backdrop-filter: blur(5px);
+ 
+
+}
+
+.controls {
+    box-sizing: border-box;
+    border: solid var(--primary-color) 1px;
+    border-radius: 0px;
+    padding: 5px;
+   box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    margin: 0px 5px;
+
+
+}
+
+
+
+/* #region ---------- <input> Range Slider ---------- */
+.slider {
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;
+    height: 1px;
+    background: var(--primary-color);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 8px;
+    /* Set a specific slider handle width */
+    height: 8px;
+    /* Slider handle height */
+    border-radius: 8px;
+    background: var(--primary-color);
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+/* #endregion */
+
+/* #region ---------- <input> Checkbox ---------- */
+.cb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    border-radius: 0;
+    border: solid black 1px;
+    background: #ffffff00;
+    width: 12px;
+    height: 12px;
+    transition: 0.5s;
+}
+
+.cb:checked {
+    background: black;
+    color: white;
+}
+
+.cb .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cb:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+/* #endregion */
+
+
+
+
+/* #region ---------- Preweighter Module ---------- */
+.dropdown-wrapper {
+    flex: 10%;
+   box-sizing: border-box;
+   padding: 0;
+   order: 0;
+}
+
+.dropdown {
+    background: none;
+   
+    border: none;
+    font-size: 8px;
+    color: var(--primary-color);
+    font-family: "elza", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+
+}
+
+
+/* #endregion */
+
+/* #region ---------- Animator ---------- */
+.animator {
+    order: 1;
+    color: var(--primary-color);
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2px 0 7px;
+    width: 25px;
+    height: 25px;
+    margin: 3px 0;
+}
+/* #endregion */
+
+/* #region ---------- Weight Module ---------- */
+.weight-div {
+    flex: 30%;
+    order: 2;
+ 
+}
+/* #endregion*/
+
+/* #region ---------- Size Range Module ---------- */
+.sizer-div {
+    flex: 30%;
+  order: 3;
+}
+/* #endregion*/
+
+/* #region ---------- Opentype Module ---------- */
+.opentype-featurer {
+    flex: 10%;
+    order: 4;
+    position: relative;
+    overflow: visible;
+}
+
+.opentype-toggle {
+    cursor: pointer;
+    font-size: 8px;
+    color: var(--primary-color);
+    font-family: "elza", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    overflow: visible;
+}
+
+
+.opentype-menu {
+    position: absolute;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 25%);
+    grid-auto-flow: column;
+    bottom: 100%;
+    left: -50%;
+    margin: 5px;
+    background: var(--primary-color);
+    width: 300px;
+    height: 100px;
+    z-index: 100;
+    transition: 0.2s ease-in-out;
+    transform-origin: 50% 100%;
+    visibility: hidden;
+    opacity: 0;
+    transform: scaleY(0.5);
+}
+
+.opentype-menu.open {
+     visibility: visible;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.opentype-menu label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    color: black;
+}
+/* #endregion */
+
+/* #region ---------- Text Option Module ---------- */
+.text-optioner {
+    flex: 25px;
+    order: 5;
+    position: relative;
+    overflow: visible;
+}
+
+.textOption-toggle {
+    cursor: pointer;
+    font-size: 8px;
+    color: var(--primary-color);
+    font-family: "elza", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: uppercase;
+    overflow: visible;
+}
+
+
+.textOption-menu {
+    position: absolute;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 25%);
+    grid-auto-flow: column;
+    bottom: 100%;
+    right: 0;
+    margin: 5px;
+    background: var(--primary-color);
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    transition: 0.2s ease-in-out;
+    transform-origin: 50% 100%;
+     visibility: hidden;
+    opacity: 0;
+    transform: scaleY(0.5);
+}
+
+.textOption-menu.open {
+     visibility: visible;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.colorer {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 20px;
+    height: 23px;
+    padding: 0;
+    background: #ffffff00;
+    border: none;
+}
+
+.textOption-menu > label {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 100%;
+}
+
+.textOption-menu > label > .slider{
+    background-color: #000;
+    width: 80%;
+}
+.textOption-menu > label > .slider::-webkit-slider-thumb{
+    background-color: #000;
+}
+/* #endredion*/
+.text-align {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center ;
+    width: 100%;
+}
+
+.text-align > div {
+    flex: 0.5;
+    padding: 5px auto;
+    height: 100%;
+    margin: 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
+}
+
+.textalign-selected {
+    background: black;
+    color: var(--primary-color);
+}
+
+label {
+    font-size: 8px;
+    color: var(--primary-color);
+    font-family: "elza", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+/* #endregion */
+
+@media(max-width: 900px) {
+    #type-out {
+        font-size: 70px;
+        width: 600px;
+    }
+
+    #controls {
+        width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100vw;
+    }
+
+    .tester {
+        width: 100vw;
+        height: 150px;
+        min-height: 100px;
+        max-height: 300px;
+    }
+    .controls-wrapper {
+        bottom: 5px;
+        flex-flow: row wrap;
+        height: 53px;
+        width: 100%;
+        
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .controls {
+        margin: 1.5px 1.5px;
+    }
+
+    .type-out {
+        font-size: 50px;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+    }
+
+    .colorer-div {
+        order: 0;
+        flex: 20%;
+    }
+
+    .opentype-featurer {
+        order: 3;
+        flex: 20%;
+     
+    }
+
+    .opentype-menu {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        overflow-y: scroll;
+        width: 120%;
+        bottom: unset;
+        top: 25px;
+        transform-origin: 50% 0%;
+        left: 0;
+        margin: 0;
+    }
+
+    .text-optioner {
+        order: 4;
+        flex: 5%;
+    }
+
+
+
+    .textOption-menu {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        overflow-y: hidden;
+        width: 100px;
+        bottom: unset;
+        top: 25px;
+        transform-origin: 50% 0%;
+        left: 0;
+        margin: 0;
+    }
+
+    .dropdown-wrapper {
+        order:0;
+        flex: 20%;
+        
+    }
+    .animator {
+        order: 1;
+        flex: 5%;
+        
+    }
+    
+    .weight-div {
+        order: 2;
+        flex: 70%;
+    }
+    .sizer-div {
+        order: 5;
+        flex: 70%;
+    }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/a38888a039.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <section id="AZ-testersGrid">
+    <div id="tester1" class="tester" tabindex="0">
+        <div class="output"></div>
+        <textarea class="type-out" type="text">Tum Jaaoge Karachi? Ha!</textarea>
+        <div class="controls-wrapper invisible">
+            <div class="dropdown-wrapper controls">
+                <select class="preWeighter dropdown" name="Weight">
+                    <option value="400" selected>Regular</option>
+                    <option value="500">Medium</option>
+                    <option value="600">SemiBold</option>
+                    <option value="700">Bold</option>
+                    <option value="800">ExtraBold</option>
+                    <option value="900">UltraBold</option>
+                </select>
+            </div>
+            <div class="animator">
+                <span class="animatorIcon">⏵︎</span>
+
+            </div>
+            <div class="weight-div controls">
+                <input type="range" min="400" max="900" value="400" class="weighter slider" />
+                <label class="weightlabel">WGHT</label>
+            </div>
+            <div class="sizer-div controls">
+                <input type="range" min="30" max="300" value="90" class="sizer slider" step="0.1" />
+                <label class="sizelabel">SIZE</label>
+            </div>
+            <div class="opentype-featurer">
+                <div class="opentype-toggle controls">OpenType</div>
+                <div class="opentype-menu">
+                    <label>
+                        <input  class="liga cb" type="checkbox" checked> Common Ligatures
+                    </label>
+                    <label>
+                        <input class="dlig cb" type="checkbox" checked/> Discretionary Ligatures
+                    </label>
+                    <label>
+                        <input  class="ss01 cb" type="checkbox" /> SS01 singlestory a/g
+                    </label><label>
+                        <input  class="ss02 cb" type="checkbox" /> SS02 Add Dots
+                    </label><label>
+                        <input class="case cb" type="checkbox" /> Case Sensitive Forms
+                    </label>
+                    </label><label>
+                        <input  class="osFig cb" type="checkbox" checked /> Old-Style Figures
+                    </label>
+                    </label><label>
+                        <input  class="liFig cb" type="checkbox" /> Lining Figures
+                    </label>
+                    </label><label>
+                        <input class="propFig cb" type="checkbox" checked /> Proportional Figures
+                    </label>
+                    </label><label>
+                        <input  class="tabFig cb" type="checkbox" /> Tabular Figures
+                    </label>
+                    </label><label>
+                        <input  class="fractions cb" type="checkbox" /> Fractions
+                    </label>
+                    </label><label>
+                        <input  class="superiors cb" type="checkbox" /> Superiors
+                    </label>
+                    </label><label>
+                        <input  class="inferiors cb" type="checkbox" /> Inferiors
+                    </label>
+            </div>
+            </div>
+            <div class="text-optioner">
+                <div class="textOption-toggle controls"><i class="fa-solid fa-sliders"></i></div>
+                <div class="textOption-menu">
+                    <label>
+                        <i class="fa-solid fa-arrows-up-down"></i>
+                        <input  type="range" step="0.1" value="1" min="0.5" max="2" class="slider leader"> 
+                    </label>
+                     <label>
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                        <input type="range" step="0.1" value="0" min="-1" max="1" class="slider tracker"> 
+                    </label>
+                    <label class="colorLabel">
+                        <i class="fa-solid fa-palette"></i>
+                        <input  class="colorer" type="color" value="#ade08c" /> 
+                    </label>
+                    <div class="text-align">
+                        <div class="left-align textalign-selected"><i class="fa-solid fa-align-left"></i></div><div class="center-align"><i class="fa-solid fa-align-center"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
